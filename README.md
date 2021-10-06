@@ -1,3 +1,5 @@
+![zeropoint-logo](https://user-images.githubusercontent.com/2457670/136284575-bb07a843-03b4-4be0-980d-b1ac21c329ab.png)
+
 # ZeroPoint
 It's easier than ever to launch a website! ZeroPoint is built to take advantage of great tools, like [Eleventy](https://www.11ty.dev), [GitHub](https://github.com), and [Netlify](https://netlify.com) to provide a free, easy-enough-to-use editing and publishing experience for new users and seasoned developers alike. ZeroPoint is intended to be a starting place for any web project; from a personal blog, to a business website!
 
