@@ -12,7 +12,7 @@ _ZeroPoint_ is a free, new-user-friendly website starter designed to walk you th
 ### For experienced developers
 _ZeroPoint_ is a modern, opinionated, bare-bones Jamstack starter using Eleventy to get "up to zero" on a project quickly and easily.
 Why you might choose _ZeroPoint_ as your Jamstack starter:
-* GitHub Action to rename _ZeroPoint_ to your project name
+* GitHub Action renames _ZeroPoint_ to your project name
 * Sass-powered CSS system
 * Webpack to compile Javascript
 * Browsersync to preview your work
