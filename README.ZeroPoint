@@ -1,0 +1,61 @@
+# ZeroPoint
+This site uses [Eleventy](https://www.11ty.dev), [GitHub](https://github.com), and [Netlify](https://netlify.com).
+
+# Start Right Now!
+If you're reading this, you've already created a new GitHub repository using the ZeroPoint template. Great job!
+
+ZeroPoint gets you started working on the exciting parts of your personal website right away, **right from this readme file!**. 
+
+You can create, edit, style, and launch your ZeroPoint-powered website for free right from here. Keep reading!
+## Step 1: Content
+### Pages
+Create your site's main content
+* [Edit the homepage](https://github.com/MWDelaney/ZeroPoint/edit/master/src/pages/index.njk)
+* [Create a new page](https://github.com/MWDelaney/ZeroPoint/new/master/?filename=/src/pages/&value=---%0Atitle%3A%20New%20Little%20World%0A---)
+
+<!-- 
+
+---
+### Posts
+Blog posts
+* [Create a new post](https://github.com/MWDelaney/ZeroPoint/new/master/?filename=/src/posts/&value=----%0Atitle%3A%20%22My%20Blog%20Post%22%0Adate%3A%20%222025-01-01%0A---)
+
+-->
+---
+## Step 2: Look and Feel
+### Navigation
+Getting there from here
+* [Edit the navigation](https://github.com/MWDelaney/ZeroPoint/edit/master/src/data/navigation.json)
+
+### Styles
+Colors, spacing, and fonts, oh my!
+* [Edit your branding](https://github.com/MWDelaney/ZeroPoint/edit/master/src/assets/styles/_branding.scss)
+* [Edit your overall styles](https://github.com/MWDelaney/ZeroPoint/edit/master/src/assets/styles/styles.scss)
+
+### Javascript
+**Optional!** Add functionality to your site
+* [Add Javascript](https://github.com/MWDelaney/ZeroPoint/edit/master/src/assets/scripts/main.js)
+
+---
+## Step 3: Deploy!
+Launch your new ZeroPoint powered site to Netlify for free by clicking here:
+
+![Deploy this site to Netlify](https://www.netlify.com/img/deploy/button.svg)
+
+---
+# Developers
+Ready to go deeper?
+## Install project dependencies
+```bash
+npm i
+```
+
+## Run the project locally
+```bash
+npm run start
+```
+
+## Build for production
+```bash
+npm run production
+```
