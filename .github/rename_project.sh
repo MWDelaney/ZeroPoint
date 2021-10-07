@@ -16,7 +16,7 @@ echo "Project URL name: $urlname";
 echo "Renaming project..."
 
 original_author="MWDelaney"
-original_name="Zero Point"
+original_name="Zero Point Template"
 original_urlname="ZeroPoint"
 
 # for filename in $(find . -name "*.*")
