@@ -15,7 +15,7 @@
     "type": "git",
     "url": "git+project_urlname"
   },
-  "author": "author_name",
+  "author": "MWDelaney",
   "license": "MIT",
   "dependencies": {
     "@11ty/eleventy": "^1.0.0-beta.1",
