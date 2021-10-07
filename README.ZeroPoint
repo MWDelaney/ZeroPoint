@@ -11,14 +11,14 @@ You can create, edit, style, and launch your ZeroPoint-powered website for free 
 ### Pages
 Create your site's main content! Pages can be written in HTML or [Markdown](https://www.markdownguide.org/basic-syntax/)!
 * [Edit the homepage](https://github.com/MWDelaney/ZeroPoint/edit/master/src/pages/index.njk)
-* [Create a new page](https://github.com/MWDelaney/ZeroPoint/new/master/?filename=/src/pages/&value=---%0Atitle%3A%20New%20Little%20World%0A---)
+* [Create a new page](https://github.com/MWDelaney/ZeroPoint/new/master/?filename=/src/pages/&value=---%0Atitle%3A%20Enter%20page%20title%20here%0A---)
 
 <!-- 
 
 ---
 ### Posts
 Blog posts
-* [Create a new post](https://github.com/MWDelaney/ZeroPoint/new/master/?filename=/src/posts/&value=----%0Atitle%3A%20%22My%20Blog%20Post%22%0Adate%3A%20%222025-01-01%0A---)
+* [Create a new post](https://github.com/MWDelaney/ZeroPoint/new/master/?filename=/src/posts/&value=----%0Atitle%3A%20%22Enter%20post%20title%22%0Adate%3A%20%222025-01-01%0A---)
 
 -->
 ---
