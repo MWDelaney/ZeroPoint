@@ -9,7 +9,7 @@ ZeroPoint gets you started working on the exciting parts of your personal websit
 You can create, edit, style, and launch your ZeroPoint-powered website for free right from here. Keep reading!
 ## Step 1: Content
 ### Pages
-Create your site's main content
+Create your site's main content! Pages can be written in HTML or [Markdown](https://www.markdownguide.org/basic-syntax/)!
 * [Edit the homepage](https://github.com/MWDelaney/ZeroPoint/edit/master/src/pages/index.njk)
 * [Create a new page](https://github.com/MWDelaney/ZeroPoint/new/master/?filename=/src/pages/&value=---%0Atitle%3A%20New%20Little%20World%0A---)
 
