@@ -1,9 +1,13 @@
-<div class="nav-item {{ dropdown }}">
-  <a class="nav-link {{ active }} {{ dropdownToggle }}" href="{{ itemUrl }}"{{ relAttribute | safe }}{{ currentAttribute | safe }} {{ target }} {{ dropdownAttributes | safe }}>
-    {%if item.icon %}
-    <img class="socialmedia-icon" src="{{ item.icon }}" alt="{{ item.text }}">
-    {% endif %}
-    <span class="item-wrap">{{ item.text }}</span>
+<div class="navigation-item {{ dropdown }}">
+  <a
+    class="navigation-link {{ active }} {{ dropdownToggle }}"
+    href="{{ itemUrl }}"
+    {{ currentAttribute | safe }}
+    {{ target }}
+    {# {{ relAttribute | safe }} #}
+    {# {{ dropdownAttributes | safe }} #}
+  >
+    {{ item.text }}
   </a>
 
   {# {% if hasSubmenu %}

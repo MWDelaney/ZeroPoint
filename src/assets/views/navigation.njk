@@ -1,16 +1,15 @@
 <nav class="navigation">
 
   {% for item in navigation.items %}
+
+    {# Set attributes and classes to blank to start #}
     {% set relAttribute = '' %}
     {% set currentAttribute = '' %}
-    {% set active = '' %}
-    {% set hasSubmenu = '' %}
-    {% set dropdown = '' %}
-    {% set dropdownToggle = '' %}
-    {% set dropdownAtttributes = '' %}
     {% set itemUrl = item.url %}
     {% set target = '' %}
+    {% set active = '' %}
 
+    {# Set Attributes #}
     {% if item.rel %}
       {% set relAttribute = ' rel="' + item.rel + '"' %}
     {% endif %}
@@ -19,6 +18,11 @@
       {% set currentAttribute = ' aria-current="page"' %}
       {% set active = 'active' %}
     {% endif %}
+
+    {# {% set hasSubmenu = '' %}
+    {% set dropdown = '' %}
+    {% set dropdownToggle = '' %}
+    {% set dropdownAtttributes = '' %} #}
 
     {# {% if item.submenuitems | length %}
       {% set hasSubmenu = true %}
