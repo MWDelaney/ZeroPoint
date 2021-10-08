@@ -2,8 +2,12 @@
 @import "reset.scss";
 
 body {
-  color: var(--text-color);
-  background-color: var(--background-color);
+  color: var(--color-text);
+  background-color: var(--color-background);
+}
+
+a {
+  color: var(--color-primary);
 }
 
 .visually-hidden {
