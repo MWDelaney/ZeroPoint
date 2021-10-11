@@ -2,11 +2,8 @@
 This site uses [Eleventy](https://www.11ty.dev), [GitHub](https://github.com), and [Netlify](https://netlify.com).
 
 # Start Right Now!
-If you're reading this, you've already created a new GitHub repository using the ZeroPoint template. Great job!
+Gets started **right from this readme file!**.
 
-ZeroPoint gets you started working on the exciting parts of your personal website right away, **right from this readme file!**.
-
-You can create, edit, style, and launch your ZeroPoint-powered website for free right from here. Keep reading!
 ## Step 1: Content
 ### Pages
 Create your site's main content! Pages can be written in HTML or [Markdown](https://www.markdownguide.org/basic-syntax/)!
@@ -68,8 +65,8 @@ example.com                 # → Root of your ZeroPoint-based project
 │       └── pages.json      # → Shared pages attributes
 ├── .eleventy.js            # → Core Eleventy config file
 ├── netlify.toml            # → Netlify deployment and plugin configuration (optional)
-├── README.md               # → ZeroPoint readme (automatically removed when this template is used)
-└── README.ZeroPoint        # → Your project's readme (automatically generated when this template is used)
+├── README.template               # → ZeroPoint readme (automatically removed when this template is used)
+└── README.md               # → Your project's readme (automatically generated when this template is used)
 ```
 
 ## Eleventy Configuration

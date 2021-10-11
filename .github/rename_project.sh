@@ -31,7 +31,7 @@ done
 mv README.md README.template
 echo "Renamed template README"
 
-mv README.ZeroPoint README.md
+mv README.ZeroPoint.md README.md
 echo "Renamed project README"
 
 # Remove this file to stop this action from running again
