@@ -20,9 +20,15 @@ Why you might choose _ZeroPoint_ as your Jamstack starter:
 * Browsersync to preview your work
 
  ## Get started: Use This Template!
-[Click here](https://github.com/MWDelaney/ZeroPoint/generate) to create a new project using ZeroPoint and add it to your GitHub account. 
+### Right from this README:
+[Click here](https://github.com/MWDelaney/ZeroPoint/generate) to create a new project using ZeroPoint and add it to your GitHub account.
 
-# Get to Know ZeroPont
+### With [GitHub CLI](https://cli.github.com):
+```sh
+gh repo create example.com --template MWDelaney/ZeroPoint
+```
+
+# Get to Know ZeroPoint
 Ready to go deeper? Here's how ZeroPoint is laid out:
 
 ```sh

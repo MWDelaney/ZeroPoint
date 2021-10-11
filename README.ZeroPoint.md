@@ -40,7 +40,7 @@ Launch your project to Netlify for free:
 ![Deploy this site to Netlify](https://www.netlify.com/img/deploy/button.svg)
 
 ---
-# Get to Know ZeroPont
+# Get to Know ZeroPoint
 Ready to go deeper? Here's how ZeroPoint is laid out:
 
 ```sh

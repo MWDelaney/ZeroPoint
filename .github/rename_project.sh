@@ -15,6 +15,12 @@ echo "Project URL name: $urlname";
 
 echo "Renaming project..."
 
+mv README.md README.template.md
+echo "Renamed template README"
+
+mv README.ZeroPoint.md README.md
+echo "Renamed project README"
+
 original_author="MWDelaney"
 original_name="ZeroPoint Template"
 original_urlname="ZeroPoint"
@@ -27,12 +33,6 @@ do
     sed -i "s/$original_urlname/$urlname/g" $filename
     echo "Renamed $filename"
 done
-
-mv README.md README.template.md
-echo "Renamed template README"
-
-mv README.ZeroPoint.md README.md
-echo "Renamed project README"
 
 # Remove this file to stop this action from running again
 rm -rf .github/workflows
