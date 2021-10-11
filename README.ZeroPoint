@@ -4,7 +4,7 @@ This site uses [Eleventy](https://www.11ty.dev), [GitHub](https://github.com), a
 # Start Right Now!
 If you're reading this, you've already created a new GitHub repository using the ZeroPoint template. Great job!
 
-ZeroPoint gets you started working on the exciting parts of your personal website right away, **right from this readme file!**. 
+ZeroPoint gets you started working on the exciting parts of your personal website right away, **right from this readme file!**.
 
 You can create, edit, style, and launch your ZeroPoint-powered website for free right from here. Keep reading!
 ## Step 1: Content
@@ -13,7 +13,7 @@ Create your site's main content! Pages can be written in HTML or [Markdown](http
 * [Edit the homepage](https://github.com/MWDelaney/ZeroPoint/edit/master/src/pages/index.njk)
 * [Create a new page](https://github.com/MWDelaney/ZeroPoint/new/master/?filename=/src/pages/&value=---%0Atitle%3A%20Enter%20page%20title%20here%0A---)
 
-<!-- 
+<!--
 
 ---
 ### Posts
@@ -33,7 +33,7 @@ Colors, spacing, and fonts, oh my!
 * [Edit your overall styles](https://github.com/MWDelaney/ZeroPoint/edit/master/src/assets/styles/styles.scss)
 
 ### Javascript
-**Optional!** Add functionality to your site
+**Optional!** Add javascript functionality to your site
 * [Add Javascript](https://github.com/MWDelaney/ZeroPoint/edit/master/src/assets/scripts/main.js)
 
 ---
