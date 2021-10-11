@@ -2,7 +2,7 @@
 This site uses [Eleventy](https://www.11ty.dev), [GitHub](https://github.com), and [Netlify](https://netlify.com).
 
 # Start Right Now!
-Gets started **right from this readme file!**.
+Get started **right from this readme file!**.
 
 ## Step 1: Content
 ### Pages
