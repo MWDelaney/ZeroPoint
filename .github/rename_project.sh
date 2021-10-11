@@ -28,7 +28,7 @@ do
     echo "Renamed $filename"
 done
 
-mv README.md README.template
+mv README.md README.template.md
 echo "Renamed template README"
 
 mv README.ZeroPoint.md README.md
