@@ -35,7 +35,7 @@ Colors, spacing, and fonts, oh my!
 
 ---
 ## Step 3: Deploy!
-Launch your new ZeroPoint powered site to Netlify for free by clicking here:
+Launch your project to Netlify for free:
 
 ![Deploy this site to Netlify](https://www.netlify.com/img/deploy/button.svg)
 
