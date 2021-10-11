@@ -47,7 +47,7 @@ example.com                 # → Root of your ZeroPoint-based project
 │       └── pages.json      # → Shared pages attributes
 ├── .eleventy.js            # → Core Eleventy config file
 ├── netlify.toml            # → Netlify deployment and plugin configuration (optional)
-├── README.template               # → ZeroPoint readme (automatically removed when this template is used)
+├── README.template         # → ZeroPoint readme (automatically removed when this template is used)
 └── README.md               # → Your project's readme (automatically generated when this template is used)
 ```
 
