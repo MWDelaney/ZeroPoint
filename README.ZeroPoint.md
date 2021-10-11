@@ -2,7 +2,7 @@
 This site uses [Eleventy](https://www.11ty.dev), [GitHub](https://github.com), and [Netlify](https://netlify.com).
 
 # Start Right Now!
-Gets started **right from this readme file!**.
+Get started **right from this readme file!**.
 
 ## Step 1: Content
 ### Pages
@@ -35,7 +35,7 @@ Colors, spacing, and fonts, oh my!
 
 ---
 ## Step 3: Deploy!
-Launch your new ZeroPoint powered site to Netlify for free by clicking here:
+Launch your project to Netlify for free:
 
 ![Deploy this site to Netlify](https://www.netlify.com/img/deploy/button.svg)
 
