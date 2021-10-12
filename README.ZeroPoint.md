@@ -47,11 +47,11 @@ Learning CSS can be daunting but there are a ton of useful resources on the web.
 
 </details>
 
-## Step 3: Deploy!
+## Step 3: Deploy ZeroPoint!
 <details open>
   <summary>Click here to expand/collapse Step 3: Deploy!</summary>
 
-### Launch your Project on Netlify for Free!
+### Launch your ZeroPoint on Netlify for Free!
 
 Click here to launch your site on Netlify for free!
 
