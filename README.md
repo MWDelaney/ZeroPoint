@@ -15,7 +15,7 @@ Why you might choose _ZeroPoint_ as your Jamstack starter:
 * Powered by Eleventy, which [rocks](https://11ty.rocks)!
 * No CSS frameworks or libraries; use whatever you like best
 * GitHub Action replaces the ZeroPoint name throughout the site with your project's name!
-* Custom generated project-specific [readme file](https://github.com/MWDelaney/ZeroPoint/blob/master/README.md) to help you take the next steps and launch your project!
+* Custom generated project-specific [readme file](https://github.com/MWDelaney/ZeroPoint/blob/master/README.ZeroPoint.md) to help you take the next steps and launch your project!
 * Sass for CSS
 * Webpack for Javascript
 * Browsersync to preview your work
