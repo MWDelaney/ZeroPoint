@@ -2,9 +2,12 @@
 This site uses [Eleventy](https://www.11ty.dev), [GitHub](https://github.com), and [Netlify](https://netlify.com).
 
 # Start Right Now!
-Get started **right from this readme file!**.
+Create and edit your site **right from this readme file!**.
 
-## Step 1: Content
+<details>
+  <summary>Step 1: Content (click to expand)</summary>
+
+## Creating and editing site pages and content
 ### Pages
 Create your site's main content! Pages can be written in HTML or [Markdown](https://www.markdownguide.org/basic-syntax/)!
 * [Edit the homepage](https://github.com/MWDelaney/ZeroPoint/edit/master/src/pages/index.njk)
@@ -18,26 +21,42 @@ Blog posts
 * [Create a new post](https://github.com/MWDelaney/ZeroPoint/new/master/?filename=/src/posts/&value=----%0Atitle%3A%20%22Enter%20post%20title%22%0Adate%3A%20%222025-01-01%0A---)
 
 -->
+
+</details>
 ---
-## Step 2: Look and Feel
+
+<details>
+  <summary>Step 2: Look and Feel</summary>
+
+## Changing the look and feel
 ### Navigation
-Getting there from here
+Your site's navigation is how your users will get around! Edit the site's navigation menu in [JSON format](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Objects/JSON)!
 * [Edit the navigation](https://github.com/MWDelaney/ZeroPoint/edit/master/src/data/navigation.json)
 
 ### Styles
-Colors, spacing, and fonts, oh my!
+Colors, spacing, and fonts, oh my! You can edit your branding and styles here using CSS, SCSS, and CSS variables! Remember adding styles on MySpace? Same thing!
 * [Edit your branding](https://github.com/MWDelaney/ZeroPoint/edit/master/src/assets/styles/_branding.scss)
 * [Edit your overall styles](https://github.com/MWDelaney/ZeroPoint/edit/master/src/assets/styles/styles.scss)
+
+Learning CSS can be daunting but there are a ton of useful resources on the web. Check out [SmolCSS](https://smolcss.dev) to get started!
 
 ### Javascript
 **Optional!** Add javascript functionality to your site
 * [Add Javascript](https://github.com/MWDelaney/ZeroPoint/edit/master/src/assets/scripts/main.js)
 
+</details>
 ---
-## Step 3: Deploy!
-Launch your project to Netlify for free:
+
+<details open>
+  <summary>Step 3: Deploy</summary>
+
+## Launch your Project on Netlify for Free!
+
+Click here to launch your site on Netlify for free!
 
 ![Deploy this site to Netlify](https://www.netlify.com/img/deploy/button.svg)
+
+</details>
 
 ---
 # Get to Know ZeroPoint
