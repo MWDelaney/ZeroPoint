@@ -4,9 +4,9 @@
   "description": "",
   "main": "index.html",
   "scripts": {
-    "👩‍💻": "cross-env ELEVENTY_ENV=development eleventy --serve",
+    "🪐": "cross-env ELEVENTY_ENV=development eleventy --serve",
     "🚀": "cross-env ELEVENTY_ENV=production eleventy",
-    "dev": "run-s 👩‍💻",
+    "dev": "run-s 🪐",
     "build": "run-s 🚀",
     "production": "npm run build",
     "start": "npm run dev"
@@ -18,7 +18,7 @@
   "author": "MWDelaney",
   "license": "MIT",
   "dependencies": {
-    "@11ty/eleventy": "^1.0.0-beta.1",
+    "@11ty/eleventy": "^1.0.0-beta.2",
     "@babel/core": "^7.13.14",
     "@babel/plugin-transform-runtime": "^7.13.10",
     "@babel/preset-env": "^7.13.12",
@@ -29,10 +29,10 @@
     "cssnano": "^5.0.7",
     "markdown-it": "^12.2.0",
     "memfs": "^3.2.0",
-    "node-sass": "^6.0.0",
     "npm-run-all": "^4.1.5",
     "postcss": "^8.3.6",
     "postcss-cli": "^8.3.1",
+    "sass": "^1.42.1",
     "webpack": "^5.28.0"
   },
   "browserslist": [
@@ -40,6 +40,7 @@
   ],
   "devDependencies": {
     "@11ty/eleventy-img": "^0.10.0",
+    "stylelint": "^13.13.0",
     "stylelint-config-standard": "^22.0.0"
   }
 }
