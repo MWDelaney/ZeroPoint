@@ -3,6 +3,7 @@ const collections = require('./src/config/collections');
 const filters = require('./src/config/filters');
 const watchtargets = require('./src/config/watchtargets');
 const plugins = require('./src/config/plugins');
+const shortcodes = require('./src/config/shortcodes');
 
 module.exports = function (eleventyConfig) {
 
@@ -28,7 +29,12 @@ module.exports = function (eleventyConfig) {
 
   // Add Eleventy plugins from /src/config/plugins.js
   Object.keys(plugins).forEach((pluginName) => {
-    eleventyConfig.addPlugin(plugins[pluginName]())
+    eleventyConfig.addPlugin(pluginName, plugins[pluginName]())
+  });
+
+  // Add shortcodes from /src/config/shortcodes.js
+  Object.keys(shortcodes).forEach((shortcodeName) => {
+    eleventyConfig.addShortcode(shortcodeName, shortcodes[shortcodeName]);
   });
 
   // BrowserSync config
