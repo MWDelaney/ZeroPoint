@@ -50,9 +50,12 @@ module.exports = function (eleventyConfig) {
   console.groupEnd();
 
   // BrowserSync config
-   eleventyConfig.setBrowserSyncConfig({
-      open: true
-    });
+  eleventyConfig.setBrowserSyncConfig({
+    open: true
+  });
+
+  // Enable quiet mode
+  eleventyConfig.setQuietMode(true);
 
   // Always return
   return {
