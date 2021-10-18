@@ -8,6 +8,7 @@ const shortcodes = require('./src/config/shortcodes');
 module.exports = function (eleventyConfig) {
 
   console.group("\n", "🪐 —");
+  
   // Create collections from /src/config/collections.js
   console.group("📚 Collections (/src/config/collections.js)");
   Object.keys(collections).forEach((collectionName) => {
@@ -44,8 +45,8 @@ module.exports = function (eleventyConfig) {
   Object.keys(watchtargets).forEach((watchtargetName) => {
     eleventyConfig.addWatchTarget(watchtargets[watchtargetName]())
   });
+  
   console.log("\n");
-
   console.groupEnd();
 
   // BrowserSync config
