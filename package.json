@@ -40,6 +40,8 @@
   ],
   "devDependencies": {
     "@11ty/eleventy-img": "^0.10.0",
+    "eleventy-plugin-metagen": "^1.4.8",
+    "eleventy-plugin-svg-contents": "^0.7.0",
     "stylelint": "^13.13.0",
     "stylelint-config-standard": "^22.0.0"
   }
