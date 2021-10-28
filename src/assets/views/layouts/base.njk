@@ -5,10 +5,13 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>{{ title }}</title>
 	<link rel="stylesheet" href="{{ '/assets/styles/styles.css' | url }}" />
+  <link rel="icon" type="image/svg+xml" href="/assets/images/favicon.svg">
 
   {% metagen
       title=title or metadata.title
   %}
+
+  {% include "navigation.njk" %}
 
 </head>
 <body>
