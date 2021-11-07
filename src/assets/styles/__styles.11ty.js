@@ -5,7 +5,7 @@
 const ENTRY_FILE_NAME = 'styles.scss'
 
 const path = require('path')
-const sass = require('node-sass')
+const sass = require('sass')
 const CleanCSS = require('clean-css')
 const cssesc = require('cssesc')
 const isProd = process.env.ELEVENTY_ENV === 'production'
