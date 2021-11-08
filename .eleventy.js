@@ -82,7 +82,6 @@ module.exports = function (eleventyConfig) {
     open: true,
     callbacks: {
       ready: function(err, bs) {
-
         bs.addMiddleware("*", (req, res) => {
           const content_404 = fs.readFileSync('public/404.html');
           // Add 404 http status code in request header.
