@@ -70,5 +70,6 @@ jobs:
       - name: Commit changes and delete this workflow
         uses: EndBug/add-and-commit@v7
         with:
-          remove: ./.github/workflows/zeropoint_template.yml
+          remove: '["./.github/workflows/zeropoint_template.yml", "./README.ZeroPoint.md"]'
+          message: "Up to zero 🪐"
           tag: 'v1.0.0 --force'
