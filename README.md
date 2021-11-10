@@ -1,4 +1,4 @@
-# ZeroPoint 🪐
+# 🪐ZeroPoint
 A free, new-user-friendly website starter project designed to walk you through creating, editing, and publishing any web project; from a personal blog, to a company website!
 
 Read more at [https://getzeropoint.com](https://getzeropoint.com)!
