@@ -1,26 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>{{ title }}</title>
-	<link rel="stylesheet" href="{{ '/assets/styles/styles.css' | url }}" />
-  <link rel="icon" type="image/svg+xml" href="/assets/images/favicon.svg">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  {% metagen
-      title=title or metadata.title
-  %}
+    <title>{{ title }}</title>
 
-</head>
-<body>
-  <a class="visually-hidden" href="#main">Skip to content</a>
-  <header>
-    {% include "navigation.njk" %}
-  </header>
-  <main id="main" tabindex="-1">
-	{{ content | safe }}
-	</main>
+    <link rel="stylesheet" href="{{ '/assets/styles/styles.css' | url }}" />
+    <link rel="icon" type="image/svg+xml" href="/assets/images/favicon.svg">
 
-  <script src="/assets/scripts/main.js" defer></script>
-</body>
+    {% metagen
+        title=title or metadata.title
+    %}
+
+  </head>
+  <body>
+    <a class="visually-hidden" href="#main">Skip to content</a>
+
+    {# Site header with navigation #}
+    <header>
+      {% include "navigation.njk" %}
+    </header>
+
+    {# Main content #}
+    <main id="main" tabindex="-1">
+    {{ content | safe }}
+    </main>
+
+    <script src="/assets/scripts/main.js" defer></script>
+  </body>
 </html>

@@ -1,13 +1,36 @@
-@import "branding";
+/**
+ * Import stylesheet partials
+*/
 @import "reset.scss";
+@import "branding";
 
+/**
+ * ZeroPoint starter styling
+*/
 body {
   color: var(--color-text);
   background-color: var(--color-background);
+  font-family: var(--font-family-sans-serif);
 }
 
 a {
   color: var(--color-primary);
+}
+
+#main {
+  max-width: var(--container-width);
+  margin: calc(var(--unit) * 5) auto;
+}
+
+#navigation {
+  display: flex;
+  border-bottom: 1px solid var(--color-light);
+  margin: var(--unit);
+}
+
+.navigation-item,
+.navigation-label {
+  padding: calc(var(--unit) / 2);
 }
 
 .visually-hidden {

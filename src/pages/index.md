@@ -1,6 +1,16 @@
 ---
 permalink: /
-title: Starting at Zero
+title: Up to zero! 🪐
 ---
-<h1>Getting Started at Zero</h1>
-{{ '/src/assets/images/logo.svg' | svgContents }}
+
+<header id="page-header">
+  <h1>
+    Up to zero! 🪐
+  </h1>
+  <p>Get started:</p>
+  <ul>
+    <li>Edit this page: <code>src/pages/index.md</code></li>
+    <li>Add or edit navigation: <code>src/data/navigation.json</code></li>
+    <li>Change colors and styles: <code>src/assets/styles/</code></li>
+  </ul>
+</header>

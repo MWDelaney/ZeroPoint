@@ -1,6 +1,29 @@
 :root {
+  /**
+    Colors
+  */
   --color-text: #222;
   --color-background: #fff;
+  --color-light: silver;
   --color-primary: #7950f2;
+
+  /**
+    Spacing and units
+  */
   --unit: 1rem;
+  --container-width: 40ch;
+
+  /**
+    Fonts
+  */
+  --font-family-sans-serif:
+    system,
+    -apple-system,
+    ".SFNSText-Regular",
+    "San Francisco",
+    "Roboto",
+    "Segoe UI",
+    "Helvetica Neue",
+    "Lucida Grande",
+    sans-serif;
 }
