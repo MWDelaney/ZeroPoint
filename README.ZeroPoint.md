@@ -11,7 +11,7 @@ Create and edit your site **right from this readme file!**.
 ### Creating and editing site pages and content
 #### Pages
 Create your site's main content! Pages can be written in HTML or [Markdown](https://www.markdownguide.org/basic-syntax/)!
-* [Edit the homepage](https://github.com/MWDelaney/ZeroPoint/edit/master/src/pages/index.njk)
+* [Edit the homepage](https://github.com/MWDelaney/ZeroPoint/edit/master/src/pages/index.md)
 * [Create a new page](https://github.com/MWDelaney/ZeroPoint/new/master/?filename=/src/pages/&value=---%0Atitle%3A%20Enter%20page%20title%20here%0A---)
 
 <!--
