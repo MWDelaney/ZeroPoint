@@ -11,15 +11,15 @@ Create and edit your site **right from this readme file!**.
 ### Creating and editing site pages and content
 #### Pages
 Create your site's main content! Pages can be written in HTML or [Markdown](https://www.markdownguide.org/basic-syntax/)!
-* [Edit the homepage](https://github.com/MWDelaney/ZeroPoint/edit/master/src/pages/index.md)
-* [Create a new page](https://github.com/MWDelaney/ZeroPoint/new/master/?filename=/src/pages/&value=---%0Atitle%3A%20Enter%20page%20title%20here%0A---)
+* [Edit the homepage](https://github.com/MWDelaney/zeropoint/edit/master/src/pages/index.md)
+* [Create a new page](https://github.com/MWDelaney/zeropoint/new/master/?filename=/src/pages/&value=---%0Atitle%3A%20Enter%20page%20title%20here%0A---)
 
 <!--
 
 ---
 #### Posts
 Blog posts
-* [Create a new post](https://github.com/MWDelaney/ZeroPoint/new/master/?filename=/src/posts/&value=----%0Atitle%3A%20%22Enter%20post%20title%22%0Adate%3A%20%222025-01-01%0A---)
+* [Create a new post](https://github.com/MWDelaney/zeropoint/new/master/?filename=/src/posts/&value=----%0Atitle%3A%20%22Enter%20post%20title%22%0Adate%3A%20%222025-01-01%0A---)
 
 -->
 
@@ -32,18 +32,18 @@ Blog posts
 ### Changing the look and feel
 #### Navigation
 Your site's navigation is how your users will get around! Edit the site's navigation menu in [JSON format](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Objects/JSON)!
-* [Edit the navigation](https://github.com/MWDelaney/ZeroPoint/edit/master/src/data/navigation.json)
+* [Edit the navigation](https://github.com/MWDelaney/zeropoint/edit/master/src/data/navigation.json)
 
 #### Styles
 Colors, spacing, and fonts, oh my! You can edit your branding and styles here using CSS, SCSS, and CSS variables! Remember adding styles on MySpace? Same thing!
-* [Edit your branding](https://github.com/MWDelaney/ZeroPoint/edit/master/src/assets/styles/_branding.scss)
-* [Edit your overall styles](https://github.com/MWDelaney/ZeroPoint/edit/master/src/assets/styles/styles.scss)
+* [Edit your branding](https://github.com/MWDelaney/zeropoint/edit/master/src/assets/styles/_branding.scss)
+* [Edit your overall styles](https://github.com/MWDelaney/zeropoint/edit/master/src/assets/styles/styles.scss)
 
 Learning CSS can be daunting but there are a ton of useful resources on the web. Check out [SmolCSS](https://smolcss.dev) to get started!
 
 #### Javascript
 **Optional!** Add javascript functionality to your site
-* [Add Javascript](https://github.com/MWDelaney/ZeroPoint/edit/master/src/assets/scripts/main.js)
+* [Add Javascript](https://github.com/MWDelaney/zeropoint/edit/master/src/assets/scripts/main.js)
 
 </details>
 
