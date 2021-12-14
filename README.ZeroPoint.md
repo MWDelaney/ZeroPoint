@@ -24,7 +24,7 @@ Blog posts
 
 
 ## Step 2: Look and Feel
-Click here to expand/collapse Step 2: Look and Feel</summary>
+Click here to expand/collapse Step 2: Look and Feel
 
 ### Navigation
 Your site's navigation is how your users will get around! Edit the site's navigation menu in [JSON format](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Objects/JSON)!
@@ -42,7 +42,7 @@ Learning CSS can be daunting but there are a ton of useful resources on the web.
 * [Add Javascript](https://github.com/MWDelaney/zeropoint/edit/master/src/assets/scripts/main.js)
 
 ## Step 3: Deploy ZeroPoint!
-Click here to expand/collapse Step 3: Deploy!</summary>
+Click here to expand/collapse Step 3: Deploy!
 
 ### Launch ZeroPoint on Netlify for Free!
 
