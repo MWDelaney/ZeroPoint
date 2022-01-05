@@ -4,6 +4,7 @@ const filters = require('./src/config/filters');
 const watchtargets = require('./src/config/watchtargets');
 const plugins = require('./src/config/plugins');
 const shortcodes = require('./src/config/shortcodes');
+const extensions = require('./src/config/extensions');
 const fs = require("fs");
 
 /**
@@ -67,6 +68,13 @@ module.exports = function (eleventyConfig) {
   Object.keys(watchtargets).forEach((watchtargetName) => {
     eleventyConfig.addWatchTarget(watchtargets[watchtargetName]())
   });
+
+   /**
+   * Add extensions from /src/config/extensions.js
+   */
+    Object.keys(extensions).forEach((extensionName) => {
+      extensions[extensionName](eleventyConfig);
+    });
 
   /**
    * End pretty console output
