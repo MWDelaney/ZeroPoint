@@ -37,7 +37,7 @@ module.exports = function (eleventyConfig) {
   console.group("🔌 Plugins (/src/config/plugins.js)");
   Object.keys(plugins).forEach((pluginName) => {
     console.log(" · " + pluginName);
-    plugins[pluginName](eleventyConfig);
+    eleventyConfig.addPlugin(plugins[pluginName]());
   });
   console.groupEnd();
 
@@ -73,7 +73,8 @@ module.exports = function (eleventyConfig) {
    * Add template languages from /src/config/templateLanguages.js
    */
     Object.keys(templateLanguages).forEach((templateLanguageName) => {
-      templateLanguages[templateLanguageName](eleventyConfig);
+      eleventyConfig.addTemplateFormats(templateLanguageName);
+      eleventyConfig.addExtension(templateLanguageName, templateLanguages[templateLanguageName]())
     });
 
   /**

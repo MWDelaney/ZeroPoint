@@ -7,8 +7,9 @@ module.exports = {
   /**
    * https://github.com/tannerdolby/eleventy-plugin-metagen
    */
-  metagen: function (eleventyConfig) {
+  metagen: function () {
     let plugin = require('eleventy-plugin-metagen');
-      eleventyConfig.addPlugin(plugin);
+
+    return plugin;
   }
 }

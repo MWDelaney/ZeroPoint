@@ -5,10 +5,14 @@
 
 module.exports = {
   images: function () {
-    return { 'src/assets/images': 'assets/images' }
+    let config = { 'src/assets/images': 'assets/images' }
+
+    return config;
   },
 
   fonts: function () {
-    return { 'src/assets/fonts': 'assets/fonts' }
+    let config = { 'src/assets/fonts': 'assets/fonts' }
+
+    return config;
   }
 }

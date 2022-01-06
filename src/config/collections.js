@@ -9,6 +9,8 @@ module.exports = {
   // },
 
   pages: function (collection) {
-    return collection.getFilteredByGlob("src/pages/*.md")
+    let result = collection.getFilteredByGlob("src/pages/*.md");
+
+    return result;
   }
 }

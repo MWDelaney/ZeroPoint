@@ -4,7 +4,7 @@
 */
 
 module.exports = {
-  scss: function (eleventyConfig) {
+  scss: function () {
     let sass = require("sass");
     let config = {
       outputFileExtension: "css",
@@ -21,11 +21,10 @@ module.exports = {
       }
     }
 
-    eleventyConfig.addTemplateFormats("scss");
-    eleventyConfig.addExtension("scss", config)
+    return config;
   },
 
-  js: function(eleventyConfig) {
+  js: function() {
     let terser = require("terser");
     let config = {
       outputFileExtension: "js",
@@ -37,7 +36,6 @@ module.exports = {
       }
     }
 
-    eleventyConfig.addTemplateFormats("js");
-    eleventyConfig.addExtension("js", config)
+    return config;
   }
 }
