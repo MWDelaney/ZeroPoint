@@ -1,5 +1,5 @@
 /**
- * Add Eleventy filters here
+ * Add Eleventy template languages here
  * https://www.11ty.dev/docs/languages/custom/
 */
 
