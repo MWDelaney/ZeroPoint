@@ -37,7 +37,7 @@ module.exports = function (eleventyConfig) {
   console.group("🔌 Plugins (/src/config/plugins.js)");
   Object.keys(plugins).forEach((pluginName) => {
     console.log(" · " + pluginName);
-    eleventyConfig.addPlugin(plugins[pluginName]());
+    plugins[pluginName](eleventyConfig);
   });
   console.groupEnd();
 
