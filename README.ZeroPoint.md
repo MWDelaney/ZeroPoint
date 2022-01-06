@@ -72,11 +72,15 @@ example.com                 # → Root of your ZeroPoint-based project
 │   │   ├── scripts/
 │   │   ├── styles/
 │   │   └── views/
+│   │       └── layouts/
+│   │       └── partials/
 │   ├── config/             # → Eleventy configuration
 │   │   ├── collections.js  # → Add and configure collections (https://www.11ty.dev/docs/collections/)
 │   │   ├── filters.js      # → Add and configure filters (https://www.11ty.dev/docs/filters/)
 │   │   ├── passthroughs.js # → Add and configure passthroughs (https://www.11ty.dev/docs/copy/)
 │   │   ├── plugins.js      # → Add and configure plugins (https://www.11ty.dev/docs/plugins/)
+│   │   ├── shortcodes.js   # → Add and configure shortcodes (https://www.11ty.dev/docs/shortcodes/)
+│   │   ├── templateLanguages.js   # → Configure custom template languages (HINT: this is where ZeroPoint's Sass and Javascript pipelines are set up!) (https://www.11ty.dev/docs/languages/custom/)
 │   │   └── watchtargets.js # → Add and configure watch targets (https://www.11ty.dev/docs/watch-serve/)
 │   ├── data                # → Customize site data (https://www.11ty.dev/docs/data/)
 │   │   └── navigation.json # → Site navigation configuration
@@ -85,7 +89,7 @@ example.com                 # → Root of your ZeroPoint-based project
 │       └── pages.json      # → Shared pages attributes
 ├── .eleventy.js            # → Core Eleventy config file
 ├── netlify.toml            # → Netlify deployment and plugin configuration (optional)
-├── README.template               # → ZeroPoint readme (automatically removed when this template is used)
+├── README.template.md      # → ZeroPoint readme
 └── README.md               # → Your project's readme (automatically generated when this template is used)
 ```
 

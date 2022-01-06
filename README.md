@@ -15,7 +15,7 @@ Why you might choose _ZeroPoint_ as your Jamstack starter:
 * GitHub Action replaces the ZeroPoint name throughout the site with your project's name!
 * Custom generated project-specific [readme file](https://github.com/MWDelaney/ZeroPoint/blob/master/README.ZeroPoint.md) to help you take the next steps and launch your project!
 * Sass for CSS
-* Webpack for Javascript
+* Javascript compilation and minification
 * Browsersync to preview your work
 
  ## Get started: Use This Template!
@@ -47,11 +47,15 @@ example.com                 # → Root of your ZeroPoint-based project
 │   │   ├── scripts/
 │   │   ├── styles/
 │   │   └── views/
+│   │       └── layouts/
+│   │       └── partials/
 │   ├── config/             # → Eleventy configuration
 │   │   ├── collections.js  # → Add and configure collections (https://www.11ty.dev/docs/collections/)
 │   │   ├── filters.js      # → Add and configure filters (https://www.11ty.dev/docs/filters/)
 │   │   ├── passthroughs.js # → Add and configure passthroughs (https://www.11ty.dev/docs/copy/)
 │   │   ├── plugins.js      # → Add and configure plugins (https://www.11ty.dev/docs/plugins/)
+│   │   ├── shortcodes.js   # → Add and configure shortcodes (https://www.11ty.dev/docs/shortcodes/)
+│   │   ├── templateLanguages.js   # → Configure custom template languages (HINT: this is where ZeroPoint's Sass and Javascript pipelines are set up!) (https://www.11ty.dev/docs/languages/custom/)
 │   │   └── watchtargets.js # → Add and configure watch targets (https://www.11ty.dev/docs/watch-serve/)
 │   ├── data                # → Customize site data (https://www.11ty.dev/docs/data/)
 │   │   └── navigation.json # → Site navigation configuration
