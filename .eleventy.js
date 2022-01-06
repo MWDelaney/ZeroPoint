@@ -4,7 +4,7 @@ const filters = require('./src/config/filters');
 const watchtargets = require('./src/config/watchtargets');
 const plugins = require('./src/config/plugins');
 const shortcodes = require('./src/config/shortcodes');
-const extensions = require('./src/config/extensions');
+const templateLanguages = require('./src/config/templateLanguages');
 const fs = require("fs");
 
 /**
@@ -70,10 +70,10 @@ module.exports = function (eleventyConfig) {
   });
 
    /**
-   * Add extensions from /src/config/extensions.js
+   * Add template languages from /src/config/templateLanguages.js
    */
-    Object.keys(extensions).forEach((extensionName) => {
-      extensions[extensionName](eleventyConfig);
+    Object.keys(templateLanguages).forEach((templateLanguageName) => {
+      templateLanguages[templateLanguageName](eleventyConfig);
     });
 
   /**
