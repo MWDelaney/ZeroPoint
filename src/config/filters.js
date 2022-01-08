@@ -8,7 +8,8 @@ module.exports = {
     let markdown = require('markdown-it')({
       html: true
     });
+    let result = markdown.render(value);
 
-    return markdown.render(value);
+    return result;
   }
 }

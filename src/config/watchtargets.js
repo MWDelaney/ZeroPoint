@@ -5,6 +5,8 @@
 
 module.exports = {
   assets: function () {
-    return "./src/assets";
+    let config = "./src/assets";
+
+    return config;
   }
 }

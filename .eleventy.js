@@ -4,6 +4,7 @@ const filters = require('./src/config/filters');
 const watchtargets = require('./src/config/watchtargets');
 const plugins = require('./src/config/plugins');
 const shortcodes = require('./src/config/shortcodes');
+const templateLanguages = require('./src/config/templateLanguages');
 const fs = require("fs");
 
 /**
@@ -67,6 +68,14 @@ module.exports = function (eleventyConfig) {
   Object.keys(watchtargets).forEach((watchtargetName) => {
     eleventyConfig.addWatchTarget(watchtargets[watchtargetName]())
   });
+
+   /**
+   * Add template languages from /src/config/templateLanguages.js
+   */
+    Object.keys(templateLanguages).forEach((templateLanguageName) => {
+      eleventyConfig.addTemplateFormats(templateLanguageName);
+      eleventyConfig.addExtension(templateLanguageName, templateLanguages[templateLanguageName]())
+    });
 
   /**
    * End pretty console output
