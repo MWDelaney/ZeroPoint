@@ -28,20 +28,5 @@ module.exports = {
     }
 
     return config;
-  },
-
-  js: function() {
-    let terser = require("terser");
-    let config = {
-      outputFileExtension: "js",
-      compile: function (contents, inputPath) {
-        return async (data) => {
-          let result = await terser.minify(contents);
-          return result.code;
-        };
-      }
-    }
-
-    return config;
   }
 }
