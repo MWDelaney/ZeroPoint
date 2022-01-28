@@ -9,6 +9,6 @@ module.exports = {
    */
   metagen: function (eleventyConfig) {
     let plugin = require('eleventy-plugin-metagen');
-      eleventyConfig.addPlugin(plugin);
+    eleventyConfig.addPlugin(plugin);
   }
 }
