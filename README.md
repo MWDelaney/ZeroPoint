@@ -1,15 +1,20 @@
 # 🪐ZeroPoint
+
 A free, new-user-friendly website starter project designed to walk you through creating, editing, and publishing any web project; from a personal blog, to a company website!
 
 Read more at [https://getzeropoint.com](https://getzeropoint.com)!
 
 ## What is ZeroPoint?
+
 ### For new users
+
 _ZeroPoint_ is a free, new-user-friendly website starter designed to walk you through creating and publishing a fast, secure web project using modern tools and technology. ZeroPoint makes it easy to "get up to zero" and start building your site.
 
 ### For experienced developers
+
 _ZeroPoint_ is a modern, opinionated, bare-bones Jamstack starter using Eleventy to get "up to zero" on a project quickly and easily.
 Why you might choose _ZeroPoint_ as your Jamstack starter:
+
 * Powered by Eleventy, which [rocks](https://11ty.rocks)!
 * No CSS frameworks or libraries; use whatever you like best
 * GitHub Action replaces the ZeroPoint name throughout the site with your project's name!
@@ -18,24 +23,29 @@ Why you might choose _ZeroPoint_ as your Jamstack starter:
 * Javascript compilation and minification
 * Browsersync to preview your work
 
- ## Get started: Use This Template!
+## Get started: Use This Template
+
 <details open>
  <summary>Right from this README</summary>
  
- ###  Create a new project using ZeroPoint and add it to your GitHub account!
+###  Create a new project using ZeroPoint and add it to your GitHub account
+
  [Click here to use this template](https://github.com/MWDelaney/ZeroPoint/generate)
  </details>
 
 <details>
  <summary>With GitHub CLI (https://cli.github.com)</summary>
 
- ### Get started from your command line
+### Get started from your command line
+
  ```sh
   gh repo create example.com --template MWDelaney/ZeroPoint
  ```
+
 </details>
 
-# Get to Know ZeroPoint
+## Get to Know ZeroPoint
+
 Ready to go deeper? Here's how ZeroPoint is laid out:
 
 ```sh
@@ -69,18 +79,23 @@ example.com                 # → Root of your ZeroPoint-based project
 ```
 
 ## Eleventy Configuration
+
 Eleventy configuration is abstracted from the typical `.eleventy.js` file and moved to `/src/config/` for easy organization and configuration of collections, filters, passthroughs, etc.
+
 ## Install project dependencies
+
 ```bash
 npm i
 ```
 
 ## Run the project locally
+
 ```bash
 npm run start
 ```
 
 ## Build for production
+
 ```bash
 npm run production
 ```
