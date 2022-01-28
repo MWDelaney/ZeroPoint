@@ -16,6 +16,6 @@ title: Up to zero! 🪐
 
   <hr>
 
-  {% image "https://source.unsplash.com/1024x768/?beagle", "Random image of Saturn", "100%" %}
+  {% image "https://source.unsplash.com/1024x768/?beagle", "Random image of a beagle", "100%" %}
 
 </header>
