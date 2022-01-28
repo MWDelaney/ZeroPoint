@@ -28,6 +28,11 @@ a {
   margin: var(--unit);
 }
 
+hr {
+  border-width: 1px 0 0;
+  border-color: var(--color-light);
+}
+
 .navigation-item,
 .navigation-label {
   padding: calc(var(--unit) / 2);

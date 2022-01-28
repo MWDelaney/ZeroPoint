@@ -16,38 +16,49 @@ module.exports = function (eleventyConfig) {
   /**
    * Start pretty console output
    */
-  console.group("\n", "🪐 —");
+  console.group("\n", "   🪐");
+  console.log("  |");
 
   /**
    * Echo the registered collections in the terminal
    * Create collections from /src/config/collections.js
    */
-  console.group("📚 Collections (/src/config/collections.js)");
-  Object.keys(collections).forEach((collectionName) => {
-    console.log(" · " + collectionName);
+  console.group("  ├── 📚", "\x1b[33m", "Collections", "\x1b[0m", "(/src/config/collections.js)");
+  Object.keys(collections).forEach((collectionName, index, collections) => {
+    let len = Object.keys(collections).length - 1;
+    let pre = (index === len ? "└── " : "├── ");
+    console.log("│       " + pre + collectionName);
     eleventyConfig.addCollection(collectionName, collections[collectionName])
   });
   console.groupEnd();
-  console.log("\n");
+  console.log("  |");
 
   /**
    * Echo the registered collections in the terminal
    * Add Eleventy plugins from /src/config/plugins.js
    */
-  console.group("🔌 Plugins (/src/config/plugins.js)");
-  Object.keys(plugins).forEach((pluginName) => {
-    console.log(" · " + pluginName);
+  console.group("  ├── 🔌", "\x1b[33m", "Plugins", "\x1b[0m", "(/src/config/plugins.js)");
+  Object.keys(plugins).forEach((pluginName, index) => {
+    let len = Object.keys(plugins).length - 1;
+    let pre = (index == len ? "└── " : "├── ");
+    console.log("│       " + pre + pluginName);
     plugins[pluginName](eleventyConfig);
   });
   console.groupEnd();
-
+  console.log("  |");
   /**
+   * Echo the registered shortcodes in the terminal
    * Add shortcodes from /src/config/shortcodes.js
    */
-  Object.keys(shortcodes).forEach((shortcodeName) => {
-    eleventyConfig.addShortcode(shortcodeName, shortcodes[shortcodeName]);
+  console.group("  └── ⏩", "\x1b[33m", "Shortcodes", "\x1b[0m", "(/src/config/shortcodes.js)");
+  Object.keys(shortcodes).forEach((shortcodeName, index) => {
+    let len = Object.keys(shortcodes).length - 1;
+    let pre = (index === len ? "└── " : "├── ");
+    console.log("        " + pre + shortcodeName);
+    shortcodes[shortcodeName](eleventyConfig);
   });
-
+  console.groupEnd();
+  console.log("\n");
   /**
    * Add filters from /src/config/filters.js
    */
