@@ -33,6 +33,10 @@ hr {
   border-color: var(--color-light);
 }
 
+img {
+  height: auto;
+}
+
 .navigation-item,
 .navigation-label {
   padding: calc(var(--unit) / 2);

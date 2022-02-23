@@ -1,11 +1,56 @@
+/**
+ * Wait! Before you edit this file!
+ * This Eleventy-based project abstracts the traditional `.eleventy.js` file to help keep things clean and tidy.
+ * Consider editing the following files instead:
+ *  - `src/config/collections.js`
+ *  - `src/config/filters.js`
+ *  - `src/config/passthroughs.js`
+ *  - `src/config/plugins.js`
+ *  - `src/config/shortcodes.js`
+ *  - `src/config/watchtargets.js`
+ *  - `src/config/templateLanguages.js`
+ */
+
+/**
+ * Passthroughs and file copies are defined as named exports in /src/config/passthroughs.js
+ */
 const passthroughs = require('./src/config/passthroughs');
+
+/**
+ * Collections are defined as named exports in /src/config/collections.js
+ */
 const collections = require('./src/config/collections');
+
+/**
+ * Filters are defined as named exports in /src/config/filters.js
+ */
 const filters = require('./src/config/filters');
+
+/**
+ * Watch targets are defined as named exports in /src/config/watchtargets.js
+ */
 const watchtargets = require('./src/config/watchtargets');
+
+/**
+ * Plugins are defined as named exports in /src/config/plugins.js
+ */
 const plugins = require('./src/config/plugins');
+
+/**
+ * Shortcodes are defined as named exports in /src/config/shortcodes.js
+ */
 const shortcodes = require('./src/config/shortcodes');
+
+/**
+ * Custom template languages are defined as named exports in /src/config/templateLanguages.js
+ */
 const templateLanguages = require('./src/config/templateLanguages');
+
+/**
+ * Any additional requirements can be added here
+ */
 const fs = require("fs");
+const chalk = require("chalk");
 
 /**
  * Eleventy configuration
@@ -17,48 +62,79 @@ module.exports = function (eleventyConfig) {
    * Start pretty console output
    */
   console.group("\n", "   🪐");
-  console.log("  |");
+  console.log(chalk.white("  |"));
 
   /**
    * Echo the registered collections in the terminal
    * Create collections from /src/config/collections.js
    */
-  console.group("  ├── 📚", "\x1b[33m", "Collections", "\x1b[0m", "(/src/config/collections.js)");
+  console.group(
+    chalk.white("  ├── ") +
+    chalk.yellow("📚 Collections ") +
+    chalk.gray("(/src/config/collections.js)")
+  );
+
   Object.keys(collections).forEach((collectionName, index, collections) => {
     let len = Object.keys(collections).length - 1;
     let pre = (index === len ? "└── " : "├── ");
-    console.log("│       " + pre + collectionName);
+    console.log(
+      chalk.white("│       " + pre) +
+      chalk.green(collectionName)
+    );
+
     eleventyConfig.addCollection(collectionName, collections[collectionName])
   });
+
   console.groupEnd();
-  console.log("  |");
+  console.log(chalk.white("  |"));
 
   /**
    * Echo the registered collections in the terminal
    * Add Eleventy plugins from /src/config/plugins.js
    */
-  console.group("  ├── 🔌", "\x1b[33m", "Plugins", "\x1b[0m", "(/src/config/plugins.js)");
+   console.group(
+    chalk.white("  ├── ") +
+    chalk.yellow("🔌 Plugins ") +
+    chalk.gray("(/src/config/plugins.js)")
+  );
+
   Object.keys(plugins).forEach((pluginName, index) => {
     let len = Object.keys(plugins).length - 1;
     let pre = (index == len ? "└── " : "├── ");
-    console.log("│       " + pre + pluginName);
+    console.log(
+      chalk.white("│       " + pre) +
+      chalk.green(pluginName)
+    );
+
     plugins[pluginName](eleventyConfig);
   });
+
   console.groupEnd();
-  console.log("  |");
+  console.log(chalk.white("  |"));
   /**
    * Echo the registered shortcodes in the terminal
    * Add shortcodes from /src/config/shortcodes.js
    */
-  console.group("  └── ⏩", "\x1b[33m", "Shortcodes", "\x1b[0m", "(/src/config/shortcodes.js)");
+   console.group(
+    chalk.white("  └── ") +
+    chalk.yellow("⏩ Shortcodes ") +
+    chalk.gray("(/src/config/shortcodes.js)")
+  );
+
   Object.keys(shortcodes).forEach((shortcodeName, index) => {
     let len = Object.keys(shortcodes).length - 1;
     let pre = (index === len ? "└── " : "├── ");
-    console.log("        " + pre + shortcodeName);
+    console.log(
+      chalk.white("        " + pre) +
+      chalk.green(shortcodeName)
+    );
+
     shortcodes[shortcodeName](eleventyConfig);
   });
+
   console.groupEnd();
   console.log("\n");
+
   /**
    * Add filters from /src/config/filters.js
    */
