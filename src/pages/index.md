@@ -5,7 +5,7 @@ title: Up to zero! 🪐
 
 <header id="page-header">
   <h1>
-    Up to zero! 🪐
+    Up to zero with {{ branding.name }} 🪐
   </h1>
 </header>
 

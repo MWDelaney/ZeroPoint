@@ -8,7 +8,7 @@ eleventyExcludeFromCollections: true
       {% if page.url != '' %}
         {% if page.data.roleRequired is not defined %}
           <url>
-              <loc>{{ site.url }}{{ page.url | url }}</loc>
+              <loc>{{ branding.url }}{{ page.url | url }}</loc>
           </url>
         {% endif %}
       {% endif %}
