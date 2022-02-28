@@ -13,6 +13,10 @@
         title=title or metadata.title
     %}
 
+    {% if(process.env.ELEVENTY_ENV != 'production') %}
+        <meta name="robots" content="noindex,nofollow">
+    {% endif %}
+
   </head>
   <body>
     <a class="visually-hidden" href="#main">Skip to content</a>
