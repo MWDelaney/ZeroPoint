@@ -3,12 +3,6 @@ permalink: /
 title: Up to zero! 🪐
 ---
 
-<header id="page-header">
-  <h1>
-    Up to zero with {{ branding.name }} 🪐
-  </h1>
-</header>
-
 <p>Get started:</p>
 <ul>
   <li>Edit this page: <code>src/pages/index.md</code></li>

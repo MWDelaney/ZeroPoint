@@ -31,7 +31,7 @@ module.exports = {
           let result = sass.renderSync({
             file: inputPath,
             includesPaths,
-            data: contents,
+            data: inputContents,
             outputStyle: "compressed",
           });
 

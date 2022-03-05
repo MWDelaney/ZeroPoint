@@ -51,6 +51,7 @@ const templateLanguages = require('./src/config/templateLanguages');
  */
 const fs = require("fs");
 const chalk = require("chalk");
+const htmlmin = require("html-minifier");
 
 /**
  * Eleventy configuration
@@ -169,6 +170,23 @@ module.exports = function (eleventyConfig) {
    */
   console.log("\n");
   console.groupEnd();
+
+  /**
+   * Minify HTML output
+   */
+   eleventyConfig.addTransform("htmlmin", function(content, outputPath) {
+    // Eleventy 1.0+: use this.inputPath and this.outputPath instead
+    if( this.outputPath && this.outputPath.endsWith(".html") ) {
+      let minified = htmlmin.minify(content, {
+        useShortDoctype: true,
+        removeComments: true,
+        collapseWhitespace: true
+      });
+      return minified;
+    }
+
+    return content;
+  });
 
 
   /**

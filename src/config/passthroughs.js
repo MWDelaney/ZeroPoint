@@ -14,6 +14,7 @@ module.exports = {
     return config;
   },
 
+
   /**
    * Copy fonts to the `public` directory
    */

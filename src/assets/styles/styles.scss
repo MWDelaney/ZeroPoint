@@ -28,6 +28,13 @@ a {
   margin: var(--unit);
 }
 
+#footer {
+  margin: auto;
+  max-width: var(--container-width);
+  border-top: 1px solid var(--color-light);
+  text-align: center;
+}
+
 hr {
   border-width: 1px 0 0;
   border-color: var(--color-light);
@@ -38,7 +45,8 @@ img {
 }
 
 .navigation-item,
-.navigation-label {
+.navigation-label,
+button {
   padding: calc(var(--unit) / 2);
 }
 
@@ -50,4 +58,19 @@ img {
   position: absolute;
   white-space: nowrap;
   width: 1px;
+}
+
+label,
+input,
+textarea {
+  width: 100%;
+  display: block;
+}
+
+button {
+  margin: 0;
+}
+
+label {
+  padding: calc(var(--unit) / 2) 0;
 }

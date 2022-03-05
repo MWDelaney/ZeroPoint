@@ -4,21 +4,26 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    {# Page Title #}
     <title>{{ title }}</title>
 
-    <link rel="stylesheet" href="{{ '/assets/styles/styles.css' | url }}" />
+    {# Stylesheet #}
+    <link rel="stylesheet" href="{{ '/assets/styles/styles.css' | url }}"/>
+
+    {# Favicon #}
     <link rel="icon" type="image/svg+xml" href="/assets/images/favicon.svg">
 
-    {% metagen
-        title=title or metadata.title
-    %}
+    {# metagen plugin output #}
+    {% metagen title = title or metadata.title %}
 
-    {% if(process.env.ELEVENTY_ENV != 'production') %}
-        <meta name="robots" content="noindex,nofollow">
+    {# If ELEVENTY_ENV environmental variable isn't set to "production", hide this page from search engines #}
+    {% if (process.env.ELEVENTY_ENV != 'production') %}
+      <meta name="robots" content="noindex,nofollow">
     {% endif %}
 
   </head>
   <body>
+    {# Skip to content link #}
     <a class="visually-hidden" href="#main">Skip to content</a>
 
     {# Site header with navigation #}
@@ -28,9 +33,20 @@
 
     {# Main content #}
     <main id="main" tabindex="-1">
-    {{ content | safe }}
+      <header id="page-header">
+        <h1>
+          {{ title }}
+        </h1>
+      </header>
+      {{ content | safe }}
     </main>
 
+    {# Site footer with copyright #}
+    <footer id="footer">
+      {% year %} &copy; {{ site.siteName }}
+    </footer>
+
+    {# Script bundle #}
     <script src="/assets/scripts/main.js" defer></script>
   </body>
 </html>
