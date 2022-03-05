@@ -11,6 +11,7 @@ module.exports = {
   scss: function () {
     let path = require("path");
     let sass = require("sass");
+
     let config = {
       outputFileExtension: "css",
       compile: function (contents, inputPath) {
@@ -18,8 +19,9 @@ module.exports = {
         if(parsed.name.startsWith("_")) {
           return;
         }
-        let includesPaths = [this.config.dir.includes];
         return (data) => {
+          let includesPaths = [this.config.dir.includes];
+
           let result = sass.renderSync({
             file: inputPath,
             includesPaths,
