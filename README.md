@@ -56,9 +56,10 @@ example.com                 # → Root of your ZeroPoint-based project
 │   │   ├── images/
 │   │   ├── scripts/
 │   │   ├── styles/
-│   │   └── views/
-│   │       └── layouts/
-│   │       └── partials/
+│   │   ├── views/
+│   │   │   └── layouts/
+│   │   │   └── partials/
+│   │   └── assets.json     # → Shared attributes for files in the assets directory
 │   ├── config/             # → Eleventy configuration
 │   │   ├── collections.js  # → Add and configure collections (https://www.11ty.dev/docs/collections/)
 │   │   ├── filters.js      # → Add and configure filters (https://www.11ty.dev/docs/filters/)
@@ -66,12 +67,22 @@ example.com                 # → Root of your ZeroPoint-based project
 │   │   ├── plugins.js      # → Add and configure plugins (https://www.11ty.dev/docs/plugins/)
 │   │   ├── shortcodes.js   # → Add and configure shortcodes (https://www.11ty.dev/docs/shortcodes/)
 │   │   ├── templateLanguages.js   # → Configure custom template languages (HINT: this is where ZeroPoint's Sass and Javascript pipelines are set up!) (https://www.11ty.dev/docs/languages/custom/)
-│   │   └── watchtargets.js # → Add and configure watch targets (https://www.11ty.dev/docs/watch-serve/)
-│   ├── data                # → Customize site data (https://www.11ty.dev/docs/data/)
-│   │   └── navigation.json # → Site navigation configuration
-│   └── pages               # → Add "pages" collection items here
-│       ├── index.md        # → Default index page
-│       └── pages.json      # → Shared pages attributes
+│   │   ├── watchtargets.js # → Add and configure watch targets (https://www.11ty.dev/docs/watch-serve/)
+│   │   └── config.json     # → Shared attributes for files in the config directory
+│   ├── content             # → A nice, organized, recommended place for all site content
+│   │   ├── pages           # → Add "pages" collection items here
+│   │   │   ├── index.md    # → Default index page
+│   │   │   ├── contact.md  # → Example contact page
+│   │   │   ├── thank-you.md # → Example thank-you page
+│   │   │   └── pages.json  # → Shared pages attributes
+│   │   ├── 404.njk         # → 404 error page template
+│   │   ├── manifest.njk    # → Web manifest template
+│   │   ├── redirects.njk   # → Netlify redirects (https://docs.netlify.com/routing/redirects/)
+│   │   ├── robots.njk      # → robots.txt template
+│   │   └── xml_sitemap.njk # → XML sitemap template
+│   └── data                # → Customize site data (https://www.11ty.dev/docs/data/)
+│       ├── navigation.json # → Site navigation configuration
+│       └── site.json       # → Site branding configuration
 ├── .eleventy.js            # → Core Eleventy config file
 ├── netlify.toml            # → Netlify deployment and plugin configuration (optional)
 ├── README.template.md      # → ZeroPoint readme
