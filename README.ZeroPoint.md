@@ -105,7 +105,15 @@ npm i
 ## Run the project locally
 
 ```bash
-npm run start
+npm run dev
+```
+
+## Build for staging
+
+(The same as production except every page is flagged `noindex`)
+
+```bash
+npm run production
 ```
 
 ## Build for production
