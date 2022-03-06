@@ -70,16 +70,7 @@ example.com                 # → Root of your ZeroPoint-based project
 │   │   ├── watchtargets.js # → Add and configure watch targets (https://www.11ty.dev/docs/watch-serve/)
 │   │   └── config.json     # → Shared attributes for files in the config directory
 │   ├── content             # → A nice, organized, recommended place for all site content
-│   │   ├── pages           # → Add "pages" collection items here
-│   │   │   ├── index.md    # → Default index page
-│   │   │   ├── contact.md  # → Example contact page
-│   │   │   ├── thank-you.md # → Example thank-you page
-│   │   │   └── pages.json  # → Shared pages attributes
-│   │   ├── 404.njk         # → 404 error page template
-│   │   ├── manifest.njk    # → Web manifest template
-│   │   ├── redirects.njk   # → Netlify redirects (https://docs.netlify.com/routing/redirects/)
-│   │   ├── robots.njk      # → robots.txt template
-│   │   └── xml_sitemap.njk # → XML sitemap template
+│   │   └── pages           # → Add "pages" collection items here
 │   └── data                # → Customize site data (https://www.11ty.dev/docs/data/)
 │       ├── navigation.json # → Site navigation configuration
 │       └── site.json       # → Site branding configuration
