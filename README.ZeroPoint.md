@@ -113,7 +113,7 @@ npm run dev
 (The same as production except every page is flagged `noindex`)
 
 ```bash
-npm run production
+npm run staging
 ```
 
 ## Build for production
