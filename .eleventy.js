@@ -134,7 +134,6 @@ module.exports = function (eleventyConfig) {
   });
 
   console.groupEnd();
-  console.log("\n");
 
   /**
    * Add filters from /src/config/filters.js
@@ -180,6 +179,21 @@ module.exports = function (eleventyConfig) {
       let minified = htmlmin.minify(content, {
         useShortDoctype: true,
         removeComments: true,
+        collapseWhitespace: true
+      });
+      return minified;
+    }
+
+    return content;
+  });
+
+  /**
+   * Minify XML output
+   */
+   eleventyConfig.addTransform("xmlmin", function(content, outputPath) {
+    // Eleventy 1.0+: use this.inputPath and this.outputPath instead
+    if( this.outputPath && this.outputPath.endsWith(".xml") ) {
+      let minified = htmlmin.minify(content, {
         collapseWhitespace: true
       });
       return minified;
