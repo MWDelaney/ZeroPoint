@@ -17,7 +17,7 @@
     {% metagen title = title or metadata.title %}
 
     {# If ELEVENTY_ENV environmental variable isn't set to "production", hide this page from search engines #}
-    {% if (process.env.ELEVENTY_ENV != 'production') %}
+    {% if ( index == false) %}
       <meta name="robots" content="noindex,nofollow">
     {% endif %}
 
