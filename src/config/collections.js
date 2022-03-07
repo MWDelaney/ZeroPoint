@@ -21,7 +21,7 @@ module.exports = {
    */
   pages: function (collection) {
     // Get all `.md` files in the `src/pages` directory
-    let result = collection.getFilteredByGlob("src/pages/*.md");
+    let result = collection.getFilteredByGlob("src/content/pages/*.md");
 
     // Return the config to .eleventy.js
     return result;
