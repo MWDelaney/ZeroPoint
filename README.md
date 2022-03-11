@@ -42,7 +42,7 @@ Create a new project using ZeroPoint and add it to your GitHub account
 
 Create a copy of ZeroPoint and deploy it straight to [Netlify](https://netlify.com) for **free**!
 
-[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/MWDelaney/ZeroPoint/)
+[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/MWDelaney/ZeroPoint)
 
 
  </details>
