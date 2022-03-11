@@ -3,7 +3,6 @@
  * This Eleventy-based project abstracts the traditional `.eleventy.js` file to help keep things clean and tidy.
  * Consider editing the following files instead:
  *  - `src/config/collections.js`
- *  - `src/config/filters.js`
  *  - `src/config/passthroughs.js`
  *  - `src/config/plugins.js`
  *  - `src/config/shortcodes.js`
@@ -20,11 +19,6 @@ const passthroughs = require('./src/config/passthroughs');
  * Collections are defined as named exports in /src/config/collections.js
  */
 const collections = require('./src/config/collections');
-
-/**
- * Filters are defined as named exports in /src/config/filters.js
- */
-const filters = require('./src/config/filters');
 
 /**
  * Watch targets are defined as named exports in /src/config/watchtargets.js
@@ -136,13 +130,6 @@ module.exports = function (eleventyConfig) {
   console.groupEnd();
 
   /**
-   * Add filters from /src/config/filters.js
-   */
-  Object.keys(filters).forEach((filterName) => {
-    eleventyConfig.addFilter(filterName, filters[filterName]);
-  });
-
-  /**
    * Add passthrough copy from /src/config/passthroughs.js
    */
   Object.keys(passthroughs).forEach((passthroughName) => {
@@ -204,28 +191,18 @@ module.exports = function (eleventyConfig) {
 
 
   /**
-   * Configure browsersync
-   */
-  eleventyConfig.setBrowserSyncConfig({
-    open: true,
-    callbacks: {
-      ready: function(err, bs) {
-        bs.addMiddleware("*", (req, res) => {
-          const content_404 = fs.readFileSync('public/404.html');
-          // Add 404 http status code in request header.
-          res.writeHead(404, { "Content-Type": "text/html; charset=UTF-8" });
-          // Provides the 404 content without redirect.
-          res.write(content_404);
-          res.end();
-        });
-      }
-    }
+  * Configure dev server
+  * https://www.11ty.dev/docs/watch-serve/#eleventy-dev-server
+  */
+  eleventyConfig.setServerOptions({
+    showAllHosts: true,
   });
 
   /**
    * Enable quiet mode
    */
   eleventyConfig.setQuietMode(true);
+
 
   /**
    * Return the config to Eleventy
