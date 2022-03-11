@@ -25,18 +25,32 @@ Why you might choose _ZeroPoint_ as your Jamstack starter:
 
 ## Get started: Use This Template
 
-<details open>
- <summary>Right from this README</summary>
- 
-###  Create a new project using ZeroPoint and add it to your GitHub account
+Get started with ZeroPoint one of the following ways:
 
- [Click here to use this template](https://github.com/MWDelaney/ZeroPoint/generate)
+<details open>
+ <summary>Start with GitHub</summary>
+
+Create a new project using ZeroPoint and add it to your GitHub account
+
+<a href="https://github.com/MWDelaney/ZeroPoint/generate">
+  <img src="https://img.shields.io/badge/use%20this-template-blueviolet?logo=github&style=for-the-badge">
+</a>
+ </details>
+
+<details open>
+ <summary>Start with Netlify</summary>
+
+Create a copy of ZeroPoint and deploy it straight to [Netlify](https://netlify.com) for **free**!
+
+[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/MWDelaney/ZeroPoint/)
+
+
  </details>
 
 <details>
  <summary>With GitHub CLI (https://cli.github.com)</summary>
 
-### Get started from your command line
+Get started from your command line
 
  ```sh
   gh repo create example.com --template MWDelaney/ZeroPoint
