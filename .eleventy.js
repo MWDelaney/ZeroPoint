@@ -69,7 +69,7 @@ module.exports = function (eleventyConfig) {
     chalk.gray("(/src/config/collections.js)")
   );
 
-  Object.keys(collections).forEach((collectionName, index, collections) => {
+  Object.keys(collections).forEach((collectionName, index) => {
     let len = Object.keys(collections).length - 1;
     let pre = (index === len ? "└── " : "├── ");
     console.log(
@@ -77,7 +77,7 @@ module.exports = function (eleventyConfig) {
       chalk.green(collectionName)
     );
 
-    eleventyConfig.addCollection(collectionName, collections[collectionName])
+    collections[collectionName](eleventyConfig);
   });
 
   console.groupEnd();
