@@ -7,23 +7,20 @@ module.exports = {
   // /**
   // * Blog posts
   // */
-  // posts: function (collection) {
-  //  // Get all `.md` files in the `src/posts` directory
-  //  let result = collection.getFilteredByGlob('./src/posts/*.md');
-  //
-  //  // Return the config to .eleventy.js
-  //  return result;
+  // posts: function (eleventyConfig) {
+  // eleventyConfig.addCollection("posts", function(collectionApi) {
+  //    return collectionApi.getFilteredByGlob("src/content/posts/*.md");
+  //  });
   // },
 
 
   /**
    * Pages
    */
-  pages: function (collection) {
+  pages: function (eleventyConfig) {
     // Get all `.md` files in the `src/pages` directory
-    let result = collection.getFilteredByGlob("src/content/pages/*.md");
-
-    // Return the config to .eleventy.js
-    return result;
+    eleventyConfig.addCollection("pages", function(collectionApi) {
+      return collectionApi.getFilteredByGlob("src/content/pages/*.md");
+    });
   }
 }
