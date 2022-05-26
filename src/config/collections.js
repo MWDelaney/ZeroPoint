@@ -4,13 +4,23 @@
 */
 
 module.exports = {
-  // posts: function (collection) {
-  //     return collection.getFilteredByGlob("src/posts/*.md")
+  // /**
+  // * Blog posts
+  // */
+  // posts: function (eleventyConfig) {
+  // eleventyConfig.addCollection("posts", function(collectionApi) {
+  //    return collectionApi.getFilteredByGlob("src/content/posts/*.md");
+  //  });
   // },
 
-  pages: function (collection) {
-    let result = collection.getFilteredByGlob("src/pages/*.md");
 
-    return result;
+  /**
+   * Pages
+   */
+  pages: function (eleventyConfig) {
+    // Get all `.md` files in the `src/pages` directory
+    eleventyConfig.addCollection("pages", function(collectionApi) {
+      return collectionApi.getFilteredByGlob("src/content/pages/*.md");
+    });
   }
 }

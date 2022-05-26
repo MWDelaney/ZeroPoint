@@ -7,23 +7,21 @@
   --color-light: silver;
   --color-primary: #7950f2;
 
+  @media (prefers-color-scheme: dark) {
+    --color-text: #fff;
+    --color-background: #222;
+  }
+
   /**
     Spacing and units
   */
   --unit: 1rem;
-  --container-width: 40ch;
+  --container-width: 60ch;
 
   /**
     Fonts
   */
   --font-family-sans-serif:
     system,
-    -apple-system,
-    ".SFNSText-Regular",
-    "San Francisco",
-    "Roboto",
-    "Segoe UI",
-    "Helvetica Neue",
-    "Lucida Grande",
-    sans-serif;
+    -apple-system;
 }

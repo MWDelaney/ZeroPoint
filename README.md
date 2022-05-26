@@ -42,8 +42,7 @@ Create a new project using ZeroPoint and add it to your GitHub account
 
 Create a copy of ZeroPoint and deploy it straight to [Netlify](https://netlify.com) for **free**!
 
-[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/MWDelaney/ZeroPoint)
-
+[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/MWDelaney/ZeroPoint/)
 
  </details>
 
@@ -70,9 +69,10 @@ example.com                 # → Root of your ZeroPoint-based project
 │   │   ├── images/
 │   │   ├── scripts/
 │   │   ├── styles/
-│   │   └── views/
-│   │       └── layouts/
-│   │       └── partials/
+│   │   ├── views/
+│   │   │   └── layouts/
+│   │   │   └── partials/
+│   │   └── assets.json     # → Shared attributes for files in the assets directory
 │   ├── config/             # → Eleventy configuration
 │   │   ├── collections.js  # → Add and configure collections (https://www.11ty.dev/docs/collections/)
 │   │   ├── filters.js      # → Add and configure filters (https://www.11ty.dev/docs/filters/)
@@ -80,12 +80,13 @@ example.com                 # → Root of your ZeroPoint-based project
 │   │   ├── plugins.js      # → Add and configure plugins (https://www.11ty.dev/docs/plugins/)
 │   │   ├── shortcodes.js   # → Add and configure shortcodes (https://www.11ty.dev/docs/shortcodes/)
 │   │   ├── templateLanguages.js   # → Configure custom template languages (HINT: this is where ZeroPoint's Sass and Javascript pipelines are set up!) (https://www.11ty.dev/docs/languages/custom/)
-│   │   └── watchtargets.js # → Add and configure watch targets (https://www.11ty.dev/docs/watch-serve/)
-│   ├── data                # → Customize site data (https://www.11ty.dev/docs/data/)
-│   │   └── navigation.json # → Site navigation configuration
-│   └── pages               # → Add "pages" collection items here
-│       ├── index.md        # → Default index page
-│       └── pages.json      # → Shared pages attributes
+│   │   ├── watchtargets.js # → Add and configure watch targets (https://www.11ty.dev/docs/watch-serve/)
+│   │   └── config.json     # → Shared attributes for files in the config directory
+│   ├── content             # → A nice, organized, recommended place for all site content
+│   │   └── pages           # → Add "pages" collection items here
+│   └── data                # → Customize site data (https://www.11ty.dev/docs/data/)
+│       ├── navigation.json # → Site navigation configuration
+│       └── site.json       # → Site branding configuration
 ├── .eleventy.js            # → Core Eleventy config file
 ├── netlify.toml            # → Netlify deployment and plugin configuration (optional)
 ├── README.template.md      # → ZeroPoint readme
@@ -105,7 +106,15 @@ npm i
 ## Run the project locally
 
 ```bash
-npm run start
+npm run dev
+```
+
+## Build for staging
+
+(The same as production except every page is flagged `noindex`)
+
+```bash
+npm run staging
 ```
 
 ## Build for production
