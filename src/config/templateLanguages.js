@@ -7,32 +7,29 @@ module.exports = {
   /**
    * Compile Sass/scss files to CSS using Sass
    */
-  scss: function () {
-    // Require dependencies
+   scss: function () {
     let path = require("path");
     let sass = require("sass");
-
     let config = {
-      // Set the output file extension
       outputFileExtension: "css",
-
-      // Compile should return a string
-      compile: async function(inputContent, inputPath) {
+      compile: function (contents, inputPath) {
         let parsed = path.parse(inputPath);
         if(parsed.name.startsWith("_")) {
           return;
         }
-
-        let result = sass.compileString(inputContent);
-
-        // This is the render function, `data` is the full data cascade
-        return async (data) => {
-          return result.css;
+        let includesPaths = [this.config.dir.includes];
+        return (data) => {
+          let result = sass.renderSync({
+            file: inputPath,
+            includesPaths,
+            data: contents,
+            outputStyle: "compressed",
+          });
+          return result.css.toString("utf8");
         };
       }
     }
 
-    // Return the config to .eleventy.js
     return config;
   },
 
@@ -46,6 +43,7 @@ module.exports = {
     let { rollup } = require("rollup");
     let { terser } = require("rollup-plugin-terser");
     let { nodeResolve } = require("@rollup/plugin-node-resolve");
+    let replace = require("@rollup/plugin-replace");
     let commonjs = require("@rollup/plugin-commonjs");
 
     let config = {
@@ -66,6 +64,10 @@ module.exports = {
           let bundle = await rollup({
             input: inputPath,
             plugins: [
+              replace({
+                preventAssignment: true,
+                'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV),
+              }),
               nodeResolve(),
               terser(),
               commonjs(),
