@@ -14,9 +14,9 @@
     <link rel="icon" type="image/svg+xml" href="/assets/images/favicon.svg">
 
     {# metagen plugin output #}
-    {% metagen 
-      title = title or metadata.title
-      url = site.siteUrl + page.url 
+    {% metagen
+      title = title or metadata.title,
+      url = site.siteUrl + page.url
      %}
 
     {# If ELEVENTY_ENV environmental variable isn't set to "production", hide this page from search engines #}
