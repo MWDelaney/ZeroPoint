@@ -194,7 +194,7 @@ module.exports = function (eleventyConfig) {
   * Configure dev server
   * https://www.11ty.dev/docs/watch-serve/#eleventy-dev-server
   */
-  eleventyConfig.setServerOptions({
+   eleventyConfig.setServerOptions({
     showAllHosts: true,
   });
 
