@@ -20,7 +20,7 @@ module.exports = {
   pages: function (eleventyConfig) {
     // Get all `.md` files in the `src/pages` directory
     eleventyConfig.addCollection("pages", function(collectionApi) {
-      return collectionApi.getFilteredByGlob("src/content/pages/*.md");
+      return collectionApi.getFilteredByGlob("src/content/pages/*.njk");
     });
   }
 }

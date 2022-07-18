@@ -19,34 +19,35 @@ module.exports = {
    * https://www.11ty.dev/docs/plugins/image/
    */
   image: function (eleventyConfig) {
-    // Require dependencies
-    let Image = require("@11ty/eleventy-img");
+    const Image = require("@11ty/eleventy-img");
 
-    async function imageShortcode(src, alt, sizes) {
-      let metadata = await Image(src, {
-        widths: [300, 600],
-        formats: ["webp", "jpg"],
-        urlPath: "assets/images",
-        outputDir: "./public/assets/images"
-      });
+    function imageShortcode(src, alt = "", className = "", style = "", sizes = "") {
+      let options = {
+        widths: [null],
+        formats: [null],
+        urlPath: "/assets/images/",
+        outputDir: "./public/assets/images/"
+      };
+
+      // Prepend the src directory
+      let srcPlusPath = "./src/" + src;
+
+      // generate images, while this is async we don’t wait
+      Image(srcPlusPath, options);
 
       let imageAttributes = {
+        class: className,
+        style,
         alt,
         sizes,
         loading: "lazy",
         decoding: "async",
       };
-
-      let htmlAttributes = {
-        whitespaceMode: "inline"
-      }
-
-      // You bet we throw an error on missing alt in `imageAttributes` (alt="" works okay)
-      return Image.generateHTML(metadata, imageAttributes, htmlAttributes);
+      // get metadata even the images are not fully generated
+      let metadata = Image.statsSync(srcPlusPath, options);
+      return Image.generateHTML(metadata, imageAttributes);
     }
 
-    eleventyConfig.addNunjucksAsyncShortcode("image", imageShortcode);
-    eleventyConfig.addLiquidShortcode("image", imageShortcode);
-    eleventyConfig.addJavaScriptFunction("image", imageShortcode);
+    eleventyConfig.addNunjucksShortcode("image", imageShortcode);
   }
 }
