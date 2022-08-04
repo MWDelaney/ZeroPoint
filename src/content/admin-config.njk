@@ -1,0 +1,22 @@
+---
+eleventyExcludeFromCollections: true
+permalink: "/admin/config.yml"
+---
+backend:
+  name: git-gateway
+  branch: editor-components
+media_folder: "src/assets/images"
+public_folder: "/assets/images"
+collections:
+  - name: "pages"
+    label: "Pages"
+    editor:
+      preview: false
+    folder: "src/content/pages"
+    create: true
+    extension: "md"
+    format: "frontmatter"
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Permalink Override (Pattern: '/your-slug/')", name: "permalink", widget: "string", required: false }
+      - { label: "Body", name: "body", widget: "markdown" }
