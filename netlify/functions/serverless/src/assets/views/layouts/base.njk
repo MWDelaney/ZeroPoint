@@ -13,8 +13,8 @@
     {# Favicon #}
     <link rel="icon" type="image/svg+xml" href="/assets/images/favicon.svg">
 
-    {# Page and site meta #}
-    {% include "partials/meta.njk" %}
+    {# metagen plugin output #}
+    {% metagen title = title or metadata.title %}
 
     {# If ELEVENTY_ENV environmental variable isn't set to "production", hide this page from search engines #}
     {% if ( index == false) %}
@@ -22,7 +22,7 @@
     {% endif %}
 
   </head>
-  <body class="layout-{{ page.layout }} page-{{ page.title | slugify }}">
+  <body>
     {# Skip to content link #}
     <a class="visually-hidden" href="#main">Skip to content</a>
 

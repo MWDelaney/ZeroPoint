@@ -7,3 +7,12 @@
 
 [[plugins]]
   package = "netlify-plugin-inline-critical-css"
+
+[functions]
+   directory = "netlify/functions"
+
+ [[redirects]]
+   from = "/api/screenshot/*"
+   to = "/.netlify/builders/screenshot"
+   status = 200
+   force = true

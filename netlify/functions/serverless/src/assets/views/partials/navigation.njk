@@ -1,0 +1,43 @@
+<nav id="navigation" role="navigation">
+  <span class="navigation-label">Navigation:</span>
+
+  {% for item in navigation.items %}
+
+    {# Set attributes and classes to blank to start #}
+    {% set relAttribute = '' %}
+    {% set currentAttribute = '' %}
+    {% set itemUrl = item.url %}
+    {% set target = '' %}
+    {% set active = '' %}
+
+    {# Set Attributes #}
+    {% if item.rel %}
+      {% set relAttribute = ' rel="' + item.rel + '"' %}
+    {% endif %}
+
+    {% if page.url | lower == item.url | lower %}
+      {% set currentAttribute = ' aria-current="page"' %}
+      {% set active = 'active' %}
+    {% endif %}
+
+    {# {% set hasSubmenu = '' %}
+    {% set dropdown = '' %}
+    {% set dropdownToggle = '' %}
+    {% set dropdownAtttributes = '' %} #}
+
+    {# {% if item.submenuitems | length %}
+      {% set hasSubmenu = true %}
+      {% set dropdown = 'dropdown' %}
+      {% set dropdownToggle = 'dropdown-toggle' %}
+      {% set dropdownAttributes = 'role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"' %}
+      {% set itemUrl = '#' %}
+    {% endif %} #}
+
+    {# {% if item.external %}
+      {% set target = 'target="_blank"' %}
+    {% endif %} #}
+
+    {% include "partials/nav-item.njk" %}
+
+  {% endfor %}
+</nav>

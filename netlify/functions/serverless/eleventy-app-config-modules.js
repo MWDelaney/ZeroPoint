@@ -1,0 +1,11 @@
+require("@11ty/eleventy");
+require("@11ty/eleventy-img");
+require("@rollup/plugin-commonjs");
+require("@rollup/plugin-node-resolve");
+require("@rollup/plugin-replace");
+require("chalk");
+require("eleventy-plugin-metagen");
+require("eleventy-plugin-rollup");
+require("html-minifier");
+require("rollup-plugin-terser");
+require("sass");

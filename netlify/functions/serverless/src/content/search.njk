@@ -1,0 +1,25 @@
+---
+layout: base.njk
+permalink:
+  serverless: /search/
+  build: /search/
+eleventyComputed:
+  title: "Search {% if eleventy.serverless.query.search %}Results{% else %}Posts{% endif %}"
+eleventyExcludeFromCollections: true
+---
+
+{% set searchTerm = eleventy.serverless.query.search %}
+
+{# {% include "searchform.njk" %} #}
+
+{% if searchTerm %}
+<h2>Search for: {{ searchTerm }}</h2>
+<p><strong>{{ collections.allPosts | results(searchTerm) | length }}</strong> results</p>
+
+<ul class="posts">
+{% for post in collections.allPosts | results(searchTerm) %}
+  <li><a href="{{ post.url }}">{{ post.title }}</a></li>
+{% endfor %}
+</ul>
+
+{% endif %}

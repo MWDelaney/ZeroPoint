@@ -1,0 +1,9 @@
+{
+  "dir": {
+    "input": "src",
+    "data": "src/data",
+    "includes": "src/assets/views",
+    "layouts": "src/assets/views/layouts",
+    "output": "public"
+  }
+}

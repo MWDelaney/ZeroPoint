@@ -1,0 +1,19 @@
+---
+title: Opengraph Image
+layout: base.njk
+permalink: /opengraph/{{ post.url }}/index.html
+eleventyExcludeFromCollections: true
+pagination:
+  data: collections.pages
+  size: 1
+  alias: post
+  addAllPagesToCollections: false
+eleventyComputed:
+  title: "{{ post.title }} Opengraph Image"
+---
+<main class="opengraph-image text-center vh-100 bg-green">
+  <article>
+    <h1 class="text-white w-50">{{ post.data.title }}</h1>
+  </article>
+  <time class="text-white fs-2" datetime="{{ date }}">{{ post.data.date }}</time>
+</main>
