@@ -79,7 +79,7 @@ async function screenshot(url, { format, viewport, dpr = 1, withJs = true, wait,
 async function handler(event, context) {
   // e.g. /https%3A%2F%2Fwww.11ty.dev%2F/small/1:1/smaller/
   let pathSplit = event.path.split("/").filter(entry => !!entry);
-  let [dir, path, url, size, aspectratio, zoom, cachebuster] = pathSplit;
+  let [root, dir, path, url, size, aspectratio, zoom, cachebuster] = pathSplit;
   let format = "jpeg"; // hardcoded for now, but png and webp are supported!
   let viewport = [];
 
