@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.html",
   "scripts": {
-    "🪐": "cross-env ELEVENTY_ENV=development eleventy --serve",
+    "🪐": "cross-env ELEVENTY_ENV=development IS_LOCAL=true eleventy --serve",
     "🚧": "cross-env ELEVENTY_ENV=staging eleventy",
     "🚀": "cross-env ELEVENTY_ENV=production eleventy",
     "dev": "npm run-s 🪐",

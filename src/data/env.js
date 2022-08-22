@@ -1,6 +1,8 @@
 
 module.exports = function() {
+
   return {
-    url: process.env.DEPLOY_PRIME_URL
+    name: process.env.name || "production",
+    url: (process.env.name) ? "http://localhost:8888" : process.env.DEPLOY_PRIME_URL
   };
 };
