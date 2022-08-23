@@ -19,9 +19,9 @@
   "author": "MWDelaney",
   "license": "MIT",
   "dependencies": {
-    "@netlify/functions": "^1.0.0",
+    "@netlify/functions": "^1.2.0",
     "chrome-aws-lambda": "^10.1.0",
-    "puppeteer-core": "^13.7.0"
+    "puppeteer-core": "^10.1.0"
   },
   "browserslist": [
     "last 2 versions"
