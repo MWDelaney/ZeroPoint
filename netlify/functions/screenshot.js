@@ -15,14 +15,8 @@ async function screenshot(url, { format, viewport, dpr = 1, withJs = true, wait,
   // Must be between 3000 and 8500
   timeout = Math.min(Math.max(timeout, 3000), 8500);
 
-  if (process.env.NETLIFY_DEV) {
-    var executablePath ='/Applications/Google Chrome.app/Contents/MacOS/Google Chrome';
-  } else {
-    var executablePath = await chromium.executablePath;
-  }
-
   const browser = await chromium.puppeteer.launch({
-    executablePath: executablePath,
+    executablePath: (process.env.NETLIFY_DEV) ? await "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome" : await chromium.executablePath,
     args: chromium.args,
     defaultViewport: {
       width: viewport[0],
