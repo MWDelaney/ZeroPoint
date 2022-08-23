@@ -17,7 +17,7 @@ async function screenshot(url, { format, viewport, dpr = 1, withJs = true, wait,
 
   const browser = await chromium.puppeteer.launch({
     executablePath: (process.env.NETLIFY_DEV) ? await "/Applications/Chromium.app/Contents/MacOS/Chromium" : await chromium.executablePath,
-    args: [ '--disable-gpu', '--disable-setuid-sandbox', '--no-sandbox', '--no-zygote' ],
+    args: chromium.args,
     defaultViewport: {
       width: viewport[0],
       height: viewport[1],
