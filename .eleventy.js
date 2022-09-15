@@ -8,6 +8,7 @@
  *  - `src/config/shortcodes.js`
  *  - `src/config/watchtargets.js`
  *  - `src/config/templateLanguages.js`
+ *  - `src/config/filters.js`
  */
 
 /**
@@ -39,6 +40,11 @@ const shortcodes = require('./src/config/shortcodes');
  * Custom template languages are defined as named exports in /src/config/templateLanguages.js
  */
 const templateLanguages = require('./src/config/templateLanguages');
+
+/**
+ * Filters are defined as named exports in /src/config/filters.js
+ */
+ const filters = require('./src/config/filters');
 
 /**
  * Any additional requirements can be added here
@@ -87,7 +93,7 @@ module.exports = function (eleventyConfig) {
    * Echo the registered collections in the terminal
    * Add Eleventy plugins from /src/config/plugins.js
    */
-   console.group(
+  console.group(
     chalk.white("  ├── ") +
     chalk.yellow("🔌 Plugins ") +
     chalk.gray("(/src/config/plugins.js)")
@@ -110,7 +116,7 @@ module.exports = function (eleventyConfig) {
    * Echo the registered shortcodes in the terminal
    * Add shortcodes from /src/config/shortcodes.js
    */
-   console.group(
+  console.group(
     chalk.white("  └── ") +
     chalk.yellow("⏩ Shortcodes ") +
     chalk.gray("(/src/config/shortcodes.js)")
@@ -143,13 +149,20 @@ module.exports = function (eleventyConfig) {
     eleventyConfig.addWatchTarget(watchtargets[watchtargetName]())
   });
 
-   /**
-   * Add template languages from /src/config/templateLanguages.js
+  /**
+  * Add template languages from /src/config/templateLanguages.js
+  */
+  Object.keys(templateLanguages).forEach((templateLanguageName) => {
+    eleventyConfig.addTemplateFormats(templateLanguageName);
+    eleventyConfig.addExtension(templateLanguageName, templateLanguages[templateLanguageName]())
+  });
+
+  /**
+   * Add filters from /src/config/filters.js
    */
-    Object.keys(templateLanguages).forEach((templateLanguageName) => {
-      eleventyConfig.addTemplateFormats(templateLanguageName);
-      eleventyConfig.addExtension(templateLanguageName, templateLanguages[templateLanguageName]())
-    });
+  Object.keys(filters).forEach((filterName) => {
+    filters[filterName](eleventyConfig);
+  });
 
   /**
    * End pretty console output
@@ -160,9 +173,9 @@ module.exports = function (eleventyConfig) {
   /**
    * Minify HTML output
    */
-   eleventyConfig.addTransform("htmlmin", function(content, outputPath) {
+  eleventyConfig.addTransform("htmlmin", function (content, outputPath) {
     // Eleventy 1.0+: use this.inputPath and this.outputPath instead
-    if( this.outputPath && this.outputPath.endsWith(".html") ) {
+    if (this.outputPath && this.outputPath.endsWith(".html")) {
       let minified = htmlmin.minify(content, {
         useShortDoctype: true,
         removeComments: true,
@@ -177,9 +190,9 @@ module.exports = function (eleventyConfig) {
   /**
    * Minify XML output
    */
-   eleventyConfig.addTransform("xmlmin", function(content, outputPath) {
+  eleventyConfig.addTransform("xmlmin", function (content, outputPath) {
     // Eleventy 1.0+: use this.inputPath and this.outputPath instead
-    if( this.outputPath && this.outputPath.endsWith(".xml") ) {
+    if (this.outputPath && this.outputPath.endsWith(".xml")) {
       let minified = htmlmin.minify(content, {
         collapseWhitespace: true
       });
@@ -194,7 +207,7 @@ module.exports = function (eleventyConfig) {
   * Configure dev server
   * https://www.11ty.dev/docs/watch-serve/#eleventy-dev-server
   */
-   eleventyConfig.setServerOptions({
+  eleventyConfig.setServerOptions({
     showAllHosts: true,
   });
 

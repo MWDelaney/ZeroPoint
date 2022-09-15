@@ -9,6 +9,11 @@
       "text": "Contact",
       "url": "/contact/",
       "external": false
+    },
+    {
+      "text": "Blog",
+      "url": "/blog/",
+      "external": false
     }
   ]
 }

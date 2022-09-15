@@ -1,0 +1,16 @@
+<div class="blog-item">
+  <article>
+    <header>
+      <h2><a href="{{ post.url }}">{{ post.data.title }}</a></h2>
+      <aside class="tags">
+        <h3>Tags:</h3>
+        <ul>
+          {% for tag in post.data.tags %}
+            <li><a href="/blog/{{ tag | slugify }}">{{ tag }}</a></li>
+          {% endfor %}
+        </ul>
+      </aside>
+    </header>
+    {{ post.templateContent | safe }}
+  </article>
+</div>

@@ -1,0 +1,23 @@
+.pagination {
+  ol,
+  ul {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+    display: flex;
+  }
+
+  li {
+    padding: 0 var(--unit);
+  }
+
+  .highlighted {
+    background: var(--color-light);
+  }
+
+  [aria-current="page"] {
+    text-decoration: none;
+    pointer-events: none;
+    color: var(--color-text);
+  }
+}
