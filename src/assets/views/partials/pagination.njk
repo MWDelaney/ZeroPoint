@@ -1,6 +1,7 @@
 <nav class="pagination">
   <ul>
     {% if tag %}
+
       {% if tag.pageNumber != 0 %}
         {% set showPrevious = true %}
       {% else %}
@@ -72,9 +73,26 @@
           {% else %}
             {% set highlighted = false %}
           {% endif %}
+
+          {% if tag %}
+            {% if loop.index <= 1 %}
+              {% set url = '/blog/' + tag.slug + '/' %}
+            {% else %}
+              {% set url = '/blog/' + tag.slug + '/page/' + loop.index + '/' %}
+            {% endif %}
+          {% else %}
+            {% set url = pagination.hrefs[ loop.index0 ] %}
+          {% endif %}
+
+          {% set show = false %}
+
           {% if loop.index0 <= totalPages %}
+            {% set show = true %}
+          {% endif %}
+
+          {% if show %}
             {# finally print some HTML #}
-            <li  class="{% if currentPage %}current-page{% endif %} {% if highlighted == true %}highlighted{% endif %}"><a href="{{ pagination.hrefs[ loop.index0 ] }}"{% if page.url == pagination.hrefs[ loop.index0 ] %} aria-current="page"{% endif %}><span class="sr-only">Page </span>{{ loop.index }}</a></li>
+            <li  class="{% if currentPage %}current-page{% endif %} {% if highlighted == true %}highlighted{% endif %}"><a href="{{ url }}"{% if page.url == url %} aria-current="page"{% endif %}><span class="sr-only">Page </span>{{ loop.index }}</a></li>
           {% endif %}
         {% endfor %}
       </ol>

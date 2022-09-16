@@ -34,7 +34,7 @@ module.exports = {
         let pagedItems = _.chunk(tagItems, paginationSize);
         for( let pageNumber = 0, max = pagedItems.length; pageNumber < max; pageNumber++) {
           tagMap.push({
-            tagName: tagName,
+            slug: tagName,
             totalPages: (max - 1),
             pageNumber: pageNumber,
             posts: pagedItems[pageNumber]
