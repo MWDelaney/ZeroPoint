@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="{{ '/assets/styles/styles.css' | url }}"/>
 
     {# Favicon #}
-    <link rel="icon" type="image/svg+xml" href="/assets/images/favicon.svg">
+    <link rel="icon" type="image/svg+xml" href="/assets/images/global/favicon.svg">
 
     {# metagen plugin output #}
     {% metagen
@@ -50,6 +50,10 @@
     </footer>
 
     {# Script bundle #}
-    {% script "src/assets/scripts/main.js" | url %}
+    {% if (serverless.enabled) %}
+      <script src="/assets/scripts/{{ manifest["main.js"]}}" defer></script>
+    {% else %}
+      {% script "src/assets/scripts/main.js" | url %}
+    {% endif %}
   </body>
 </html>

@@ -1,9 +1,30 @@
 [build]
-  command = "npm run production"
-  publish = "public"
+command = "npm run production"
+publish = "public"
 
 [[plugins]]
-  package = "netlify-plugin-image-optim"
+package = "netlify-plugin-image-optim"
 
 [[plugins]]
-  package = "netlify-plugin-inline-critical-css"
+package = "netlify-plugin-inline-critical-css"
+
+[[redirects]]
+from = "/search/:term/"
+to = "/.netlify/functions/search"
+status = 200
+force = true
+_generated_by_eleventy_serverless = "search"
+
+[[redirects]]
+from = "/search/:term"
+to = "/.netlify/functions/search"
+status = 200
+force = true
+_generated_by_eleventy_serverless = "search"
+
+[[redirects]]
+from = "/search/"
+to = "/.netlify/functions/search"
+status = 200
+force = true
+_generated_by_eleventy_serverless = "search"

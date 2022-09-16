@@ -1,4 +1,5 @@
 <nav id="navigation" role="navigation">
+  {% image "assets/images/global/favicon.svg", "ZeroPoint Favicon" %}
   <span class="navigation-label">Navigation:</span>
 
   {% for item in navigation.items %}
@@ -40,4 +41,6 @@
     {% include "partials/nav-item.njk" %}
 
   {% endfor %}
+
+  {% include "partials/searchform.njk" %}
 </nav>

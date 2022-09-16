@@ -2,6 +2,9 @@
  * Add Eleventy plugins here
  * https://www.11ty.dev/docs/plugins/
 */
+const { EleventyServerlessBundlerPlugin } = require("@11ty/eleventy");
+const fs = require("fs");
+
 
 module.exports = {
   /**
@@ -26,6 +29,7 @@ module.exports = {
     let { nodeResolve } = require("@rollup/plugin-node-resolve");
     let replace = require("@rollup/plugin-replace");
     let commonjs = require("@rollup/plugin-commonjs");
+    let outputManifest = require('rollup-plugin-output-manifest').default;
 
     let config = {
       // Set a more descriptive shortcode
@@ -35,11 +39,14 @@ module.exports = {
         output: {
           format: "esm",
           sourcemap: true,
-          dir: 'public/assets/scripts'
+          dir: "public/assets/scripts",
         },
 
         // Configure the plugins
         plugins: [
+          outputManifest({
+            fileName: "../../../src/data/manifest.json",
+          }),
           replace({
             preventAssignment: true,
             'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV),
@@ -54,4 +61,29 @@ module.exports = {
     // Add the plugin to the Eleventy config
     eleventyConfig.addPlugin(plugin, config)
   },
+
+
+  /**
+   * Eleventy Serverless Bundler Plugin for Search
+   * https://www.11ty.dev/docs/plugins/eleventy-serverless-bundler-plugin/
+   */
+   search: function (eleventyConfig) {
+    // Add plugin to eleventyConfig
+    eleventyConfig.addPlugin(EleventyServerlessBundlerPlugin, {
+      name: "search",
+      functionsDir: "./netlify/functions/",
+      copy: [
+        ".cache",
+        "src/assets/images/global",
+        "_generated-serverless-collections.json",
+      ]
+    });
+
+    return {
+      dir: {
+        input: "src",
+        output: "public",
+      },
+    };
+  }
 }

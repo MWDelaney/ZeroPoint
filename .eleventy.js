@@ -8,6 +8,7 @@
  *  - `src/config/shortcodes.js`
  *  - `src/config/watchtargets.js`
  *  - `src/config/templateLanguages.js`
+ *  - `src/config/filters.js`
  */
 
 /**
@@ -39,6 +40,12 @@ const shortcodes = require('./src/config/shortcodes');
  * Custom template languages are defined as named exports in /src/config/templateLanguages.js
  */
 const templateLanguages = require('./src/config/templateLanguages');
+
+/**
+ * Filters
+ */
+ const filters = require('./src/config/filters');
+
 
 /**
  * Any additional requirements can be added here
@@ -149,6 +156,13 @@ module.exports = function (eleventyConfig) {
     Object.keys(templateLanguages).forEach((templateLanguageName) => {
       eleventyConfig.addTemplateFormats(templateLanguageName);
       eleventyConfig.addExtension(templateLanguageName, templateLanguages[templateLanguageName]())
+    });
+
+   /**
+   * Add filters from /src/config/filters.js
+   */
+    Object.keys(filters).forEach((filterName) => {
+      filters[filterName](eleventyConfig)
     });
 
   /**

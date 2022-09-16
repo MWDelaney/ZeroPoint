@@ -1,0 +1,26 @@
+---
+layout: base.njk
+eleventyComputed:
+  title: "Search Results"
+  permalink:
+    search: /search/
+eleventyExcludeFromCollections: true
+---
+
+{% set term = eleventy.serverless.query.s %}
+
+{% if term == "" %}
+  {% include "partials/searchform.njk" %}
+{% else %}
+
+  <h2>Search for: {{ term }}</h2>
+  <p><strong>{{ collections.pages| results(term) | length }}</strong> results</p>
+
+  <ul class="posts">
+  {% for post in collections.pages | results(term) %}
+    <li><a href="{{ post.data.page.url }}">{{ post.data.page.title }}</a></li>
+  {% endfor %}
+  </ul>
+
+
+{% endif %}

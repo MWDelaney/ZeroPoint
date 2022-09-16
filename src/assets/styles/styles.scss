@@ -26,6 +26,17 @@ a {
   display: flex;
   border-bottom: 1px solid var(--color-light);
   margin: var(--unit);
+
+  > img {
+    max-height: 50px;
+    width: auto;
+  }
+
+  .form-search {
+    margin-right: 0;
+    margin-left: auto;
+    margin-bottom: calc(var(--unit) * 0.25);
+  }
 }
 
 #footer {
@@ -64,6 +75,7 @@ input,
 textarea {
   width: 100%;
   display: block;
+  height: 100%;
 }
 
 button {
@@ -72,4 +84,8 @@ button {
 
 label {
   padding: calc(var(--unit) / 2) 0;
+}
+
+.form-search {
+  display: flex;
 }
