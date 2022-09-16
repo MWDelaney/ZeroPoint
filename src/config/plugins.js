@@ -29,7 +29,6 @@ module.exports = {
     let { nodeResolve } = require("@rollup/plugin-node-resolve");
     let replace = require("@rollup/plugin-replace");
     let commonjs = require("@rollup/plugin-commonjs");
-    let outputManifest = require('rollup-plugin-output-manifest').default;
 
     let config = {
       // Set a more descriptive shortcode
@@ -44,9 +43,6 @@ module.exports = {
 
         // Configure the plugins
         plugins: [
-          outputManifest({
-            fileName: "../../../src/data/manifest.json",
-          }),
           replace({
             preventAssignment: true,
             'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV),

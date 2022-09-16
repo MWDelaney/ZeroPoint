@@ -50,10 +50,6 @@
     </footer>
 
     {# Script bundle #}
-    {% if (serverless.enabled) %}
-      <script src="/assets/scripts/{{ manifest["main.js"]}}" defer></script>
-    {% else %}
-      {% script "src/assets/scripts/main.js" | url %}
-    {% endif %}
+    {% script "src/assets/scripts/main.js" | url %}
   </body>
 </html>
