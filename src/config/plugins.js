@@ -70,6 +70,7 @@ module.exports = {
       functionsDir: "./netlify/functions/",
       copy: [
         ".cache",
+        "src/assets/scripts",
         "src/assets/images/global",
         "_generated-serverless-collections.json",
       ]
