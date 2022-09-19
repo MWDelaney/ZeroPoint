@@ -1229,10 +1229,10 @@ eleventy-plugin-metagen@^1.4.8:
     "@11ty/eleventy" "^1.0.1"
     get-tag "^0.1.2"
 
-eleventy-plugin-rollup@^1.2.0-canary.1:
-  version "1.2.0-canary.1"
-  resolved "https://registry.yarnpkg.com/eleventy-plugin-rollup/-/eleventy-plugin-rollup-1.2.0-canary.1.tgz#feda171a53b2f6d9d122a93ccfd9a2a13a381c4a"
-  integrity sha512-iSuvyeu0rLOar60rz7bsTOJEUk5wBB9FdXG3JV84FToqy2G269huM/+P/nv0hHYkGJBV2v5cB6D9+ckM75qa8Q==
+eleventy-plugin-rollup@^1.2.0:
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/eleventy-plugin-rollup/-/eleventy-plugin-rollup-1.2.0.tgz#313a07b669d1944252646100f02227a9d77a0ae9"
+  integrity sha512-7+cxR2QDcoYyKr5nict8VMofp78q6TslvJHSEArlwOLOtPwuHZJftfA2JbUAwnCb6zG0Vinrw3tkzkNlWNbFjg==
 
 emoji-regex@^8.0.0:
   version "8.0.0"
