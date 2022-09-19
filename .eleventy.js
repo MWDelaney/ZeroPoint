@@ -158,8 +158,9 @@ module.exports = function (eleventyConfig) {
   });
 
   /**
-   * Add filters from /src/config/filters.js
-   */
+
+  * Add filters from /src/config/filters.js
+  */
   Object.keys(filters).forEach((filterName) => {
     filters[filterName](eleventyConfig);
   });
