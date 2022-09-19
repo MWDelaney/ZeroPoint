@@ -157,6 +157,9 @@ module.exports = function (eleventyConfig) {
     eleventyConfig.addExtension(templateLanguageName, templateLanguages[templateLanguageName]())
   });
 
+  /**
+  * Add filters from /src/config/filters.js
+  */
   Object.keys(filters).forEach((filterName) => {
     filters[filterName](eleventyConfig);
   });
