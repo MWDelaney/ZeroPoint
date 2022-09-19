@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     {# Page Title #}
-    <title>{{ title }}</title>
+    <title>{{ title | safe }}</title>
 
     {# Stylesheet #}
     <link rel="stylesheet" href="{{ '/assets/styles/styles.css' | url }}"/>
@@ -38,7 +38,7 @@
     <main id="main" tabindex="-1">
       <header id="page-header">
         <h1>
-          {{ title }}
+          {{ title | safe }}
         </h1>
       </header>
       {{ content | safe }}
