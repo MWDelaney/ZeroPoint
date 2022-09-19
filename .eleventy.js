@@ -44,7 +44,7 @@ const templateLanguages = require('./src/config/templateLanguages');
 /**
  * Filters are defined as named exports in /src/config/filters.js
  */
- const filters = require('./src/config/filters');
+const filters = require('./src/config/filters');
 
 /**
  * Any additional requirements can be added here
