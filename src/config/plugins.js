@@ -33,7 +33,7 @@ module.exports = {
       // Configure the output
       rollupOptions: {
         output: {
-          format: "cjs",
+          format: "esm",
           sourcemap: true,
           dir: 'public/assets/scripts'
         },
