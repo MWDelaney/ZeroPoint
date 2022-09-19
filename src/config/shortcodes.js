@@ -13,6 +13,7 @@ module.exports = {
     eleventyConfig.addShortcode("year", () => `${new Date().getFullYear()}`);
   },
 
+
   /**
    * Add image shortcode (requires image plugin)
    * https://www.11ty.dev/docs/plugins/image/
@@ -49,6 +50,7 @@ module.exports = {
 
     eleventyConfig.addNunjucksShortcode("image", imageShortcode);
   },
+
 
   collapse: function (eleventyConfig) {
     // Universal Shortcodes (Adds to Liquid, Nunjucks, Handlebars)
