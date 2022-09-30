@@ -1,0 +1,18 @@
+<hr>
+<style>
+  fancy-rule > hr {
+    --gradientStart: purple !default;
+    --gradientEnd: pink !default;
+    --gradient: linear-gradient(45deg, var(--gradientStart) 10%, var(--gradientEnd) 90%);
+    --unit: 1rem;
+
+    border: 0;
+    height: 2px;
+    background-image: var(--gradient);
+    border-radius: var(--unit);
+    transform: rotate(-1.5deg);
+    text-align: center;
+    margin-top: calc(var(--unit) * 2);
+    margin-bottom: calc(var(--unit) * 2);
+  }
+</style>

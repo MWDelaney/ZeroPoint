@@ -6,6 +6,8 @@
   --color-background: white;
   --color-light: silver;
   --color-primary: #7950f2;
+  --gradientStart: #7950f2;
+  --gradientEnd: #f783ac;
 
   @media (prefers-color-scheme: dark) {
     --color-text: #fff;
