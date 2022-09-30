@@ -1,8 +1,8 @@
 <hr>
 <style>
   fancy-rule > hr {
-    --gradientStart: purple !default;
-    --gradientEnd: pink !default;
+    --gradientStart: #7950f2;
+    --gradientEnd: #f783ac;
     --gradient: linear-gradient(45deg, var(--gradientStart) 10%, var(--gradientEnd) 90%);
     --unit: 1rem;
 
