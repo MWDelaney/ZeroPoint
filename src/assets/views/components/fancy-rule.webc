@@ -1,4 +1,5 @@
 <hr>
+
 <style>
   fancy-rule > hr {
     --gradientStart: #7950f2;
