@@ -1,0 +1,33 @@
+# .github/workflows/create-release.yml
+##
+# Create a release containing the built site artifacts.
+##
+
+name: 🆕 Create Release
+
+on:
+  workflow_dispatch:
+  pull_request:
+    types: [closed]
+    branches: [main]
+
+env:
+  environment: production
+
+jobs:
+  create-release:
+    runs-on: ubuntu-latest
+    steps:
+
+      # Checkout the repo
+      - uses: actions/checkout@v3
+        with:
+          ref: ${{ github.event.pull_request.base.ref }}
+
+      # Create a release
+      - uses: ./.github/actions/new-release
+        name: Create Production Release
+        if: github.event.pull_request.merged || github.event_name == 'workflow_dispatch'
+        with:
+          environment: ${{ env.environment }}
+          github_token: ${{ secrets.GITHUB_TOKEN }}
