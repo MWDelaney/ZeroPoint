@@ -1,27 +1,14 @@
-:root {
-  /**
-    Colors
-  */
-  --color-text: #222;
-  --color-background: white;
-  --color-light: silver;
-  --color-primary: #7950f2;
+/** Global Settings **/
+$enable-rounded: false;
 
-  @media (prefers-color-scheme: dark) {
-    --color-text: #fff;
-    --color-background: #222;
-  }
+/** Colors **/
+$primary: #7950f2;
+$light: silver;
+$custom: #ec560d;
 
-  /**
-    Spacing and units
-  */
-  --unit: 1rem;
-  --container-width: 60ch;
-
-  /**
-    Fonts
-  */
-  --font-family-sans-serif:
-    system,
-    -apple-system;
-}
+/** Override or add colors **/
+$custom-theme-colors: (
+  "primary": $primary,
+  "light": $light,
+  "custom": $custom
+);
