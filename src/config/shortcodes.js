@@ -49,5 +49,18 @@ module.exports = {
     }
 
     eleventyConfig.addNunjucksShortcode("image", imageShortcode);
+  },
+
+
+  collapse: function (eleventyConfig) {
+    // Universal Shortcodes (Adds to Liquid, Nunjucks, Handlebars)
+    eleventyConfig.addPairedShortcode("collapse", function (title, content) {
+      return `
+          <details>
+            <summary>${title}</summary>
+            ${content}
+          </details>
+        `;
+    });
   }
 }
