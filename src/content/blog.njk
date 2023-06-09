@@ -1,0 +1,17 @@
+---
+layout: base.njk
+permalink: /blog/{% if pagination.pageNumber > 0 %}/page/{{ pagination.pageNumber + 1 }}{% endif %}/index.html
+pagination:
+  data: collections.posts
+  size: 10
+  alias: posts
+  reverse: true
+eleventyComputed:
+  title: Blog {% if pagination.pageNumber > 0 %}(Page {{ pagination.pageNumber + 1 }}) {% endif %}
+---
+<section class="blog">
+  {% for post in posts %}
+    {% include "partials/blog-item.njk" %}
+  {% endfor %}
+  {% include "partials/pagination.njk" %}
+</section>

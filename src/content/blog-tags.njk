@@ -1,0 +1,17 @@
+---
+layout: base.njk
+permalink: /blog/{{ tag.slug | slugify }}/{% if tag.pageNumber > 0 %}/page/{{ tag.pageNumber + 1 }}{% endif %}/index.html
+pagination:
+  data: collections.postsByTag
+  size: 1
+  alias: tag
+  addAllPagesToCollections: true
+eleventyComputed:
+  title: Blog entries with tag &quot;{{ tag.slug }}&quot; {% if tag.pageNumber > 0 %}, (Page {{ tag.pageNumber + 1 }}) {% endif %}
+---
+<section class="blog blog-tag blog-tag-{{ tag.slug }}">
+  {% for post in tag.posts %}
+    {% include "partials/blog-item.njk" %}
+  {% endfor %}
+  {% include "partials/pagination.njk" %}
+</section>

@@ -1,0 +1,19 @@
+.blog-item {
+  margin-bottom: calc(var(--unit) * 3);
+
+  .tags {
+    display: flex;
+    margin: var(--unit) 0;
+
+    ul {
+      list-style-type: none;
+      display: flex;
+      margin: 0;
+      padding: 0;
+    }
+
+    li {
+      padding: 0 var(--unit);
+    }
+  }
+}

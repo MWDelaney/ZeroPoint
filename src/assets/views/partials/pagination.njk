@@ -1,0 +1,103 @@
+<nav class="pagination">
+  <ul>
+    {% if tag %}
+
+      {% if tag.pageNumber != 0 %}
+        {% set showPrevious = true %}
+      {% else %}
+        {% set showPrevious = false %}
+      {% endif %}
+
+      {% if tag.pageNumber != tag.totalPages %}
+        {% set showNext = true %}
+      {% else %}
+        {% set showNext = false %}
+      {% endif %}
+    {% else %}
+      {% if pagination.href.previous %}
+        {% set showPrevious = true %}
+      {% else %}
+        {% set showPrevious = false %}
+      {% endif %}
+
+      {% if pagination.href.next %}
+        {% set showNext = true %}
+      {% else %}
+        {% set showNext = false %}
+      {% endif %}
+    {% endif %}
+
+    <li class="previous">{% if showPrevious %}<a href="{{ pagination.href.previous }}">Previous</a>{% else %}Previous{% endif %}</li>
+    <li>
+
+      <ol class="pages">
+
+        {# loop through pages to retrieve index of "current" page, save its value as currentPageIndex so we can reference it later #}
+        {% set currentPageIndex = '' %}
+
+        {# if tag is set, we're in a tag page #}
+        {% if tag %}
+
+          {# tags are easy, we know the current page index already #}
+          {% set currentPageIndex = tag.pageNumber %}
+          {% set totalPages = tag.totalPages %}
+
+        {% else %}
+          {# otherwise, we need to loop through all pages to find the current page #}
+          {% for i in pagination.pages %}
+            {# if the current page URL matches the URL of the current loop item #}
+            {% if page.url == pagination.hrefs[ loop.index0 ] %}
+              {# Set the currentPageIndex to the index of the current loop item so that we can anticipate it and highlight it later #}
+              {% set currentPageIndex = loop.index0 %}
+            {% endif %}
+          {% endfor %}
+
+          {% set totalPages = pagination.hrefs.length %}
+
+        {% endif %}
+
+        {% for pageOfEntries in pagination.pages %}
+          {# Number of pages to highlight on either side of the current page #}
+          {% set highlightedRange = 3 %}
+
+          {# if the current looped item is the page we're looking at #}
+          {% if currentPageIndex == loop.index0 %}
+            {% set currentPage = true %}
+          {% else %}
+            {% set currentPage = false %}
+          {% endif %}
+
+          {# if the current looped item is within the highlighted range, or is the current page #}
+          {% if loop.index0 <= currentPageIndex + highlightedRange and loop.index0 >= currentPageIndex - highlightedRange %}
+            {% set highlighted = true %}
+          {% else %}
+            {% set highlighted = false %}
+          {% endif %}
+
+          {% if tag %}
+            {% if loop.index <= 1 %}
+              {% set url = '/blog/' + tag.slug + '/' %}
+            {% else %}
+              {% set url = '/blog/' + tag.slug + '/page/' + loop.index + '/' %}
+            {% endif %}
+          {% else %}
+            {% set url = pagination.hrefs[ loop.index0 ] %}
+          {% endif %}
+
+          {% set show = false %}
+
+          {% if loop.index0 <= totalPages %}
+            {% set show = true %}
+          {% endif %}
+
+          {% if show %}
+            {# finally print some HTML #}
+            <li  class="{% if currentPage %}current-page{% endif %} {% if highlighted == true %}highlighted{% endif %}"><a href="{{ url }}"{% if page.url == url %} aria-current="page"{% endif %}><span class="sr-only">Page </span>{{ loop.index }}</a></li>
+          {% endif %}
+        {% endfor %}
+      </ol>
+
+    </li>
+    <li class="next">{% if showNext %}<a href="{{ pagination.href.next }}">Next</a>{% else %}Next{% endif %}</li>
+  </ul>
+</nav>
