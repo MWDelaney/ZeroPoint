@@ -7,6 +7,11 @@
     {# Page Title #}
     <title>{{ title | safe }}</title>
 
+    {% renderTemplate "webc" %}
+      <style @html="this.getCSS(this.page.url)"></style>
+		  <script @html="this.getJS(this.page.url)"></script>
+    {% endrenderTemplate %}
+
     {# Stylesheet #}
     <link rel="stylesheet" href="{{ '/assets/styles/styles.css' | url }}"/>
 

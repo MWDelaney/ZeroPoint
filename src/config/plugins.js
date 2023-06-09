@@ -16,6 +16,27 @@ module.exports = {
     eleventyConfig.addPlugin(plugin);
   },
 
+
+  /**
+   * Render plugin
+   */
+  render: function (eleventyConfig) {
+    let { EleventyRenderPlugin } = require("@11ty/eleventy");
+    eleventyConfig.addPlugin(EleventyRenderPlugin);
+  },
+
+
+  /**
+   * WebC plugin
+   */
+  webc: function (eleventyConfig) {
+    let plugin = require("@11ty/eleventy-plugin-webc");
+    eleventyConfig.addPlugin(plugin, {
+      components: "src/assets/views/components/**/*.webc",
+    });
+  },
+
+
   /**
    * Rollup plugin to bundle JavaScript
    * https://github.com/Snapstromegon/eleventy-plugin-rollup
