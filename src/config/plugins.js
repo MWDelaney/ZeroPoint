@@ -2,6 +2,9 @@
  * Add Eleventy plugins here
  * https://www.11ty.dev/docs/plugins/
 */
+const { EleventyServerlessBundlerPlugin } = require("@11ty/eleventy");
+const fs = require("fs");
+
 
 module.exports = {
   /**
@@ -35,7 +38,7 @@ module.exports = {
         output: {
           format: "esm",
           sourcemap: true,
-          dir: 'public/assets/scripts'
+          dir: "public/assets/scripts",
         },
 
         // Configure the plugins
@@ -54,4 +57,30 @@ module.exports = {
     // Add the plugin to the Eleventy config
     eleventyConfig.addPlugin(plugin, config)
   },
+
+
+  /**
+   * Eleventy Serverless Bundler Plugin for Search
+   * https://www.11ty.dev/docs/plugins/eleventy-serverless-bundler-plugin/
+   */
+   search: function (eleventyConfig) {
+    // Add plugin to eleventyConfig
+    eleventyConfig.addPlugin(EleventyServerlessBundlerPlugin, {
+      name: "search",
+      functionsDir: "./netlify/functions/",
+      copy: [
+        ".cache",
+        "src/assets/scripts",
+        "src/assets/images/global",
+        "_generated-serverless-collections.json",
+      ]
+    });
+
+    return {
+      dir: {
+        input: "src",
+        output: "public",
+      },
+    };
+  }
 }

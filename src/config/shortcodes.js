@@ -20,16 +20,17 @@ module.exports = {
    */
   image: function (eleventyConfig) {
     const Image = require("@11ty/eleventy-img");
+    const path = require("path");
 
-    function imageShortcode(src, alt = "", className = "", style = "", sizes = "") {
+    async function imageShortcode(src, alt = "", className = "", style = "", sizes = "") {
       let options = {
         widths: [null],
         formats: [null],
         urlPath: "/assets/images/",
-        outputDir: "./public/assets/images/"
+        outputDir: path.join(eleventyConfig.dir.output, "assets", "images"),
+        dryRun: (process.env.ELEVENTY_SERVERLESS) ? true : false,
       };
 
-      // Prepend the src directory
       let srcPlusPath = "./src/" + src;
 
       // generate images, while this is async we don’t wait
@@ -44,10 +45,11 @@ module.exports = {
         decoding: "async",
       };
       // get metadata even the images are not fully generated
+      // Prepend the src directory
       let metadata = Image.statsSync(srcPlusPath, options);
       return Image.generateHTML(metadata, imageAttributes);
     }
 
-    eleventyConfig.addNunjucksShortcode("image", imageShortcode);
+    eleventyConfig.addNunjucksAsyncShortcode("image", imageShortcode);
   }
 }

@@ -4,6 +4,7 @@ node_modules
 # build artifacts
 public
 .cache/
+_generated*
 
 # secrets and errors
 .env
@@ -12,5 +13,7 @@ public
 # macOS related files
 .DS_Store
 
-# Local Netlify folder
-.netlify
+# Netlify generated stuff
+.netlify/
+netlify/functions/search/**
+!netlify/functions/search/index.js
