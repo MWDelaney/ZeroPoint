@@ -1,0 +1,50 @@
+# .github/workflows/github-pages.yml
+##
+# Publish the site to GitHub Pages
+##
+
+name: 🚀 Deploy to GitHub Pages
+
+on:
+  pull_request:
+    types: [closed]
+    branches: [main]
+  push:
+    branches: [main]
+
+jobs:
+
+  # Build job
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout the repository
+        uses: actions/checkout@v3
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '20'
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Build
+        run: npm run production
+
+      # Upload the build as an artifact
+      - name: Upload artifact
+        uses: actions/upload-package-artifact@v2
+        with:
+          name: public
+          path: public
+
+  # Deploy job
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
+        with:
+          artifact_name: public
