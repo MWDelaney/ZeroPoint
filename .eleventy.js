@@ -47,6 +47,11 @@ const templateLanguages = require('./src/config/templateLanguages');
 const filters = require('./src/config/filters');
 
 /**
+ * Import the bundler configuration from /src/config/build.js
+ */
+const build = require('./src/config/build');
+
+/**
  * Any additional requirements can be added here
  */
 const fs = require("fs");
@@ -169,6 +174,11 @@ module.exports = function (eleventyConfig) {
    */
   console.log("\n");
   console.groupEnd();
+
+  /**
+   * Add build configuration from /src/config/build.js
+   */
+  build(eleventyConfig);
 
   /**
    * Minify HTML output
