@@ -17,19 +17,9 @@ env:
 
 jobs:
 
-  check:
-    runs-on: ubuntu-latest
-    steps:
-      # If GitHub Pages is enabled, we'll be able to get the URL. If not, we'll skip the build and deploy steps.
-      - name: Check if GitHub Pages is enabled
-        run: |
-          if [[ -z "${{ github.event.repository.pages.html_url }}" ]]; then
-            echo "GitHub Pages is not enabled for this repository. Skipping deployment."
-            exit 78
-          fi
-
   build:
-    needs: check
+    # Only run this job if the repository has a GitHub Pages site
+    if: ${{ github.event.repository.pages.html_url }} != ''
     runs-on: ubuntu-latest
     permissions:
       contents: write
@@ -51,20 +41,20 @@ jobs:
 
     # Grant GITHUB_TOKEN the permissions required to make a Pages deployment
     permissions:
-      pages: write      # to deploy to Pages
-      id-token: write   # to verify the deployment originates from an appropriate source
+      pages: write # to deploy to Pages
+      id-token: write # to verify the deployment originates from an appropriate source
 
     # Deploy to the github-pages environment
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
 
-    # Specify runner + deployment step
+    # Deploy the site to GitHub Pages
     runs-on: ubuntu-latest
     steps:
       - name: 🚀 Deploy to GitHub Pages
         id: deployment
-        uses: actions/deploy-pages@v4 # or specific "vX.X.X" version tag for this action
+        uses: actions/deploy-pages@v4
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           artifact_name: public
@@ -79,6 +69,7 @@ jobs:
           with:
             ref: ${{ github.event.pull_request.base.ref }}
 
+        # Create a new release
         - name: 📦 Create Release
           uses: ./.github/actions/new-release
           with:
