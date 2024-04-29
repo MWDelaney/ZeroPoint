@@ -20,14 +20,6 @@ runs:
       shell: bash
       run: npm run production
 
-    # Tar and gzip the public directory and rename it to github-pages
-    - name: 🗜️ Compress public directory
-      shell: bash
-      run: |
-        tar -czf github-pages.tar.gz public
-        mkdir github-pages
-        mv github-pages.tar.gz github-pages
-
     # Upload the public directory as an artifact
     - name: 📦 Upload Artifact
       uses: actions/upload-pages-artifact@v3
