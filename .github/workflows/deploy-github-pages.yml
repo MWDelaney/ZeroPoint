@@ -17,9 +17,23 @@ env:
 
 jobs:
 
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      # If GitHub Pages is enabled, we'll be able to get the URL. If not, we'll skip the build and deploy steps.
+      - name: Check if GitHub Pages is enabled
+        run: |
+          if [[ -z "${{ github.event.repository.has_pages }}" ]]; then
+            echo "enabled=false" >> $GITHUB_OUTPUT
+          else
+            echo "enabled=true" >> $GITHUB_OUTPUT
+          fi
+        shell: bash
+
   build:
     # Only run this job if the repository has a GitHub Pages site
-    if: ${{ github.event.repository.pages.html_url }} != ''
+    needs: check
+    if: ${{ needs.check.outputs.enabled == 'true' }}
     runs-on: ubuntu-latest
     permissions:
       contents: write
