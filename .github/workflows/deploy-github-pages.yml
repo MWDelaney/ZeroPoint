@@ -8,9 +8,9 @@ run-name: deploy-github-pages
 
 on:
   workflow_dispatch:
-  pull_request:
-    types: [closed]
-    branches: [main]
+  push:
+    branches:
+      - 'main'
 
 env:
   environment: production
