@@ -12,8 +12,8 @@ Create and edit your site **right from this readme file!**.
 
 Create your site's main content! Pages can be written in HTML or [Markdown](https://www.markdownguide.org/basic-syntax/)!
 
-* [Edit the homepage](https://github.com/MWDelaney/zeropoint/edit/master/src/pages/index.md)
-* [Create a new page](https://github.com/MWDelaney/zeropoint/new/master/?filename=/src/pages/&value=---%0Atitle%3A%20Enter%20page%20title%20here%0A---)
+* [Edit the homepage](https://github.com/MWDelaney/zeropoint/edit/main/src/pages/index.md)
+* [Create a new page](https://github.com/MWDelaney/zeropoint/new/main/?filename=/src/pages/&value=---%0Atitle%3A%20Enter%20page%20title%20here%0A---)
 
 Or edit your entire site in a web-based editor by [clicking here](https://github.dev/MWDelaney/zeropoint/). Your changes will be automatically saved to this GitHub repository and published to your site.
 
@@ -22,7 +22,7 @@ Or edit your entire site in a web-based editor by [clicking here](https://github
 ---
 #### Posts
 Blog posts
-* [Create a new post](https://github.com/MWDelaney/zeropoint/new/master/?filename=/src/posts/&value=----%0Atitle%3A%20%22Enter%20post%20title%22%0Adate%3A%20%222025-01-01%0A---)
+* [Create a new post](https://github.com/MWDelaney/zeropoint/new/main/?filename=/src/posts/&value=----%0Atitle%3A%20%22Enter%20post%20title%22%0Adate%3A%20%222025-01-01%0A---)
 
 -->
 
@@ -32,14 +32,14 @@ Blog posts
 
 Your site's navigation is how your users will get around! Edit the site's navigation menu in [JSON format](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Objects/JSON)!
 
-* [Edit the navigation](https://github.com/MWDelaney/zeropoint/edit/master/src/data/navigation.json)
+* [Edit the navigation](https://github.com/MWDelaney/zeropoint/edit/main/src/data/navigation.json)
 
 ### Styles
 
 Colors, spacing, and fonts, oh my! You can edit your branding and styles here using CSS, SCSS, and CSS variables! Remember adding styles on MySpace? Same thing!
 
-* [Edit your branding](https://github.com/MWDelaney/zeropoint/edit/master/src/assets/styles/_branding.scss)
-* [Edit your overall styles](https://github.com/MWDelaney/zeropoint/edit/master/src/assets/styles/styles.scss)
+* [Edit your branding](https://github.com/MWDelaney/zeropoint/edit/main/src/assets/styles/_branding.scss)
+* [Edit your overall styles](https://github.com/MWDelaney/zeropoint/edit/main/src/assets/styles/styles.scss)
 
 Learning CSS can be daunting but there are a ton of useful resources on the web. Check out [SmolCSS](https://smolcss.dev) to get started!
 
@@ -47,18 +47,21 @@ Learning CSS can be daunting but there are a ton of useful resources on the web.
 
 **Optional!** Add javascript functionality to your site
 
-* [Add Javascript](https://github.com/MWDelaney/zeropoint/edit/master/src/assets/scripts/main.js)
+* [Add Javascript](https://github.com/MWDelaney/zeropoint/edit/main/src/assets/scripts/main.js)
 
 ## Step 3: Deploy ZeroPoint
 
-### [Launch ZeroPoint on Netlify for Free!](https://www.netlify.com/blog/2016/09/29/a-step-by-step-guide-deploying-on-netlify/)
+* Enable GitHub Pages in your repository settings and your site will automatically deploy each time you make a chnage to the `main` branch.
+
+or
+
+* [Launch ZeroPoint on Netlify for Free!](https://www.netlify.com/blog/2016/09/29/a-step-by-step-guide-deploying-on-netlify/)
 
 ---
 
 ## Get to Know ZeroPoint
 
 Ready to go deeper? Here's how ZeroPoint is laid out:
-
 
 ```sh
 example.com                 # → Root of your ZeroPoint-based project
