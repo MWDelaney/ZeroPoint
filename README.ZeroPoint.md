@@ -1,12 +1,15 @@
 # ZeroPoint
 
-This site uses [Eleventy](https://www.11ty.dev), [GitHub](https://github.com), and [Netlify](https://netlify.com).
-
-## Start creating your site
+## Start building your website
 
 Create and edit your site **right from this readme file!**.
 
-## Step 1: Creating and editing site pages and content
+✨ Or edit your entire site in a web-based editor by [clicking here](https://github.dev/MWDelaney/ZeroPoint/).
+
+<details>
+  <summary><strong>📝 Creating and editing pages</strong></summary>
+
+## Creating and editing pages and content
 
 ### Pages
 
@@ -14,8 +17,6 @@ Create your site's main content! Pages can be written in HTML or [Markdown](http
 
 * [Edit the homepage](https://github.com/MWDelaney/zeropoint/edit/main/src/pages/index.md)
 * [Create a new page](https://github.com/MWDelaney/zeropoint/new/main/?filename=/src/pages/&value=---%0Atitle%3A%20Enter%20page%20title%20here%0A---)
-
-Or edit your entire site in a web-based editor by [clicking here](https://github.dev/MWDelaney/zeropoint/). Your changes will be automatically saved to this GitHub repository and published to your site.
 
 <!--
 
@@ -25,8 +26,14 @@ Blog posts
 * [Create a new post](https://github.com/MWDelaney/zeropoint/new/main/?filename=/src/posts/&value=----%0Atitle%3A%20%22Enter%20post%20title%22%0Adate%3A%20%222025-01-01%0A---)
 
 -->
+</details>
 
-## Step 2: Look and Feel
+---
+
+<details>
+  <summary><strong>🎨 Look and Feel</strong></summary>
+
+## Look and Feel
 
 ### Navigation
 
@@ -36,7 +43,7 @@ Your site's navigation is how your users will get around! Edit the site's naviga
 
 ### Styles
 
-Colors, spacing, and fonts, oh my! You can edit your branding and styles here using CSS, SCSS, and CSS variables! Remember adding styles on MySpace? Same thing!
+Colors, spacing, and fonts, oh my! You can edit your branding and styles here using CSS, SCSS, and CSS variables! 
 
 * [Edit your branding](https://github.com/MWDelaney/zeropoint/edit/main/src/assets/styles/_branding.scss)
 * [Edit your overall styles](https://github.com/MWDelaney/zeropoint/edit/main/src/assets/styles/styles.scss)
@@ -49,13 +56,40 @@ Learning CSS can be daunting but there are a ton of useful resources on the web.
 
 * [Add Javascript](https://github.com/MWDelaney/zeropoint/edit/main/src/assets/scripts/main.js)
 
-## Step 3: Deploy ZeroPoint
+</details>
 
-* Enable GitHub Pages in your repository settings and your site will automatically deploy each time you make a chnage to the `main` branch.
+---
 
-or
+<details>
+  <summary><strong>🚀 Deploy ZeroPoint</strong></summary>
 
-* [Launch ZeroPoint on Netlify for Free!](https://www.netlify.com/blog/2016/09/29/a-step-by-step-guide-deploying-on-netlify/)
+## Deploy ZeroPoint
+
+Once you set up deployment, any time you commit to your repository's `main` branch, GitHub will build and deploy your site.
+
+<details>
+  <summary><strong>Deploy to GitHub Pages</strong></summary>
+
+### Setup:
+
+1. [Enable GitHub Pages](https://github.com/MWDelaney/ZeroPoint/settings/pages) in your repository settings, choose "GitHub Actions" as the source.
+2. [Allow "Read and write permissions" for GitHub Workflows](https://github.com/MWDelaney/ZeroPoint/settings/actions) in your repository settings for the GitHub Actions workflow to run.
+
+</details>
+
+---
+
+<details>
+  <summary><strong>Deploy to Netlify</strong></summary>
+
+### Setup:
+
+[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/MWDelaney/ZeroPoint/)
+
+
+</details>
+
+</details>
 
 ---
 
