@@ -28,8 +28,6 @@ Blog posts
 -->
 </details>
 
----
-
 <details>
   <summary><strong>🎨 Look and Feel</strong></summary>
 
@@ -58,8 +56,6 @@ Learning CSS can be daunting but there are a ton of useful resources on the web.
 
 </details>
 
----
-
 <details>
   <summary><strong>🚀 Deploy ZeroPoint</strong></summary>
 
@@ -76,8 +72,6 @@ Once you set up deployment, any time you commit to your repository's `main` bran
 2. [Allow "Read and write permissions" for GitHub Workflows](https://github.com/MWDelaney/ZeroPoint/settings/actions) in your repository settings for the GitHub Actions workflow to run.
 
 </details>
-
----
 
 <details>
   <summary><strong>Deploy to Netlify</strong></summary>
