@@ -30,13 +30,13 @@
     <a class="visually-hidden" href="#main">Skip to content</a>
 
     {# Site header with navigation #}
-    <header>
+    <header class="site-header">
       {% include "partials/navigation.njk" %}
     </header>
 
     {# Main content #}
     <main id="main" class="container" tabindex="-1">
-      <header id="page-header">
+      <header class="page-header" id="pageHeader">
         <h1>
           {{ title | safe }}
         </h1>
@@ -45,7 +45,7 @@
     </main>
 
     {# Site footer with copyright #}
-    <footer id="footer" class="container">
+    <footer id="footer" class="site-footer container">
       {% year %} &copy; {{ site.siteName }}
     </footer>
 
