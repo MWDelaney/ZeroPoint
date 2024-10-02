@@ -16,7 +16,7 @@
     {# metagen plugin output #}
     {% metagen
       title = title or metadata.title,
-      url = site.siteUrl + page.url
+      url = env.siteUrl + page.url
      %}
 
     {# If ELEVENTY_ENV environmental variable isn't set to "production", hide this page from search engines #}
@@ -50,6 +50,6 @@
     </footer>
 
     {# Script bundle #}
-    {% script "src/assets/scripts/main.js" | url %}
+    <script src="{{ '/assets/scripts/main.js' | url }}"></script>
   </body>
 </html>

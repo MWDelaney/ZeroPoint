@@ -1,0 +1,78 @@
+# .github/workflows/deploy-production.yml
+##
+# Deploy to GitHub Pages
+##
+
+name: 🚀 Deploy to GitHub Pages
+run-name: deploy-github-pages
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - 'main'
+
+env:
+  environment: production
+
+jobs:
+
+  build:
+    # Only run this job if the repository has a GitHub Pages site
+    if: ${{ github.event.repository.has_pages }}
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      # Checkout the repo
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.base.ref }}
+
+      # Build the site
+      - name: 👷‍♂️ Build the site
+        uses: ./.github/actions/build
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+
+  deploy:
+    # Add a dependency to the build job
+    needs: build
+
+    # Grant GITHUB_TOKEN the permissions required to make a Pages deployment
+    permissions:
+      pages: write # to deploy to Pages
+      id-token: write # to verify the deployment originates from an appropriate source
+
+    # Deploy to the github-pages environment
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+
+    # Deploy the site to GitHub Pages
+    runs-on: ubuntu-latest
+    steps:
+      - name: 🚀 Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          artifact_name: public
+
+  release:
+      needs: build
+      runs-on: ubuntu-latest
+      steps:
+
+        # Checkout the repo
+        - uses: actions/checkout@v4
+          with:
+            ref: ${{ github.event.pull_request.base.ref }}
+
+        # Create a new release
+        - name: 📦 Create Release
+          uses: ./.github/actions/new-release
+          with:
+            environment: ${{ env.environment }}
+            ref: ${{ github.sha }}
+            github_token: ${{ secrets.GITHUB_TOKEN }}
