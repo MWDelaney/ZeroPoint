@@ -7,6 +7,7 @@ module.exports = config => {
     return esbuild.build({
       entryPoints: ["src/assets/styles/styles.scss", "src/assets/scripts/main.js"],
       outdir: "public/assets",
+      bundle: true,
       minify: process.env.ELEVENTY_ENV === "production",
       sourcemap: process.env.ELEVENTY_ENV !== "production",
       plugins: [sassPlugin()]

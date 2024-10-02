@@ -41,7 +41,7 @@
           {{ title | safe }}
         </h1>
       </header>
-      {{ content | safe }}
+      {{ content | markdown | safe }}
     </main>
 
     {# Site footer with copyright #}
