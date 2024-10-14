@@ -15,15 +15,15 @@ Create and edit your site **right from this readme file!**.
 
 Create your site's main content! Pages can be written in HTML or [Markdown](https://www.markdownguide.org/basic-syntax/)!
 
-* [Edit the homepage](https://github.com/MWDelaney/zeropoint/edit/main/src/pages/index.md)
-* [Create a new page](https://github.com/MWDelaney/zeropoint/new/main/?filename=/src/pages/&value=---%0Atitle%3A%20Enter%20page%20title%20here%0A---)
+* [Edit the homepage](https://github.com/MWDelaney/ZeroPoint/edit/main/src/content/pages/index.md)
+* [Create a new page](https://github.com/MWDelaney/ZeroPoint/new/main/?filename=/src/content/pages/&value=---%0Atitle%3A%20Enter%20page%20title%20here%0A---)
 
 <!--
 
 ---
 #### Posts
 Blog posts
-* [Create a new post](https://github.com/MWDelaney/zeropoint/new/main/?filename=/src/posts/&value=----%0Atitle%3A%20%22Enter%20post%20title%22%0Adate%3A%20%222025-01-01%0A---)
+* [Create a new post](https://github.com/MWDelaney/ZeroPoint/new/main/?filename=/src/content/posts/&value=----%0Atitle%3A%20%22Enter%20post%20title%22%0Adate%3A%20%222025-01-01%0A---)
 
 -->
 </details>
@@ -37,7 +37,7 @@ Blog posts
 
 Your site's navigation is how your users will get around! Edit the site's navigation menu in [JSON format](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Objects/JSON)!
 
-* [Edit the navigation](https://github.com/MWDelaney/zeropoint/edit/main/src/data/navigation.json)
+* [Edit the navigation](https://github.com/MWDelaney/ZeroPoint/edit/main/src/data/navigation.json)
 
 ### Styles
 
