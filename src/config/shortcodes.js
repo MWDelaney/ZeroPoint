@@ -18,7 +18,7 @@ module.exports = {
    * Add image shortcode (requires image plugin)
    * https://www.11ty.dev/docs/plugins/image/
    */
-  image: function (eleventyConfig) {
+  image: async function (eleventyConfig) {
     const Image = require("@11ty/eleventy-img");
 
     function imageShortcode(src, alt = "", className = "", style = "", sizes = "") {
