@@ -26,22 +26,22 @@
             {% set active = 'active' %}
           {% endif %}
 
-          {# {% set hasSubmenu = '' %}
+          {% set hasSubmenu = '' %}
           {% set dropdown = '' %}
           {% set dropdownToggle = '' %}
-          {% set dropdownAtttributes = '' %} #}
+          {% set dropdownAtttributes = '' %}
 
-          {# {% if item.submenuitems | length %}
+          {% if item.submenuitems | length %}
             {% set hasSubmenu = true %}
             {% set dropdown = 'dropdown' %}
             {% set dropdownToggle = 'dropdown-toggle' %}
             {% set dropdownAttributes = 'role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"' %}
             {% set itemUrl = '#' %}
-          {% endif %} #}
+          {% endif %}
 
-          {# {% if item.external %}
+          {% if item.external %}
             {% set target = 'target="_blank"' %}
-          {% endif %} #}
+          {% endif %}
 
           {% include "partials/nav-item.njk" %}
 

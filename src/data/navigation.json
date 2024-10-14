@@ -9,6 +9,23 @@
       "text": "Contact",
       "url": "/contact/",
       "external": false
+    },
+    {
+      "text": "About",
+      "url": "/about/",
+      "external": false,
+      "subitems" : [
+        {
+          "text": "Our Team",
+          "url": "/about/team/",
+          "external": false
+        },
+        {
+          "text": "Our Mission",
+          "url": "/about/mission/",
+          "external": false
+        }
+      ]
     }
   ]
 }
