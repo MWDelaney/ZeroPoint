@@ -3,7 +3,7 @@
  * https://www.11ty.dev/docs/collections/
 */
 
-module.exports = {
+export default {
   // /**
   // * Blog posts
   // */

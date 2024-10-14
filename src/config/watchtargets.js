@@ -3,7 +3,7 @@
  * https://www.11ty.dev/docs/watch-serve/
 */
 
-module.exports = {
+export default {
   /**
    * Watch for changes to files in the assets directory
    */

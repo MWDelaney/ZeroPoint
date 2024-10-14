@@ -3,10 +3,11 @@
  * https://www.11ty.dev/docs/filters/
 */
 
-module.exports = {
+import markdownIt from "markdown-it";
+
+export default {
   // Markdown filter
   markdown: function (eleventyConfig) {
-    let markdownIt = require("markdown-it");
     let options = {
       html: true,
       breaks: true,

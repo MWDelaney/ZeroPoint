@@ -3,7 +3,7 @@
  * https://www.11ty.dev/docs/copy/
 */
 
-module.exports = {
+export default {
   /**
    * Copy images to the `public` directory
    */

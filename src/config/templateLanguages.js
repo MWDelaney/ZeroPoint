@@ -3,6 +3,6 @@
  * https://www.11ty.dev/docs/languages/custom/
 */
 
-module.exports = {
+export default {
 
 }
