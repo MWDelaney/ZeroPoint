@@ -14,55 +14,55 @@
 /**
  * Passthroughs and file copies are defined as named exports in /src/config/passthroughs.js
  */
-const passthroughs = require('./src/config/passthroughs');
+import passthroughs from './src/config/passthroughs.js';
 
 /**
  * Collections are defined as named exports in /src/config/collections.js
  */
-const collections = require('./src/config/collections');
+import collections from './src/config/collections.js';
 
 /**
  * Watch targets are defined as named exports in /src/config/watchtargets.js
  */
-const watchtargets = require('./src/config/watchtargets');
+import watchtargets from './src/config/watchtargets.js';
 
 /**
  * Plugins are defined as named exports in /src/config/plugins.js
  */
-const plugins = require('./src/config/plugins');
+import plugins from './src/config/plugins.js';
 
 /**
  * Shortcodes are defined as named exports in /src/config/shortcodes.js
  */
-const shortcodes = require('./src/config/shortcodes');
+import shortcodes from './src/config/shortcodes.js';
 
 /**
  * Custom template languages are defined as named exports in /src/config/templateLanguages.js
  */
-const templateLanguages = require('./src/config/templateLanguages');
+import templateLanguages from './src/config/templateLanguages.js';
 
 /**
  * Filters are defined as named exports in /src/config/filters.js
  */
-const filters = require('./src/config/filters');
+import filters from './src/config/filters.js';
 
 /**
  * Import the bundler configuration from /src/config/build.js
  */
-const build = require('./src/config/build');
+import build from './src/config/build.js';
 
 /**
  * Any additional requirements can be added here
  */
-const fs = require("fs");
-const chalk = require("chalk");
-const htmlmin = require("html-minifier");
+import fs from 'fs';
+import chalk from 'chalk';
+import htmlmin from 'html-minifier';
 
 /**
  * Eleventy configuration
  * https://www.11ty.dev/docs/config/
  */
-module.exports = function (eleventyConfig) {
+export default function(eleventyConfig) {
 
   /**
    * Start pretty console output
@@ -117,6 +117,7 @@ module.exports = function (eleventyConfig) {
 
   console.groupEnd();
   console.log(chalk.white("  |"));
+
   /**
    * Echo the registered shortcodes in the terminal
    * Add shortcodes from /src/config/shortcodes.js
@@ -212,7 +213,6 @@ module.exports = function (eleventyConfig) {
     return content;
   });
 
-
   /**
   * Configure dev server
   * https://www.11ty.dev/docs/watch-serve/#eleventy-dev-server
@@ -225,7 +225,6 @@ module.exports = function (eleventyConfig) {
    * Enable quiet mode
    */
   eleventyConfig.setQuietMode(true);
-
 
   /**
    * Return the config to Eleventy
@@ -240,4 +239,4 @@ module.exports = function (eleventyConfig) {
     },
     templateFormats: ['njk', 'md', '11ty.js'],
   };
-};
+}
