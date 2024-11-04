@@ -17,7 +17,7 @@ export default {
   /**
    * Pages
    */
-  pages: function (eleventyConfig) {
+  pages: async function (eleventyConfig) {
     // Get all `.md` files in the `src/pages` directory
     eleventyConfig.addCollection("pages", function(collectionApi) {
       return collectionApi.getFilteredByGlob("src/content/pages/**/*.md");

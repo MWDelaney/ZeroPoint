@@ -7,7 +7,7 @@ export default {
   /**
    * Copy images to the `public` directory
    */
-  images: function () {
+  images: async function () {
     let config = { 'src/assets/images': 'assets/images' }
 
     // Return the config to .eleventy.js
@@ -18,7 +18,7 @@ export default {
   /**
    * Copy fonts to the `public` directory
    */
-  fonts: function () {
+  fonts: async function () {
     let config = { 'src/assets/fonts': 'assets/fonts' }
 
     // Return the config to .eleventy.js

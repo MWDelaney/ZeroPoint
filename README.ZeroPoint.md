@@ -4,7 +4,7 @@
 
 Create and edit your site **right from this readme file!**.
 
-✨ Or edit your entire site in a web-based editor by [clicking here](https://github.dev/MWDelaney/ZeroPoint/).
+🪐 Or edit your entire site in a web-based editor by [clicking here](https://github.dev/MWDelaney/ZeroPoint/).
 
 <details>
   <summary><strong>📝 Creating and editing pages</strong></summary>
@@ -92,7 +92,7 @@ Once you set up deployment, any time you commit to your repository's `main` bran
 Ready to go deeper? Here's how ZeroPoint is laid out:
 
 ```sh
-example.com                 # → Root of your ZeroPoint-based project
+example.com                 # → Root of your project
 ├── src/                    # → Source directory
 │   ├── assets/             # → Site assets
 │   │   ├── fonts/
@@ -120,7 +120,7 @@ example.com                 # → Root of your ZeroPoint-based project
 │       └── site.json       # → Site branding configuration
 ├── .eleventy.js            # → Core Eleventy config file
 ├── netlify.toml            # → Netlify deployment and plugin configuration (optional)
-├── README.ZeroPoint.md     # → ZeroPoint readme
+├── README.ZeroPoint.md     # → Template repository readme
 └── README.md
 ```
 

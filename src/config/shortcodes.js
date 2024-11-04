@@ -11,7 +11,7 @@ export default {
    * By Stephanie Eckles
    * https://11ty.rocks/eleventyjs/dates/
    */
-  year: function (eleventyConfig) {
+  year: async function (eleventyConfig) {
     eleventyConfig.addShortcode("year", () => `${new Date().getFullYear()}`);
   },
 
@@ -19,7 +19,7 @@ export default {
    * Add image shortcode (requires image plugin)
    * https://www.11ty.dev/docs/plugins/image/
    */
-  image: function (eleventyConfig) {
+  image: async function (eleventyConfig) {
     async function imageShortcode(src, alt = "", className = "", style = "", sizes = "") {
       let options = {
         widths: [null],

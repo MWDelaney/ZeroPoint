@@ -10,7 +10,7 @@ export default {
    * Metagen plugin
    * https://github.com/tannerdolby/eleventy-plugin-metagen
    */
-  metagen: function (eleventyConfig) {
+  metagen: async function (eleventyConfig) {
     // Add plugin to eleventyConfig
     eleventyConfig.addPlugin(metagenPlugin);
   },

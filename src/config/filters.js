@@ -7,7 +7,7 @@ import markdownIt from "markdown-it";
 
 export default {
   // Markdown filter
-  markdown: function (eleventyConfig) {
+  markdown: async function (eleventyConfig) {
     let options = {
       html: true,
       breaks: true,

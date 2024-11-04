@@ -9,6 +9,7 @@
  *  - `src/config/watchtargets.js`
  *  - `src/config/templateLanguages.js`
  *  - `src/config/filters.js`
+ *  - `src/config/transforms.js`
  */
 
 /**
@@ -52,11 +53,14 @@ import filters from './src/config/filters.js';
 import build from './src/config/build.js';
 
 /**
+ * Import transforms from /src/config/transforms.js
+ */
+import transforms from './src/config/transforms.js';
+
+/**
  * Any additional requirements can be added here
  */
-import fs from 'fs';
 import chalk from 'chalk';
-import htmlmin from 'html-minifier';
 
 /**
  * Eleventy configuration
@@ -182,36 +186,12 @@ export default function(eleventyConfig) {
   build(eleventyConfig);
 
   /**
-   * Minify HTML output
-   */
-  eleventyConfig.addTransform("htmlmin", function (content, outputPath) {
-    // Eleventy 1.0+: use this.inputPath and this.outputPath instead
-    if (this.outputPath && this.outputPath.endsWith(".html")) {
-      let minified = htmlmin.minify(content, {
-        useShortDoctype: true,
-        removeComments: true,
-        collapseWhitespace: true
-      });
-      return minified;
-    }
-
-    return content;
+  * Add transforms from /src/config/transforms.js
+  */
+  Object.keys(transforms).forEach((transformName) => {
+    transforms[transformName](eleventyConfig);
   });
 
-  /**
-   * Minify XML output
-   */
-  eleventyConfig.addTransform("xmlmin", function (content, outputPath) {
-    // Eleventy 1.0+: use this.inputPath and this.outputPath instead
-    if (this.outputPath && this.outputPath.endsWith(".xml")) {
-      let minified = htmlmin.minify(content, {
-        collapseWhitespace: true
-      });
-      return minified;
-    }
-
-    return content;
-  });
 
   /**
   * Configure dev server
