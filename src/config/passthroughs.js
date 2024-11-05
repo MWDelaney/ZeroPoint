@@ -3,25 +3,23 @@
  * https://www.11ty.dev/docs/copy/
 */
 
-module.exports = {
+export default {
   /**
    * Copy images to the `public` directory
    */
-  images: function () {
+  images: async function (eleventyConfig) {
     let config = { 'src/assets/images': 'assets/images' }
 
-    // Return the config to .eleventy.js
-    return config;
+    eleventyConfig.addPassthroughCopy(config);
   },
 
 
   /**
    * Copy fonts to the `public` directory
    */
-  fonts: function () {
+  fonts: async function (eleventyConfig) {
     let config = { 'src/assets/fonts': 'assets/fonts' }
 
-    // Return the config to .eleventy.js
-    return config;
+    eleventyConfig.addPassthroughCopy(config);
   }
 }

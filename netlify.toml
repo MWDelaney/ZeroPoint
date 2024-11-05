@@ -1,9 +1,3 @@
 [build]
   command = "npm run production"
   publish = "public"
-
-[[plugins]]
-  package = "netlify-plugin-image-optim"
-
-[[plugins]]
-  package = "netlify-plugin-inline-critical-css"

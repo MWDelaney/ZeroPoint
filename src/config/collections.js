@@ -3,7 +3,7 @@
  * https://www.11ty.dev/docs/collections/
 */
 
-module.exports = {
+export default {
   // /**
   // * Blog posts
   // */
@@ -17,10 +17,10 @@ module.exports = {
   /**
    * Pages
    */
-  pages: function (eleventyConfig) {
+  pages: async function (eleventyConfig) {
     // Get all `.md` files in the `src/pages` directory
     eleventyConfig.addCollection("pages", function(collectionApi) {
-      return collectionApi.getFilteredByGlob("src/content/pages/*.njk");
+      return collectionApi.getFilteredByGlob("src/content/pages/**/*.md");
     });
   }
 }

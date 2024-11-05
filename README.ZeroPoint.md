@@ -4,7 +4,7 @@
 
 Create and edit your site **right from this readme file!**.
 
-✨ Or edit your entire site in a web-based editor by [clicking here](https://github.dev/MWDelaney/ZeroPoint/).
+🪐 Or edit your entire site in a web-based editor by [clicking here](https://github.dev/MWDelaney/ZeroPoint/).
 
 <details>
   <summary><strong>📝 Creating and editing pages</strong></summary>
@@ -15,15 +15,15 @@ Create and edit your site **right from this readme file!**.
 
 Create your site's main content! Pages can be written in HTML or [Markdown](https://www.markdownguide.org/basic-syntax/)!
 
-* [Edit the homepage](https://github.com/MWDelaney/zeropoint/edit/main/src/pages/index.md)
-* [Create a new page](https://github.com/MWDelaney/zeropoint/new/main/?filename=/src/pages/&value=---%0Atitle%3A%20Enter%20page%20title%20here%0A---)
+* [Edit the homepage](https://github.com/MWDelaney/ZeroPoint/edit/main/src/content/pages/index.md)
+* [Create a new page](https://github.com/MWDelaney/ZeroPoint/new/main/?filename=/src/content/pages/&value=---%0Atitle%3A%20Enter%20page%20title%20here%0A---)
 
 <!--
 
 ---
 #### Posts
 Blog posts
-* [Create a new post](https://github.com/MWDelaney/zeropoint/new/main/?filename=/src/posts/&value=----%0Atitle%3A%20%22Enter%20post%20title%22%0Adate%3A%20%222025-01-01%0A---)
+* [Create a new post](https://github.com/MWDelaney/ZeroPoint/new/main/?filename=/src/content/posts/&value=----%0Atitle%3A%20%22Enter%20post%20title%22%0Adate%3A%20%222025-01-01%0A---)
 
 -->
 </details>
@@ -37,7 +37,7 @@ Blog posts
 
 Your site's navigation is how your users will get around! Edit the site's navigation menu in [JSON format](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Objects/JSON)!
 
-* [Edit the navigation](https://github.com/MWDelaney/zeropoint/edit/main/src/data/navigation.json)
+* [Edit the navigation](https://github.com/MWDelaney/ZeroPoint/edit/main/src/data/navigation.json)
 
 ### Styles
 
@@ -92,7 +92,7 @@ Once you set up deployment, any time you commit to your repository's `main` bran
 Ready to go deeper? Here's how ZeroPoint is laid out:
 
 ```sh
-example.com                 # → Root of your ZeroPoint-based project
+example.com                 # → Root of your project
 ├── src/                    # → Source directory
 │   ├── assets/             # → Site assets
 │   │   ├── fonts/
@@ -120,7 +120,7 @@ example.com                 # → Root of your ZeroPoint-based project
 │       └── site.json       # → Site branding configuration
 ├── .eleventy.js            # → Core Eleventy config file
 ├── netlify.toml            # → Netlify deployment and plugin configuration (optional)
-├── README.ZeroPoint.md     # → ZeroPoint readme
+├── README.ZeroPoint.md     # → Template repository readme
 └── README.md
 ```
 
