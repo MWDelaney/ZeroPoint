@@ -7,10 +7,9 @@ export default {
   /**
    * Watch for changes to files in the assets directory
    */
-  assets: function () {
+  assets: function (eleventyConfig) {
     let config = "./src/assets";
 
-    // Return the config to .eleventy.js
-    return config;
+    eleventyConfig.addWatchTarget(config);
   }
 }

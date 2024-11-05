@@ -1,3 +1,5 @@
+const siteName = "ZeroPoint";
+
 /**
  * Wait! Before you edit this file!
  * This Eleventy-based project abstracts the traditional `.eleventy.js` file to help keep things clean and tidy.
@@ -40,7 +42,7 @@ import shortcodes from './src/config/shortcodes.js';
 /**
  * Custom template languages are defined as named exports in /src/config/templateLanguages.js
  */
-import templateLanguages from './src/config/templateLanguages.js';
+import templatelanguages from './src/config/templateLanguages.js';
 
 /**
  * Filters are defined as named exports in /src/config/filters.js
@@ -68,129 +70,116 @@ import chalk from 'chalk';
  */
 export default function(eleventyConfig) {
 
+  // An array of the tasks to be run, in order, with an icon and a pretty name for each
+  // Put the tasks in the order you want them to run, and set echo to false if you don't want to log the task to the console
+  let tasks = [
+    {
+      icon: "📚",
+      name: "Collections",
+      config: collections,
+      echo: true,
+    },
+    {
+      icon: "🔌",
+      name: "Plugins",
+      config: plugins,
+      echo: true,
+    },
+    {
+      icon: "⏩",
+      name: "Shortcodes",
+      config: shortcodes,
+      echo: true,
+    },
+    {
+      icon: "🎛️ ",
+      name: "Filters",
+      config: filters,
+      echo: true,
+    },
+    {
+      icon: "🚗",
+      name: "Transforms",
+      config: transforms,
+      echo: true,
+    },
+    {
+      icon: "📂",
+      name: "Passthroughs",
+      config: passthroughs,
+      echo: false,
+    },
+    {
+      icon: "📜",
+      name: "Template Languages",
+      config: templatelanguages,
+      echo: false,
+    },
+    {
+      icon: "👀",
+      name: "Watch Targets",
+      config: watchtargets,
+      echo: false,
+    }
+  ];
+
   /**
    * Start pretty console output
    */
-  console.group("\n", "   🪐");
-  console.log(chalk.white("  |"));
+  console.group("\n", "   🪐", chalk.magenta(siteName));
+  console.log(chalk.white("  │"));
 
-  /**
-   * Echo the registered collections in the terminal
-   * Create collections from /src/config/collections.js
-   */
-  console.group(
-    chalk.white("  ├── ") +
-    chalk.yellow("📚 Collections ") +
-    chalk.gray("(/src/config/collections.js)")
-  );
+  for (let task of tasks) {
+    let tree = tasks.indexOf(task) === tasks.length - 1;
 
-  Object.keys(collections).forEach((collectionName, index) => {
-    let len = Object.keys(collections).length - 1;
-    let pre = (index === len ? "└── " : "├── ");
-    console.log(
-      chalk.white("│       " + pre) +
-      chalk.green(collectionName)
-    );
+    // If the next tasks's echo is false, don't log the tree
+    tree = (tasks[tasks.indexOf(task) + 1] && !tasks[tasks.indexOf(task) + 1].echo);
 
-    collections[collectionName](eleventyConfig);
-  });
+    if(task.echo) {
+      console.group(
+        chalk.white((tree)  ? "  └── " : "  ├── ") +
+        chalk.yellow(task.icon) +
+        chalk.yellow(" " + task.name) +
+        chalk.gray(" (/src/config/" + task.name.toLowerCase().replace(/\s/g, '') + ".js)")
+      );
+    }
 
+    Object.keys(task.config).forEach((taskName, index) => {
+      let len = Object.keys(task.config).length - 1;
+      let pre = (index === len ? "└── " : "├── ");
+
+      let branch = tasks.indexOf(task) === tasks.length - 1;
+      branch = (tasks[tasks.indexOf(task) + 1] && !tasks[tasks.indexOf(task) + 1].echo);
+      if(task.echo) {
+        console.log(
+          chalk.white((branch) ? "       " : "│      ") + pre +
+          chalk.green(taskName)
+        );
+      }
+
+      // Run the task
+      task.config[taskName](eleventyConfig);
+    });
+
+    if(task.echo) {
+      if(!tree) {
+        console.log(chalk.white("│"));
+      }
+      console.groupEnd();
+    }
+  }
+
+  console.log("\n");
   console.groupEnd();
-  console.log(chalk.white("  |"));
-
-  /**
-   * Echo the registered collections in the terminal
-   * Add Eleventy plugins from /src/config/plugins.js
-   */
-  console.group(
-    chalk.white("  ├── ") +
-    chalk.yellow("🔌 Plugins ") +
-    chalk.gray("(/src/config/plugins.js)")
-  );
-
-  Object.keys(plugins).forEach((pluginName, index) => {
-    let len = Object.keys(plugins).length - 1;
-    let pre = (index == len ? "└── " : "├── ");
-    console.log(
-      chalk.white("│       " + pre) +
-      chalk.green(pluginName)
-    );
-
-    plugins[pluginName](eleventyConfig);
-  });
-
-  console.groupEnd();
-  console.log(chalk.white("  |"));
-
-  /**
-   * Echo the registered shortcodes in the terminal
-   * Add shortcodes from /src/config/shortcodes.js
-   */
-  console.group(
-    chalk.white("  └── ") +
-    chalk.yellow("⏩ Shortcodes ") +
-    chalk.gray("(/src/config/shortcodes.js)")
-  );
-
-  Object.keys(shortcodes).forEach((shortcodeName, index) => {
-    let len = Object.keys(shortcodes).length - 1;
-    let pre = (index === len ? "└── " : "├── ");
-    console.log(
-      chalk.white("        " + pre) +
-      chalk.green(shortcodeName)
-    );
-
-    shortcodes[shortcodeName](eleventyConfig);
-  });
-
-  console.groupEnd();
-
-  /**
-   * Add passthrough copy from /src/config/passthroughs.js
-   */
-  Object.keys(passthroughs).forEach((passthroughName) => {
-    eleventyConfig.addPassthroughCopy(passthroughs[passthroughName]())
-  });
-
-  /**
-   * Add watch targets from /src/config/watchtargets.js
-   */
-  Object.keys(watchtargets).forEach((watchtargetName) => {
-    eleventyConfig.addWatchTarget(watchtargets[watchtargetName]())
-  });
-
-  /**
-  * Add template languages from /src/config/templateLanguages.js
-  */
-  Object.keys(templateLanguages).forEach((templateLanguageName) => {
-    eleventyConfig.addTemplateFormats(templateLanguageName);
-    eleventyConfig.addExtension(templateLanguageName, templateLanguages[templateLanguageName]())
-  });
-
-  /**
-  * Add filters from /src/config/filters.js
-  */
-  Object.keys(filters).forEach((filterName) => {
-    filters[filterName](eleventyConfig);
-  });
-
   /**
    * End pretty console output
    */
-  console.log("\n");
-  console.groupEnd();
+
 
   /**
    * Add build configuration from /src/config/build.js
    */
   build(eleventyConfig);
-
-  /**
-  * Add transforms from /src/config/transforms.js
-  */
-  Object.keys(transforms).forEach((transformName) => {
-    transforms[transformName](eleventyConfig);
-  });
 
 
   /**

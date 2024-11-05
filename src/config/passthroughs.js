@@ -7,21 +7,19 @@ export default {
   /**
    * Copy images to the `public` directory
    */
-  images: async function () {
+  images: async function (eleventyConfig) {
     let config = { 'src/assets/images': 'assets/images' }
 
-    // Return the config to .eleventy.js
-    return config;
+    eleventyConfig.addPassthroughCopy(config);
   },
 
 
   /**
    * Copy fonts to the `public` directory
    */
-  fonts: async function () {
+  fonts: async function (eleventyConfig) {
     let config = { 'src/assets/fonts': 'assets/fonts' }
 
-    // Return the config to .eleventy.js
-    return config;
+    eleventyConfig.addPassthroughCopy(config);
   }
 }
