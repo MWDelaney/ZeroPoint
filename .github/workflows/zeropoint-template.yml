@@ -35,21 +35,21 @@ jobs:
           ref: ${{ steps.getBranch.outputs.branch }}
 
       - name: Replace owner
-        uses: jacobtomlinson/gha-find-replace@v2
+        uses: jacobtomlinson/gha-find-replace@v3
         with:
           find: "MWDelaney"
           replace: ${{ steps.getOwner.outputs.owner }}
           regex: false
 
       - name: Replace repository name
-        uses: jacobtomlinson/gha-find-replace@v2
+        uses: jacobtomlinson/gha-find-replace@v3
         with:
           find: "ZeroPoint"
           replace: ${{ steps.getSlug.outputs.slug }}
           regex: false
 
       - name: Replace repository slug
-        uses: jacobtomlinson/gha-find-replace@v2
+        uses: jacobtomlinson/gha-find-replace@v3
         with:
           find: "zeropoint"
           replace: ${{ steps.getName.outputs.name }}
