@@ -41,18 +41,18 @@ jobs:
           replace: ${{ steps.getOwner.outputs.owner }}
           regex: false
 
-      - name: Replace repository name
-        uses: jacobtomlinson/gha-find-replace@v3
-        with:
-          find: "ZeroPoint"
-          replace: ${{ steps.getSlug.outputs.slug }}
-          regex: false
-
       - name: Replace repository slug
         uses: jacobtomlinson/gha-find-replace@v3
         with:
-          find: "zeropoint"
+          find: "ZeroPoint"
           replace: ${{ steps.getName.outputs.name }}
+          regex: false
+
+      - name: Replace repository name
+        uses: jacobtomlinson/gha-find-replace@v3
+        with:
+          find: "zeropoint"
+          replace: ${{ steps.getSlug.outputs.slug }}
           regex: false
 
       - name: Archive template README.md
