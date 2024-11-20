@@ -1,5 +1,5 @@
 name: 🧹 Remove ZeroPoint branding
-on: [push]
+on: workflow_dispatch
 
 jobs:
   rebrand:
@@ -45,14 +45,14 @@ jobs:
         uses: jacobtomlinson/gha-find-replace@v2
         with:
           find: "ZeroPoint"
-          replace: ${{ steps.getName.outputs.name }}
+          replace: ${{ steps.getSlug.outputs.slug }}
           regex: false
 
       - name: Replace repository slug
         uses: jacobtomlinson/gha-find-replace@v2
         with:
           find: "zeropoint"
-          replace: ${{ steps.getSlug.outputs.slug }}
+          replace: ${{ steps.getName.outputs.name }}
           regex: false
 
       - name: Archive template README.md
@@ -70,6 +70,6 @@ jobs:
       - name: Commit changes and delete this workflow
         uses: EndBug/add-and-commit@v9
         with:
-          remove: '["./.github/workflows/zeropoint-template.yml", "./README.ZeroPoint.md"]'
+          remove: '["./.github/workflows/zeropoint-template.yml"]'
           message: "Up to zero 🪐"
           tag: 'v1.0.0 --force'
