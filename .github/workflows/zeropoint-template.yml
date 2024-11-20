@@ -45,14 +45,14 @@ jobs:
         uses: jacobtomlinson/gha-find-replace@v2
         with:
           find: "ZeroPoint"
-          replace: ${{ steps.getSlug.outputs.slug }}
+          replace: ${{ steps.getSlug.outputs.name }}
           regex: false
 
       - name: Replace repository slug
         uses: jacobtomlinson/gha-find-replace@v2
         with:
           find: "zeropoint"
-          replace: ${{ steps.getName.outputs.name }}
+          replace: ${{ steps.getName.outputs.slug }}
           regex: false
 
       - name: Archive template README.md
@@ -67,9 +67,12 @@ jobs:
           source: "README.ZeroPoint.md"
           target: "README.md"
 
-      - name: Commit changes and delete this workflow
-        uses: EndBug/add-and-commit@v9
+      - name: Delete this workflow
+        run: rm .github/workflows/zeropoint-template.yml
+
+      - name: Commit changes and create a pull request
+        uses: stefanzweifel/git-auto-commit-action@v4
         with:
-          remove: '["./.github/workflows/zeropoint-template.yml", "./README.ZeroPoint.md"]'
-          message: "Up to zero 🪐"
-          tag: 'v1.0.0 --force'
+          branch: "remove-zeropoint-branding"
+          create_branch: true
+          commit_message: "Remove ZeroPoint branding"
