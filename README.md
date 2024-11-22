@@ -1,5 +1,10 @@
 # 🪐ZeroPoint
 
+<a href="https://github.com/MWDelaney/ZeroPoint/generate">
+  <img src="https://img.shields.io/badge/use%20this-template-blueviolet?logo=github&style=for-the-badge">
+</a>
+
+---
 **⭐ If you just used this template repository ⭐**
 
 Prepare your repository for use by removing ZeroPoint branding and replacing it with your own project name and description.
@@ -20,7 +25,7 @@ Prepare your repository for use by removing ZeroPoint branding and replacing it 
 3. Click the "Run workflow" button, choose the `main` branch, and click the green "Run workflow" button
 </details>
 
----
+
 ## What is ZeroPoint?
 A free, new-user-friendly static website generator  starter project designed to get you "up to zero" building your site, letting you focus on your HTML, CSS, and Javascript rather than setting up your build tools.
 
