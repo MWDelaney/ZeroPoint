@@ -15,7 +15,6 @@ env:
 jobs:
   build:
     # Only run this job if the repository has a GitHub Pages site
-    if: ${{ github.event.repository.has_pages }}
     runs-on: ubuntu-latest
     permissions:
       contents: write

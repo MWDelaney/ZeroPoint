@@ -52,12 +52,28 @@ jobs:
     # Deploy the site to GitHub Pages
     runs-on: ubuntu-latest
     steps:
+      # Get the artifact from the build job
+      - name: 📥 Get artifact
+        id: get_artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: public
+          path: public
+
+      #Re-upload artifact in pages-friendly way
+      - name: 📦 Upload Artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          name: public-github-pages
+          path: public
+
+      # Deploy the site to GitHub Pages
       - name: 🚀 Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
-          artifact_name: public
+          artifact_name: public-github-pages
 
   release:
       needs: build

@@ -18,11 +18,12 @@ runs:
   using: 'composite'
   steps:
     # Get the current date and time in both human-readable and machine-readable formats
+    # Human-readable should be "Thursday, 1 January 1970 00:00"
     - name: Get the date and time
       shell: bash
       id: get_date
       run: |
-        echo "human_date=$(date +'%Y-%m-%d %H:%M:%S')" >> $GITHUB_OUTPUT
+        echo "human_date=$(date +'%A, %d %B %Y %H:%M')" >> $GITHUB_OUTPUT
         echo "machine_date=$(date +'%Y%m%d%H%M%S')" >> $GITHUB_OUTPUT
 
     # Create a Git tag with the environment name and machine-readable date
@@ -34,13 +35,17 @@ runs:
         custom_tag: "${{ inputs.environment }}-${{ steps.get_date.outputs.machine_date }}"
         tag_prefix: ''
 
-    # Get the "public" artifact from this workflow
-    - name: Get artifact
+    # Get the artifact from the build job
+    - name: 📥 Get artifact
       id: get_artifact
       uses: actions/download-artifact@v4
       with:
         name: public
-        path: public.tar.gz
+        path: public
+
+    - name: 📦 Zip artifact
+      run: zip -r public.zip public
+      shell: bash
 
     # If this is the main branch, create a release named after the github repo slug and the human readable date
     - name: 📦 Create release
@@ -48,13 +53,11 @@ runs:
       uses: ncipollo/release-action@v1
       with:
         tag: "${{ steps.tag_version.outputs.new_tag }}"
-        artifacts: "public.tar.gz"
+        artifacts: "public.zip"
         token: ${{ inputs.github_token }}
         makeLatest: true
         name: "${{ github.event.repository.name }} ${{ steps.get_date.outputs.human_date }}"
         body: |
           # ${{ inputs.environment }}
-
-          * 📅 ${{ steps.get_date.outputs.human_date }}
 
           ${{ steps.tag_version.outputs.changelog }}
