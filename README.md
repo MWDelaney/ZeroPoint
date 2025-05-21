@@ -27,7 +27,11 @@ Prepare your repository for use by removing ZeroPoint branding and replacing it 
 
 
 ## What is ZeroPoint?
+Read more at [https://getzeropoint.com](https://getzeropoint.com)!
+
 A free, new-user-friendly static website generator  starter project designed to get you "up to zero" building your site, letting you focus on your HTML, CSS, and Javascript rather than setting up your build tools.
+
+Create, edit, and publish your content to the web for free.
 
 With first-class support for GitHub Pages and Netlify, ZeroPoint has everything you need to get started building your website, including:
 
@@ -36,8 +40,6 @@ With first-class support for GitHub Pages and Netlify, ZeroPoint has everything 
 * 🚀 Optional automated deployment to GitHub Pages or Netlify
 
 With ZeroPoint you can build your website with the tools you know and love, and deploy it to the platform of your choice with ease.
-
-Read more at [https://getzeropoint.com](https://getzeropoint.com)!
 
 ## Get started: Use This Template
 

@@ -1,0 +1,49 @@
+# .github/workflows/create-release.yml
+##
+# Create a new release
+##
+
+name: 📦 Create Release
+run-name: create-release
+
+on:
+  workflow_dispatch:
+
+env:
+  environment: production
+
+jobs:
+  build:
+    # Only run this job if the repository has a GitHub Pages site
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      # Checkout the repo
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.base.ref }}
+
+      # Build the site
+      - name: 👷‍♂️ Build the site
+        uses: ./.github/actions/build
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+
+  release:
+      needs: build
+      runs-on: ubuntu-latest
+      steps:
+
+        # Checkout the repo
+        - uses: actions/checkout@v4
+          with:
+            ref: ${{ github.event.pull_request.base.ref }}
+
+        # Create a new release
+        - name: 📦 Create Release
+          uses: ./.github/actions/new-release
+          with:
+            environment: ${{ env.environment }}
+            ref: ${{ github.sha }}
+            github_token: ${{ secrets.GITHUB_TOKEN }}

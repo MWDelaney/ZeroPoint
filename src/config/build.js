@@ -10,7 +10,10 @@ export default async function(config) {
       bundle: true,
       minify: process.env.ELEVENTY_ENV === "production",
       sourcemap: process.env.ELEVENTY_ENV !== "production",
-      plugins: [sassPlugin()]
+      plugins: [sassPlugin({
+        quietDeps: true,
+        loadPaths: ["node_modules"],
+      })]
     });
   });
 };
