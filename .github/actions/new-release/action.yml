@@ -1,4 +1,4 @@
-name: 'New Release'
+name: '📦 New Release'
 description: 'Publish a new release to GitHub'
 
 inputs:
@@ -43,7 +43,7 @@ runs:
         name: public
         path: public
 
-    - name: 📦 Zip artifact
+    - name: 🗜 Zip artifact
       run: zip -r public.zip public
       shell: bash
 
