@@ -52,6 +52,15 @@ jobs:
     # Deploy the site to GitHub Pages
     runs-on: ubuntu-latest
     steps:
+      # Start a deployment
+      - name: 🚀 Start Deployment
+        id: deployment
+        uses: bobheadxi/deployments@v1
+        with:
+          step: start
+          token: ${{ secrets.GITHUB_TOKEN }}
+          env: ${{ env.environment }}
+
       # Get the artifact from the build job
       - name: 📥 Get artifact
         id: get_artifact
@@ -69,11 +78,23 @@ jobs:
 
       # Deploy the site to GitHub Pages
       - name: 🚀 Deploy to GitHub Pages
-        id: deployment
+        id: gh_pages
         uses: actions/deploy-pages@v4
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           artifact_name: public-github-pages
+
+      # Set the deployment status to success
+      - name: ✅ Finish Deployment
+        uses: bobheadxi/deployments@v1
+        if: always()
+        with:
+          step: finish
+          token: ${{ secrets.GITHUB_TOKEN }}
+          status: ${{ job.status }}
+          env: ${{ steps.deployment.outputs.env }}
+          env_url: ${{ steps.gh_pages.outputs.page_url }}
+          deployment_id: ${{ steps.deployment.outputs.deployment_id }}
 
   release:
       needs: build
