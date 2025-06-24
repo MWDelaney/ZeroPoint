@@ -19,7 +19,7 @@ runs:
   steps:
     # Get the current date and time in both human-readable and machine-readable formats
     # Human-readable should be "Thursday, 1 January 1970 00:00"
-    - name: Get the date and time
+    - name: 🗓️ Get the date and time
       shell: bash
       id: get_date
       run: |
