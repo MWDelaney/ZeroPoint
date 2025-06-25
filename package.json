@@ -11,7 +11,8 @@
     "dev": "npm run-s 🪐",
     "staging": "npm run-s 🚧",
     "production": "npm run-s 🚀",
-    "start": "npm run dev"
+    "start": "npm run dev",
+    "build": "npm run production"
   },
   "repository": {
     "type": "git",
