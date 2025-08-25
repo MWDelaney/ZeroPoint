@@ -1,4 +1,6 @@
-# 🪐ZeroPoint
+# 🪐ZeroPoint Starter
+
+👉 Get your website project up to zero.
 
 <a href="https://github.com/MWDelaney/ZeroPoint/generate">
   <img src="https://img.shields.io/badge/use%20this-template-blueviolet?logo=github&style=for-the-badge">
