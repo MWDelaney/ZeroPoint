@@ -6,7 +6,10 @@
 import markdownIt from "markdown-it";
 
 export default {
-  // Markdown filter
+  /**
+   * Markdown filter
+   * Converts Markdown content to HTML.
+  */
   markdown: async function (eleventyConfig) {
     let options = {
       html: true,
