@@ -5,7 +5,7 @@
 
 export default {
   /**
-   * Add date shortcode
+   * Add year shortcode
    * By Stephanie Eckles
    * https://11ty.rocks/eleventyjs/dates/
    */
