@@ -12,7 +12,7 @@ export default {
   // liquid: async function (eleventyConfig) {
   //   let liquid = require("liquidjs");
   //   let engine = new liquid.Liquid({
-  //     root: ["src/_includes"],
+  //     root: ["src/views"],
   //     extname: ".liquid",
   //   });
 

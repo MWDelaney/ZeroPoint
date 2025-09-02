@@ -5,6 +5,7 @@
 
 import metagenPlugin from 'eleventy-plugin-metagen';
 import { eleventyImageTransformPlugin } from "@11ty/eleventy-img";
+// import reusableComponents from "eleventy-plugin-reusable-components";
 
 export default {
   /**
@@ -34,5 +35,14 @@ export default {
         decoding: "async",
       },
     });
-  }
+  },
+
+  /**
+   * ZeroPoint Reusable Components plugin
+   * https://github.com/MWDelaney/eleventy-plugin-reusable-components
+   */
+  // reusableComponents: async function (eleventyConfig) {
+  //   // Add plugin to eleventyConfig
+  //   eleventyConfig.addPlugin(reusableComponents);
+  // }
 }

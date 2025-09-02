@@ -4,16 +4,6 @@
 */
 
 export default {
-  // /**
-  // * Blog posts
-  // */
-  // posts: function (eleventyConfig) {
-  // eleventyConfig.addCollection("posts", function(collectionApi) {
-  //    return collectionApi.getFilteredByGlob("src/content/posts/*.md");
-  //  });
-  // },
-
-
   /**
    * Pages
    */
@@ -22,5 +12,14 @@ export default {
     eleventyConfig.addCollection("pages", function(collectionApi) {
       return collectionApi.getFilteredByGlob("src/content/pages/**/*.md");
     });
-  }
+  },
+
+  // /**
+  // * Blog posts
+  // */
+  // posts: function (eleventyConfig) {
+  // eleventyConfig.addCollection("posts", function(collectionApi) {
+  //    return collectionApi.getFilteredByGlob("src/content/posts/*.md");
+  //  });
+  // },
 }
