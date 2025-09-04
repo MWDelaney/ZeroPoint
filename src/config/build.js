@@ -8,8 +8,8 @@ export default async function(config) {
       entryPoints: ["src/assets/styles/styles.scss", "src/assets/scripts/main.js"],
       outdir: "public/assets",
       bundle: true,
-      minify: process.env.ELEVENTY_ENV === "production",
-      sourcemap: process.env.ELEVENTY_ENV !== "production",
+      minify: false,
+      sourcemap: false,
       plugins: [sassPlugin({
         quietDeps: true,
         loadPaths: ["node_modules"],
