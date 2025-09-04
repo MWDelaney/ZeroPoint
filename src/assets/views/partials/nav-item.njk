@@ -2,19 +2,19 @@
   <a
     class="navigation-link {{ active }} {{ dropdownToggle }}"
     href="{{ itemUrl }}"
-    {{ currentAttribute | safe }}
-    {{ target }}
-    {# {{ relAttribute | safe }} #}
-    {# {{ dropdownAttributes | safe }} #}
+    rel="{{ relAttribute | safe }}"
+    {{- currentAttribute | safe -}}
+    {{- target | safe -}}
+    {#- {{ dropdownAttributes | safe }} -#}
   >
-    {{ item.text }}
+    {{- item.text -}}
   </a>
 
-  {# {% if hasSubmenu %}
+  {# {%- if hasSubmenu -%}
     <div class="dropdown-menu">
-      {% for subitem in item.submenuitems %}
+      {%- for subitem in item.submenuitems -%}
         <a class="dropdown-item{% if subitem.url | lower == page.url | lower %} active{% endif %}" href="{{ subitem.url }}">{{ subitem.text | safe }}</a>
-      {% endfor %}
+      {%- endfor -%}
     </div>
-  {% endif %} #}
+  {%- endif -%} #}
 </div>
