@@ -12,10 +12,7 @@
     "staging": "npm run-s 🚧",
     "production": "npm run-s 🚀",
     "start": "npm run dev",
-    "build": "npm run production",
-    "lint": "npm run lint:js && npm run lint:css",
-    "lint:js": "eslint .",
-    "lint:css": "stylelint 'src/**/*.{css,scss}'"
+    "build": "npm run production"
   },
   "repository": {
     "type": "git",
