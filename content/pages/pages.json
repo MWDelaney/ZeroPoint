@@ -1,0 +1,5 @@
+{
+  "layout": "base",
+  "permalink": false,
+  "templateEngineOverride": "njk, md"
+}

@@ -1,0 +1,22 @@
+---
+permalink: '/_redirects'
+eleventyExcludeFromCollections: true
+---
+{#
+  Use Netlify Identity roles to restrict access to admin
+  Learn more about Netlify Identity here: https://docs.netlify.com/visitor-access/identity/
+
+    /admin/*	200!	Role=admin
+#}
+
+{#
+  Use Netlify Identity roles to restrict content.
+  Add the something like the following to any content's frontmatter to restrict access based on role:
+  roleRequired: admin
+
+    {% for item in collections.all %}
+      {% if item.data.roleRequired %}
+        {{ item.data.permalink }}*	200!	Role={{ item.data.roleRequired }}
+      {% endif %}
+    {% endfor %}
+#}
