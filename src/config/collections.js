@@ -7,10 +7,10 @@ export default {
   /**
    * Pages
    */
-  pages: async function (eleventyConfig) {
+  pages(eleventyConfig) {
     // Get all `.md` files in the `src/pages` directory
-    eleventyConfig.addCollection("pages", function(collectionApi) {
-      return collectionApi.getFilteredByGlob("src/content/pages/**/*.md");
+    eleventyConfig.addCollection('pages', (collectionApi) => {
+      return collectionApi.getFilteredByGlob('src/content/pages/**/*.md');
     });
   },
 
@@ -18,8 +18,8 @@ export default {
   // * Blog posts
   // */
   // posts: function (eleventyConfig) {
-  // eleventyConfig.addCollection("posts", function(collectionApi) {
-  //    return collectionApi.getFilteredByGlob("src/content/posts/*.md");
+  // eleventyConfig.addCollection('posts', function(collectionApi) {
+  //    return collectionApi.getFilteredByGlob('src/content/posts/*.md');
   //  });
   // },
-}
+};

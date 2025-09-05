@@ -3,22 +3,22 @@
  * https://www.11ty.dev/docs/filters/
 */
 
-import markdownIt from "markdown-it";
+import markdownIt from 'markdown-it';
 
 export default {
   /**
    * Markdown filter
    * Converts Markdown content to HTML.
   */
-  markdown: async function (eleventyConfig) {
-    let options = {
+  async markdown(eleventyConfig) {
+    const options = {
       html: true,
       breaks: true,
-      linkify: true
+      linkify: true,
     };
-    let markdownLib = markdownIt(options);
-    eleventyConfig.addFilter("markdown", function (value) {
+    const markdownLib = markdownIt(options);
+    eleventyConfig.addFilter('markdown', (value) => {
       return markdownLib.render(value);
     });
-  }
-}
+  },
+};

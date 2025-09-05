@@ -9,7 +9,7 @@ export default {
    * By Stephanie Eckles
    * https://11ty.rocks/eleventyjs/dates/
    */
-  year: async function (eleventyConfig) {
-    eleventyConfig.addShortcode("year", () => `${new Date().getFullYear()}`);
-  }
-}
+  async year(eleventyConfig) {
+    eleventyConfig.addShortcode('year', () => `${new Date().getFullYear()}`);
+  },
+};

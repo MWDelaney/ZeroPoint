@@ -1,37 +1,87 @@
 {
-  "extends": "stylelint-config-standard",
+  "$schema": "https://json.schemastore.org/stylelintrc",
+  "extends": [
+    "stylelint-config-standard-scss"
+  ],
+  "plugins": [
+    "stylelint-scss"
+  ],
   "rules": {
-    "declaration-colon-newline-after": null,
-    "value-list-comma-newline-after": null,
+    "alpha-value-notation": "number",
+    "color-function-notation": "modern",
+    "color-hex-length": "short",
+    "hue-degree-notation": "angle",
+    "import-notation": "string",
+    "keyframe-selector-notation": "percentage-unless-within-keyword-only-block",
+    "media-feature-range-notation": "context",
+    "selector-not-notation": "complex",
     "no-empty-source": null,
     "no-descending-specificity": null,
-    "at-rule-empty-line-before": null,
-    "at-rule-no-unknown": [
+    "at-rule-empty-line-before": [
+      "always",
+      {
+        "except": [
+          "blockless-after-same-name-blockless",
+          "first-nested"
+        ],
+        "ignore": [
+          "after-comment"
+        ]
+      }
+    ],
+    "scss/at-rule-no-unknown": [
       true,
       {
         "ignoreAtRules": [
-          "extend",
-          "at-root",
-          "debug",
-          "warn",
-          "error",
-          "if",
-          "else",
-          "for",
-          "each",
-          "while",
-          "mixin",
-          "include",
-          "content",
-          "return",
           "tailwind",
           "apply",
           "responsive",
           "variants",
           "screen",
-          "function"
+          "layer",
+          "container",
+          "supports"
         ]
       }
-    ]
+    ],
+    "at-rule-no-unknown": null,
+    "custom-property-pattern": "^[a-z][a-zA-Z0-9]*(-[a-zA-Z0-9]+)*$",
+    "declaration-block-no-redundant-longhand-properties": true,
+    "declaration-no-important": true,
+    "font-family-no-missing-generic-family-keyword": true,
+    "function-url-quotes": "always",
+    "length-zero-no-unit": true,
+    "max-nesting-depth": 4,
+    "no-unknown-animations": true,
+    "property-no-vendor-prefix": [
+      true,
+      {
+        "ignoreProperties": [
+          "appearance",
+          "mask-image",
+          "mask-size",
+          "mask-repeat",
+          "mask-position"
+        ]
+      }
+    ],
+    "selector-class-pattern": "^[a-z][a-zA-Z0-9]*(-[a-zA-Z0-9]+)*$",
+    "selector-id-pattern": "^[a-z][a-zA-Z0-9]*(-[a-zA-Z0-9]+)*$",
+    "selector-max-id": 1,
+    "selector-no-vendor-prefix": true,
+    "value-no-vendor-prefix": [
+      true,
+      {
+        "ignoreValues": [
+          "box",
+          "inline-box"
+        ]
+      }
+    ],
+    "scss/dollar-variable-pattern": "^[a-z][a-zA-Z0-9]*(-[a-zA-Z0-9]+)*$",
+    "scss/percent-placeholder-pattern": "^[a-z][a-zA-Z0-9]*(-[a-zA-Z0-9]+)*$",
+    "scss/at-mixin-pattern": "^[a-z][a-zA-Z0-9]*(-[a-zA-Z0-9]+)*$",
+    "scss/at-function-pattern": "^[a-z][a-zA-Z0-9]*(-[a-zA-Z0-9]+)*$",
+    "scss/no-global-function-names": null
   }
 }

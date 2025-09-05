@@ -164,3 +164,41 @@ npm run staging
 ```bash
 npm run production
 ```
+
+## Code Quality & Linting
+
+ZeroPoint includes modern linting tools to maintain code quality:
+
+### ESLint (JavaScript)
+
+```bash
+# Lint JavaScript files
+npm run lint:js
+
+# Lint and auto-fix JavaScript files
+npm run lint:js:fix
+```
+
+### Stylelint (CSS/SCSS)
+
+```bash
+# Lint stylesheets
+npm run lint:css
+
+# Lint and auto-fix stylesheets
+npm run lint:css:fix
+```
+
+### Lint Everything
+
+```bash
+# Run both JavaScript and CSS linting
+npm run lint
+```
+
+The project uses:
+
+* **ESLint v9+** with modern flat config format
+* **Stylelint v15+** with SCSS support
+* Modern JavaScript standards (ES2024)
+* Comprehensive CSS/SCSS rules

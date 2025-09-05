@@ -1,4 +1,4 @@
-const siteName = "ZeroPoint";
+const siteName = 'ZeroPoint';
 
 /**
  * Wait! Before you edit this file!
@@ -72,64 +72,64 @@ export default function(eleventyConfig) {
 
   // An array of the tasks to be run, in order, with an icon and a pretty name for each
   // Put the tasks in the order you want them to run, and set echo to false if you don't want to log the task to the console
-  let tasks = [
+  const tasks = [
     {
-      icon: "📚",
-      name: "Collections",
+      icon: '📚',
+      name: 'Collections',
       config: collections,
       echo: true,
     },
     {
-      icon: "🔌",
-      name: "Plugins",
+      icon: '🔌',
+      name: 'Plugins',
       config: plugins,
       echo: true,
     },
     {
-      icon: "⏩",
-      name: "Shortcodes",
+      icon: '⏩',
+      name: 'Shortcodes',
       config: shortcodes,
       echo: true,
     },
     {
-      icon: "🎛️ ",
-      name: "Filters",
+      icon: '🎛️ ',
+      name: 'Filters',
       config: filters,
       echo: true,
     },
     {
-      icon: "🚗",
-      name: "Transforms",
+      icon: '🚗',
+      name: 'Transforms',
       config: transforms,
       echo: true,
     },
     {
-      icon: "📂",
-      name: "Passthroughs",
+      icon: '📂',
+      name: 'Passthroughs',
       config: passthroughs,
       echo: false,
     },
     {
-      icon: "📜",
-      name: "Template Languages",
+      icon: '📜',
+      name: 'Template Languages',
       config: templatelanguages,
       echo: false,
     },
     {
-      icon: "👀",
-      name: "Watch Targets",
+      icon: '👀',
+      name: 'Watch Targets',
       config: watchtargets,
       echo: false,
-    }
+    },
   ];
 
   /**
    * Start pretty console output
    */
-  console.group("\n", "   🪐", chalk.magenta(siteName));
-  console.log(chalk.white("  │"));
+  console.group('\n', '   🪐', chalk.magenta(siteName));
+  console.log(chalk.white('  │'));
 
-  for (let task of tasks) {
+  for (const task of tasks) {
     let tree = tasks.indexOf(task) === tasks.length - 1;
 
     // If the next tasks's echo is false, don't log the tree
@@ -137,22 +137,22 @@ export default function(eleventyConfig) {
 
     if(task.echo) {
       console.group(
-        chalk.white((tree)  ? "  └── " : "  ├── ") +
+        chalk.white((tree)  ? '  └── ' : '  ├── ') +
         chalk.yellow(task.icon) +
-        chalk.yellow(" " + task.name) +
-        chalk.gray(" (/src/config/" + task.name.toLowerCase().replace(/\s/g, '') + ".js)")
+        chalk.yellow(` ${task.name}`) +
+        chalk.gray(` (/src/config/${task.name.toLowerCase().replace(/\s/g, '')}.js)`)
       );
     }
 
     Object.keys(task.config).forEach((taskName, index) => {
-      let len = Object.keys(task.config).length - 1;
-      let pre = (index === len ? "└── " : "├── ");
+      const len = Object.keys(task.config).length - 1;
+      const pre = (index === len ? '└── ' : '├── ');
 
       let branch = tasks.indexOf(task) === tasks.length - 1;
       branch = (tasks[tasks.indexOf(task) + 1] && !tasks[tasks.indexOf(task) + 1].echo);
       if(task.echo) {
         console.log(
-          chalk.white((branch) ? "       " : "│      ") + pre +
+          chalk.white((branch) ? '       ' : '│      ') + pre +
           chalk.green(taskName)
         );
       }
@@ -163,13 +163,13 @@ export default function(eleventyConfig) {
 
     if(task.echo) {
       if(!tree) {
-        console.log(chalk.white("│"));
+        console.log(chalk.white('│'));
       }
       console.groupEnd();
     }
   }
 
-  console.log("\n");
+  console.log('\n');
   console.groupEnd();
   /**
    * End pretty console output
@@ -200,8 +200,8 @@ export default function(eleventyConfig) {
    */
   return {
     dir: {
-      input: "content",
-      output: "public",
+      input: 'content',
+      output: 'public',
       includes: '../src/assets/views',
       layouts: '../src/assets/views/layouts',
       data: '../src/data',
