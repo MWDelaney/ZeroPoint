@@ -14,12 +14,12 @@ export default {
     });
   },
 
-  /**
-  * Blog posts
-  */
-  posts: function (eleventyConfig) {
-  eleventyConfig.addCollection("posts", function(collectionApi) {
-     return collectionApi.getFilteredByGlob("src/content/posts/*.md");
-   });
-  },
+  // /**
+  // * Blog posts
+  // */
+  // posts: function (eleventyConfig) {
+  // eleventyConfig.addCollection("posts", function(collectionApi) {
+  //    return collectionApi.getFilteredByGlob("src/content/posts/*.md");
+  //  });
+  // },
 }

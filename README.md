@@ -38,8 +38,12 @@ Create, edit, and publish your content to the web for free.
 With first-class support for GitHub Pages and Netlify, ZeroPoint has everything you need to get started building your website, including:
 
 * 🗺️ A simple, easy-to-understand project structure powered by [Eleventy](https://11ty.dev)
-* ⚒️ Sass and JavaScript compilation and minification
+* ⚒️ Modern Sass and JavaScript compilation with [esbuild](https://esbuild.github.io/)
+* 🖼️ Automatic image optimization and responsive images
+* 📱 Progressive Web App (PWA) manifest generation
+* 🔍 SEO-friendly meta tag generation
 * 🚀 Optional automated deployment to GitHub Pages or Netlify
+* 📦 ES Modules throughout for modern JavaScript development
 
 With ZeroPoint you can build your website with the tools you know and love, and deploy it to the platform of your choice with ease.
 
@@ -91,40 +95,49 @@ Ready to go deeper? Here's how ZeroPoint is laid out:
 
 ```sh
 example.com                 # → Root of your ZeroPoint-based project
+├── content/                # → Site content
+│   ├── pages/              # → Site pages (Markdown/HTML)
+│   ├── posts/              # → Blog posts (disabled by default)
+│   ├── 404.njk             # → 404 error page
+│   ├── blog.njk            # → Blog listing page (disabled by default)
+│   ├── manifest.njk        # → Web app manifest
+│   ├── redirects.njk       # → Netlify redirects
+│   ├── robots.njk          # → Robots.txt
+│   └── xml_sitemap.njk     # → XML sitemap
 ├── src/                    # → Source directory
 │   ├── assets/             # → Site assets
-│   │   ├── fonts/
-│   │   ├── images/
-│   │   ├── scripts/
-│   │   ├── styles/
-│   │   ├── views/
-│   │   │   └── layouts/
-│   │   │   └── partials/
-│   │   └── assets.json     # → Shared attributes for files in the assets directory
-│   ├── config/             # → Eleventy configuration
-│   │   ├── build.js        # → Javascript and CSS build and bundler configuration 
-│   │   ├── collections.js  # → Add and configure collections (https://www.11ty.dev/docs/collections/)
-│   │   ├── filters.js      # → Add and configure filters (https://www.11ty.dev/docs/filters/)
-│   │   ├── passthroughs.js # → Add and configure passthroughs (https://www.11ty.dev/docs/copy/)
-│   │   ├── plugins.js      # → Add and configure plugins (https://www.11ty.dev/docs/plugins/)
-│   │   ├── shortcodes.js   # → Add and configure shortcodes (https://www.11ty.dev/docs/shortcodes/)
-│   │   ├── templateLanguages.js   # → Configure custom template languages (https://www.11ty.dev/docs/languages/custom/)
-│   │   ├── watchtargets.js # → Add and configure watch targets (https://www.11ty.dev/docs/watch-serve/)
-│   │   └── config.json     # → Shared attributes for files in the config directory
-│   ├── content             # → A nice, organized, recommended place for all site content
-│   │   └── pages           # → Add "pages" collection items here
-│   └── data                # → Customize site data (https://www.11ty.dev/docs/data/)
-│       ├── navigation.json # → Site navigation configuration
-│       └── site.json       # → Site branding configuration
+│   │   ├── fonts/          # → Web fonts
+│   │   ├── images/         # → Images and graphics
+│   │   ├── scripts/        # → JavaScript files
+│   │   │   └── main.js     # → Main JavaScript bundle
+│   │   ├── styles/         # → Stylesheets (SCSS)
+│   │   │   └── styles.scss # → Main stylesheet
+│   │   └── views/          # → Templates and layouts
+│   │       ├── layouts/    # → Page layouts
+│   │       │   └── base.njk # → Base HTML template
+│   │       └── partials/   # → Reusable template parts
+│   ├── config/             # → Eleventy configuration (ES modules)
+│   │   ├── build.js        # → esbuild configuration for assets
+│   │   ├── collections.js  # → Content collections
+│   │   ├── filters.js      # → Template filters
+│   │   ├── passthroughs.js # → File passthroughs
+│   │   ├── plugins.js      # → Eleventy plugins
+│   │   ├── shortcodes.js   # → Template shortcodes
+│   │   ├── templateLanguages.js # → Custom template languages
+│   │   ├── transforms.js   # → Content transforms
+│   │   ├── watchtargets.js # → File watch targets
+│   │   └── config.json     # → Config file settings
+│   └── data/               # → Global data files
+│       ├── env.js          # → Environment variables
+│       └── navigation.json # → Site navigation structure
 ├── .eleventy.js            # → Core Eleventy config file
-├── netlify.toml            # → Netlify deployment and plugin configuration (optional)
-├── README.ZeroPoint.md      # → ZeroPoint readme
-└── README.md               # → Your project's readme (automatically generated when this template is used)
+├── README.ZeroPoint.md     # → Template documentation
+└── README.md               # → Project readme
 ```
 
 ## Eleventy Configuration
 
-Eleventy configuration is abstracted from the typical `.eleventy.js` file and moved to `/src/config/` for easy organization and configuration of collections, filters, passthroughs, etc.
+Eleventy configuration is abstracted from the typical `.eleventy.js` file and moved to `/src/config/` for easy organization and configuration of collections, filters, passthroughs, etc. The project uses modern ES modules (import/export) for better maintainability.
 
 ## Install project dependencies
 

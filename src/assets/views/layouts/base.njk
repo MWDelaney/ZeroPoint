@@ -19,8 +19,8 @@
       url = env.siteUrl + page.url
      -%}
 
-    {#- If ELEVENTY_ENV environmental variable isn't set to "production", hide this page from search engines -#}
-    {%- if ( process.env.ELEVENTY_ENV != "production") -%}
+    {#- If the index value of this content is set to false, don't index this content -#}
+    {%- if (index == false) -%}
       <meta name="robots" content="noindex,nofollow">
     {%- endif -%}
 

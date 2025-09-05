@@ -200,11 +200,11 @@ export default function(eleventyConfig) {
    */
   return {
     dir: {
-      input: "src",
+      input: "content",
       output: "public",
-      includes: 'assets/views',
-      layouts: 'assets/views/layouts',
-      data: 'data',
+      includes: '../src/assets/views',
+      layouts: '../src/assets/views/layouts',
+      data: '../src/data',
     },
     templateFormats: ['njk', 'md', '11ty.js'],
   };
