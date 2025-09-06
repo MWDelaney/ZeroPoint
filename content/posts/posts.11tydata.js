@@ -1,6 +1,4 @@
 export default {
-  layout: 'base',
-  templateEngineOverride: 'njk, md',
   eleventyComputed: {
     permalink: (data) => {
       if (data.permalink) return data.permalink;
