@@ -29,7 +29,6 @@
     "@eslint/js": "^9.11.1",
     "chalk": "^4.0.0",
     "cross-env": "^7.0.3",
-    "eleventy-plugin-metagen": "^1.8.3",
     "esbuild": "^0.25.2",
     "esbuild-sass-plugin": "^3.3.1",
     "eslint": "^9.11.1",
