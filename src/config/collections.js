@@ -16,11 +16,11 @@ export default {
   /**
    * All Posts (includes all languages)
    */
-  posts(eleventyConfig) {
-    eleventyConfig.addCollection('posts', (collectionApi) => {
-      return collectionApi.getFilteredByGlob(['content/posts/**/*.md', 'content/*/posts/**/*.md']);
-    });
-  },
+  // posts(eleventyConfig) {
+  //   eleventyConfig.addCollection('posts', (collectionApi) => {
+  //     return collectionApi.getFilteredByGlob(['content/posts/**/*.md', 'content/*/posts/**/*.md']);
+  //   });
+  // },
 
   // /**
   //  * English-only Pages
