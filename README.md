@@ -19,6 +19,7 @@ Prepare your repository for use by removing ZeroPoint branding and replacing it 
 3. Under "Workflow permissions" choose "Read and write permissions"
 4. Click "Save"
 </details>
+
 <details>
 <summary>2. Run the "Remove ZeroPoint branding" action</summary>
 
