@@ -8,7 +8,6 @@ jobs:
   lint:
     name: 🔍 Lint and Annotate
     runs-on: ubuntu-latest
-    if: github.event_name == 'pull_request'
 
     steps:
       - name: 📥 Checkout repository
