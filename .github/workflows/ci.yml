@@ -45,14 +45,7 @@ jobs:
       - name: 📥 Checkout repository
         uses: actions/checkout@v4
 
-      - name: 📦 Setup Node.js
-        uses: actions/setup-node@v4
+      - name: 🏗️ Build Site
+        uses: ./.github/actions/build
         with:
-          node-version-file: '.nvmrc'
-          cache: 'npm'
-
-      - name: 🔧 Install dependencies
-        run: npm ci
-
-      - name: 🏗️ Build project
-        run: npm run build
+          github_token: ${{ secrets.GITHUB_TOKEN }}
