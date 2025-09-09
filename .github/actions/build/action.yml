@@ -21,7 +21,7 @@ runs:
     - name: 🔧 Install Dependencies
       shell: bash
       run: |
-        npm ci
+        npm install --include=optional sharp
 
     # Build the site
     - name: 🏗️ Build Site
