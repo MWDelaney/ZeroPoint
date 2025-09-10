@@ -1,5 +1,17 @@
 /**
- * Eleventy data file for pages - handles permalink generation
+ * Eleventy data file for pages - handles dynamic permalink generation
+ *
+ * This file uses Eleventy's eleventyComputed feature to dynamically generate permalinks
+ * for static pages based on their frontmatter data. The permalink function runs at build time
+ * and determines the final URL structure for each page.
+ *
+ * @see https://www.11ty.dev/docs/data-computed/ - eleventyComputed documentation
+ * @see https://www.11ty.dev/docs/permalinks/ - permalink documentation
+ *
+ * Conditional logic:
+ * 1. Explicit permalink in frontmatter takes precedence
+ * 2. Auto-generate from title using slugify filter: /{slug}/
+ * 3. Pages without title or permalink are not published
  */
 export default {
   eleventyComputed: {

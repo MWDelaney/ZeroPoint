@@ -1,5 +1,18 @@
 /**
- * Eleventy data file for posts - handles permalink generation
+ * Eleventy data file for posts - handles dynamic permalink generation
+ *
+ * This file uses Eleventy's eleventyComputed feature to dynamically generate permalinks
+ * for blog posts based on their frontmatter data. The permalink function runs at build time
+ * and determines the final URL structure for each post.
+ *
+ * @see https://www.11ty.dev/docs/data-computed/ - eleventyComputed documentation
+ * @see https://www.11ty.dev/docs/permalinks/ - permalink documentation
+ *
+ * Conditional logic:
+ * 1. Future posts (date > today) are not published (returns false)
+ * 2. Explicit permalink in frontmatter takes precedence
+ * 3. Auto-generate from title using slugify filter: /blog/{slug}/
+ * 4. Posts without title or permalink are not published
  */
 export default {
   eleventyComputed: {
