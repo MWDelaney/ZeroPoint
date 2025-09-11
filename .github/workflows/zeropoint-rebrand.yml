@@ -1,0 +1,28 @@
+name: 🧹 Remove ZeroPoint branding
+on: workflow_dispatch
+
+jobs:
+  rebrand:
+    runs-on: ubuntu-latest
+    if: github.repository != 'MWDelaney/ZeroPoint'
+    steps:
+
+      - name: 📥 Checkout the repository
+        uses: actions/checkout@v4
+
+      - name: 🟢 Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version-file: '.nvmrc'
+
+      - name: 🏷️ Run rebranding script
+        run: |
+          # Run the rebranding script with automated inputs (just press enter for defaults and 'y' to proceed)
+          echo -e "\n\n\ny" | node .github/scripts/zeropoint-rebrand.js
+
+      - name: 🚀 Commit changes and delete this workflow
+        uses: EndBug/add-and-commit@v9
+        with:
+          remove: '["./.github/workflows/zeropoint-rebrand.yml"]'
+          message: "Up to zero 🪐"
+          tag: 'v0.0.1 --force'

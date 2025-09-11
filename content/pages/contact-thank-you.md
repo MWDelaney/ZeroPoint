@@ -1,6 +1,6 @@
----
+<!-- ---
 title: Thank You! 👍
-permalink: /thank-you/
+permalink: /contact/thank-you/
 sitemapIgnore: true
 index: false
----
+--- -->

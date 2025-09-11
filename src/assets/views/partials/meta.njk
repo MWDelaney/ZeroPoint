@@ -1,0 +1,27 @@
+{#- Page Title -#}
+<title>{{ title | safe }} - {{ site.name | safe }}</title>
+
+{#- Character Encoding -#}
+<meta charset="UTF-8">
+
+{#- Responsive Viewport -#}
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+{#- Canonical URL -#}
+<link rel="canonical" href="{{ page.url }}" />
+
+{#- Meta Description -#}
+<meta name="description" content="{{ site.description or description | escape }}" />
+
+{#- Search Engine Indexing -#}
+{%- if (index == false) -%}
+  <meta name="robots" content="noindex,nofollow">
+{%- else -%}
+  <meta name="robots" content="index, follow" />
+{%- endif -%}
+
+{#- Open Graph Meta Tags for Social Media -#}
+<meta property="og:title" content="{{ title | safe }} - {{ site.name | safe }}" />
+<meta property="og:description" content="{{ description | escape }}" />
+<meta property="og:type" content="{{ site.type or type }}" />
+<meta property="og:url" content="{{ page.url }}" />
