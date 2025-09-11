@@ -28,7 +28,6 @@
     "@11ty/eleventy": "^3.1.0",
     "@11ty/eleventy-img": "^6.0.2",
     "@eslint/js": "^9.11.1",
-    "chalk": "^4.0.0",
     "cross-env": "^7.0.3",
     "esbuild": "^0.25.2",
     "esbuild-sass-plugin": "^3.3.1",
@@ -37,8 +36,8 @@
     "js-beautify": "^1.15.0",
     "markdown-it": "^14.1.0",
     "pagefind": "^1.4.0",
-    "stylelint": "^15.11.0",
-    "stylelint-config-standard-scss": "^11.1.0",
-    "stylelint-scss": "^5.3.1"
+    "stylelint": "^16.24.0",
+    "stylelint-config-standard-scss": "^15.0.1",
+    "stylelint-scss": "^6.12.1"
   }
 }
