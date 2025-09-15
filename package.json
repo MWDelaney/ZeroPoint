@@ -1,16 +1,17 @@
 {
   "name": "ZeroPoint",
-  "version": "1.0.2",
+  "version": "2026.1",
   "description": "",
   "type": "module",
   "main": "index.html",
   "scripts": {
+    "pre🪐": "node .github/scripts/zeropoint-rebrand.js",
     "🪐": "cross-env ELEVENTY_ENV=development eleventy --serve",
     "🚧": "cross-env ELEVENTY_ENV=staging eleventy",
     "🚀": "cross-env ELEVENTY_ENV=production eleventy",
-    "dev": "npm run-s 🪐",
-    "staging": "npm run-s 🚧",
-    "production": "npm run-s 🚀",
+    "dev": "npm run 🪐",
+    "staging": "npm run 🚧",
+    "production": "npm run 🚀",
     "start": "npm run dev",
     "build": "npm run production"
   },
@@ -26,17 +27,17 @@
   "devDependencies": {
     "@11ty/eleventy": "^3.1.0",
     "@11ty/eleventy-img": "^6.0.2",
-    "autoprefixer": "^10.3.1",
-    "chalk": "^4.0.0",
+    "@eslint/js": "^9.11.1",
     "cross-env": "^7.0.3",
-    "eleventy-plugin-metagen": "^1.8.3",
     "esbuild": "^0.25.2",
     "esbuild-sass-plugin": "^3.3.1",
+    "eslint": "^9.11.1",
+    "globals": "^15.9.0",
     "js-beautify": "^1.15.0",
     "markdown-it": "^14.1.0",
-    "npm-run-all": "^2.1.0",
-    "postcss": "^8.1.0",
-    "stylelint": "^14.0.1",
-    "stylelint-config-standard": "^23.0.0"
+    "pagefind": "^1.4.0",
+    "stylelint": "^16.24.0",
+    "stylelint-config-standard-scss": "^15.0.1",
+    "stylelint-scss": "^6.12.1"
   }
 }

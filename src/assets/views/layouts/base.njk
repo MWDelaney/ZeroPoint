@@ -1,55 +1,42 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="{{ lang or 'en' }}" dir="{{ dir or 'ltr' }}">
   <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    {# Page Title #}
-    <title>{{ title | safe }}</title>
-
-    {# Stylesheet #}
+    {#- Stylesheet -#}
     <link rel="stylesheet" href="{{ '/assets/styles/styles.css' | url }}"/>
 
-    {# Favicon #}
+    {#- Favicon -#}
     <link rel="icon" type="image/svg+xml" href="/assets/images/favicon.svg">
 
-    {# metagen plugin output #}
-    {% metagen
-      title = title or metadata.title,
-      url = env.siteUrl + page.url
-     %}
-
-    {# If ELEVENTY_ENV environmental variable isn't set to "production", hide this page from search engines #}
-    {% if ( index == false) %}
-      <meta name="robots" content="noindex,nofollow">
-    {% endif %}
-
+    {#- Page title, meta tags, and other head elements -#}
+    {%- include "partials/meta.njk" -%}
   </head>
   <body>
-    {# Skip to content link #}
+    {#- Skip to content link -#}
     <a class="visually-hidden" href="#main">Skip to content</a>
 
-    {# Site header with navigation #}
+    {#- Site header with navigation -#}
     <header>
-      {% include "partials/navigation.njk" %}
+      {%- include "partials/navigation.njk" -%}
     </header>
 
-    {# Main content #}
-    <main id="main" tabindex="-1">
+    {#- Main content -#}
+    <main id="main" tabindex="-1" data-pagefind-body>
       <header id="page-header">
         <h1>
+          {#- Page Title -#}
           {{ title | safe }}
         </h1>
       </header>
+      {#- Content from the page or post -#}
       {{ content | safe }}
     </main>
 
-    {# Site footer with copyright #}
+    {#- Site footer with copyright -#}
     <footer id="footer">
-      {% year %} &copy; {{ site.siteName }}
+      {%- year -%} &copy; {{ site.name }}
     </footer>
 
-    {# Script bundle #}
+    {#- Script bundle -#}
     <script src="{{ '/assets/scripts/main.js' | url }}"></script>
   </body>
 </html>

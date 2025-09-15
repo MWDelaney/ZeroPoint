@@ -9,7 +9,7 @@ export default {
   //  * Liquid
   //  * https://shopify.github.io/liquid/
   //  */
-  // liquid: async function (eleventyConfig) {
+  // async liquid (eleventyConfig) {
   //   let liquid = require("liquidjs");
   //   let engine = new liquid.Liquid({
   //     root: ["src/views"],
@@ -19,4 +19,4 @@ export default {
   //   eleventyConfig.setLibrary("liquid", engine);
   // },
 
-}
+};

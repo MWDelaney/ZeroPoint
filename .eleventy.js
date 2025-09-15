@@ -1,5 +1,3 @@
-const siteName = "ZeroPoint";
-
 /**
  * Wait! Before you edit this file!
  * This Eleventy-based project abstracts the traditional `.eleventy.js` file to help keep things clean and tidy.
@@ -14,198 +12,83 @@ const siteName = "ZeroPoint";
  *  - `src/config/transforms.js`
  */
 
-/**
- * Passthroughs and file copies are defined as named exports in /src/config/passthroughs.js
- */
-import passthroughs from './src/config/passthroughs.js';
+// Node.js imports
+import { readFileSync } from 'fs';
+import { join, dirname } from 'path';
+import { fileURLToPath } from 'url';
 
-/**
- * Collections are defined as named exports in /src/config/collections.js
- */
-import collections from './src/config/collections.js';
-
-/**
- * Watch targets are defined as named exports in /src/config/watchtargets.js
- */
-import watchtargets from './src/config/watchtargets.js';
-
-/**
- * Plugins are defined as named exports in /src/config/plugins.js
- */
-import plugins from './src/config/plugins.js';
-
-/**
- * Shortcodes are defined as named exports in /src/config/shortcodes.js
- */
-import shortcodes from './src/config/shortcodes.js';
-
-/**
- * Custom template languages are defined as named exports in /src/config/templateLanguages.js
- */
-import templatelanguages from './src/config/templateLanguages.js';
-
-/**
- * Filters are defined as named exports in /src/config/filters.js
- */
-import filters from './src/config/filters.js';
-
-/**
- * Import the bundler configuration from /src/config/build.js
- */
+// Local imports
 import build from './src/config/build.js';
 
-/**
- * Import transforms from /src/config/transforms.js
- */
-import transforms from './src/config/transforms.js';
+/** ANSI color codes for styling terminal output without external dependencies */
+const colors = { yellow: '\x1b[33m', gray: '\x1b[90m', white: '\x1b[97m', magenta: '\x1b[35m', reset: '\x1b[0m' };
 
-/**
- * Any additional requirements can be added here
- */
-import chalk from 'chalk';
+/** Registry of all Eleventy configuration modules with display metadata for the tree view */
+const tasks = [
+  { icon: '📚', name: 'Collections', path: './src/config/collections.js' },
+  { icon: '🔌', name: 'Plugins', path: './src/config/plugins.js' },
+  { icon: '⏩', name: 'Shortcodes', path: './src/config/shortcodes.js' },
+  { icon: '🔍', name: 'Filters ', path: './src/config/filters.js' },
+  { icon: '🔀', name: 'Transforms', path: './src/config/transforms.js' },
+  { icon: '🚚', name: 'Passthroughs', path: './src/config/passthroughs.js' },
+  { icon: '📜', name: 'Template Languages', path: './src/config/templateLanguages.js' },
+  { icon: '👀', name: 'Watch Targets', path: './src/config/watchtargets.js' }
+];
 
-/**
- * Eleventy configuration
- * https://www.11ty.dev/docs/config/
- */
-export default function(eleventyConfig) {
+/** Reads project name and author from package.json for display in the configuration tree */
+const getProjectInfo = () => {
+  try {
+    const packageJson = JSON.parse(readFileSync(join(dirname(fileURLToPath(import.meta.url)), 'package.json'), 'utf8'));
+    return { name: packageJson.name, author: packageJson.author };
+  } catch (error) {
+    throw new Error(`Failed to read package.json: ${error.message}`);
+  }
+};
 
-  // An array of the tasks to be run, in order, with an icon and a pretty name for each
-  // Put the tasks in the order you want them to run, and set echo to false if you don't want to log the task to the console
-  let tasks = [
-    {
-      icon: "📚",
-      name: "Collections",
-      config: collections,
-      echo: true,
-    },
-    {
-      icon: "🔌",
-      name: "Plugins",
-      config: plugins,
-      echo: true,
-    },
-    {
-      icon: "⏩",
-      name: "Shortcodes",
-      config: shortcodes,
-      echo: true,
-    },
-    {
-      icon: "🎛️ ",
-      name: "Filters",
-      config: filters,
-      echo: true,
-    },
-    {
-      icon: "🚗",
-      name: "Transforms",
-      config: transforms,
-      echo: true,
-    },
-    {
-      icon: "📂",
-      name: "Passthroughs",
-      config: passthroughs,
-      echo: false,
-    },
-    {
-      icon: "📜",
-      name: "Template Languages",
-      config: templatelanguages,
-      echo: false,
-    },
-    {
-      icon: "👀",
-      name: "Watch Targets",
-      config: watchtargets,
-      echo: false,
-    }
-  ];
-
-  /**
-   * Start pretty console output
-   */
-  console.group("\n", "   🪐", chalk.magenta(siteName));
-  console.log(chalk.white("  │"));
-
-  for (let task of tasks) {
-    let tree = tasks.indexOf(task) === tasks.length - 1;
-
-    // If the next tasks's echo is false, don't log the tree
-    tree = (tasks[tasks.indexOf(task) + 1] && !tasks[tasks.indexOf(task) + 1].echo);
-
-    if(task.echo) {
-      console.group(
-        chalk.white((tree)  ? "  └── " : "  ├── ") +
-        chalk.yellow(task.icon) +
-        chalk.yellow(" " + task.name) +
-        chalk.gray(" (/src/config/" + task.name.toLowerCase().replace(/\s/g, '') + ".js)")
-      );
-    }
-
-    Object.keys(task.config).forEach((taskName, index) => {
-      let len = Object.keys(task.config).length - 1;
-      let pre = (index === len ? "└── " : "├── ");
-
-      let branch = tasks.indexOf(task) === tasks.length - 1;
-      branch = (tasks[tasks.indexOf(task) + 1] && !tasks[tasks.indexOf(task) + 1].echo);
-      if(task.echo) {
-        console.log(
-          chalk.white((branch) ? "       " : "│      ") + pre +
-          chalk.green(taskName)
-        );
-      }
-
-      // Run the task
-      task.config[taskName](eleventyConfig);
-    });
-
-    if(task.echo) {
-      if(!tree) {
-        console.log(chalk.white("│"));
-      }
-      console.groupEnd();
+/** Displays a folder tree-style visualization showing which config modules loaded and their functions */
+const displayConfigTree = (loadedTasks, siteName, author) => {
+  console.log(`\n  🪐 ${colors.magenta}${siteName}${colors.reset}\n  ${colors.gray}by ${author}${colors.reset}\n  ${colors.gray}│${colors.reset}`);
+  const tasksWithChildren = loadedTasks.filter(task => Object.keys(task.config).length > 0);
+  for (const task of loadedTasks) {
+    const taskNames = Object.keys(task.config);
+    if (taskNames.length > 0) {
+      const isLast = tasksWithChildren.indexOf(task) === tasksWithChildren.length - 1;
+      const connector = isLast ? '└──' : '├──';
+      console.log(`  ${colors.gray}${connector}${colors.reset} ${task.icon} ${colors.yellow}${task.name}${colors.reset} ${colors.gray}(${task.path.replace('./', '/')})${colors.reset}`);
+      taskNames.forEach((taskName, index) => {
+        const itemConnector = index === taskNames.length - 1 ? '└──' : '├──';
+        const prefix = isLast ? '         ' : `  ${colors.gray}│${colors.reset}      `;
+        console.log(`${prefix}${colors.gray}${itemConnector} ●${colors.reset} ${colors.white}${taskName}${colors.reset}`);
+      });
+      if (!isLast) console.log(`  ${colors.gray}│${colors.reset}`);
     }
   }
+  console.log('');
+};
 
-  console.log("\n");
-  console.groupEnd();
-  /**
-   * End pretty console output
-   */
+/** Main Eleventy configuration function - dynamically loads and executes all config modules */
+export default async function(eleventyConfig) {
+  const { name: siteName, author } = getProjectInfo();
+  const loadedTasks = await Promise.all(tasks.map(async (task) => ({ ...task, config: (await import(task.path)).default })));
 
+  // Execute all task configurations
+  for (const task of loadedTasks) {
+    const taskNames = Object.keys(task.config);
+    taskNames.forEach(taskName => task.config[taskName](eleventyConfig));
+  }
 
-  /**
-   * Add build configuration from /src/config/build.js
-   */
+  displayConfigTree(loadedTasks, siteName, author);
   build(eleventyConfig);
-
-
-  /**
-  * Configure dev server
-  * https://www.11ty.dev/docs/watch-serve/#eleventy-dev-server
-  */
-  eleventyConfig.setServerOptions({
-    showAllHosts: true,
-  });
-
-  /**
-   * Enable quiet mode
-   */
+  eleventyConfig.setServerOptions({ showAllHosts: false });
   eleventyConfig.setQuietMode(true);
 
-  /**
-   * Return the config to Eleventy
-   */
   return {
-    dir: {
-      input: "src",
-      output: "public",
-      includes: 'assets/views',
-      layouts: 'assets/views/layouts',
-      data: 'data',
+    dir: { input: 'content',
+      output: 'public',
+      includes: '../src/assets/views',
+      layouts: '../src/assets/views/layouts',
+      data: '../src/data'
     },
-    templateFormats: ['njk', 'md', '11ty.js'],
+    templateFormats: ['njk', 'md', '11ty.js']
   };
 }
