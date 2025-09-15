@@ -33,6 +33,8 @@ export default {
    */
   // async reusableComponents (eleventyConfig) {
   //   // Add plugin to eleventyConfig
-  //   eleventyConfig.addPlugin(reusableComponents);
+  //   eleventyConfig.addPlugin(reusableComponents, {
+  //     componentsDir: "src/assets/components/*.njk"
+  //   });
   // }
 };
