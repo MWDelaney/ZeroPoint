@@ -1,4 +1,5 @@
 # 🪐ZeroPoint Starter
+![starter-logo](https://github.com/user-attachments/assets/c2412891-bd00-4059-92de-b7bd9a8e11fc)
 
 👉 Get your website project up to zero.
 
