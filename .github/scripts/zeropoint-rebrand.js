@@ -72,7 +72,8 @@ async function rebrand() {
   console.log('\n🔄 Updating files...');
 
   // Replace text in files
-  replaceInFiles('ZeroPoint', projectName);
+  // Replace all occurrences of 'ZeroPoint' with the project name, with spaces removed
+  replaceInFiles('ZeroPoint', projectName.replace(/\s+/g, ''));
   replaceInFiles('MWDelaney', author);
   replaceInFiles('zeropoint', projectName.toLowerCase().replace(/\\s+/g, '-'));
 
