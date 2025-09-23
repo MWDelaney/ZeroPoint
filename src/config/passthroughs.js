@@ -12,4 +12,19 @@ export default {
 
     eleventyConfig.addPassthroughCopy(config);
   },
+
+  /**
+   * Copy images to the `public` directory
+   *
+   * Note: Images directly associated with content should be saved
+   * in the `src/content` directory alongside the content file where
+   * HTML transforms will optimize them automatically.
+   *
+   * https://www.11ty.dev/docs/plugins/image/#html-transform
+   */
+  images: async function (eleventyConfig) {
+    let config = { 'src/assets/images': 'assets/images' }
+
+    eleventyConfig.addPassthroughCopy(config);
+  }
 };
