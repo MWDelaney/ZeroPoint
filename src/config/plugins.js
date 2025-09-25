@@ -36,5 +36,14 @@ export default {
   //   eleventyConfig.addPlugin(reusableComponents, {
   //     componentsDir: "src/assets/components/*.njk"
   //   });
+
+  //   // Register CSS and JS component bundles
+  //   eleventyConfig.addBundle("componentCss", {
+  //     toFileDirectory: "assets/styles/",
+  //   });
+
+  //   eleventyConfig.addBundle("componentJs", {
+  //     toFileDirectory: "assets/scripts/",
+  //   });
   // }
 };
