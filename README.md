@@ -157,43 +157,43 @@ ZeroPoint includes additional features that are disabled by default. Enable them
 
 ```text
 example.com                 # → Root of your ZeroPoint project
-├── content/                # → Site content
-│   ├── pages/              # → Site pages (Markdown/HTML)
-│   ├── posts/              # → Blog posts (disabled by default)
-│   ├── 404.njk             # → 404 error page
-│   ├── blog.njk            # → Blog listing page
-│   ├── manifest.njk        # → Web app manifest
-│   ├── redirects.njk       # → Netlify redirects
-│   ├── robots.njk          # → Robots.txt
-│   └── xml_sitemap.njk     # → XML sitemap
-├── src/                    # → Source directory
-│   ├── assets/             # → Site assets
-│   │   ├── fonts/          # → Web fonts
-│   │   ├── images/         # → Images and graphics
-│   │   ├── scripts/        # → JavaScript files
-│   │   │   └── main.js     # → Main JavaScript bundle
-│   │   ├── styles/         # → Stylesheets (SCSS)
-│   │   │   └── styles.scss # → Main stylesheet
-│   │   └── views/          # → Templates and layouts
-│   │       ├── layouts/    # → Page layouts
-│   │       │   └── base.njk # → Base HTML template
-│   │       └── partials/   # → Reusable template parts
-│   ├── config/             # → Eleventy configuration (ES modules)
-│   │   ├── build.js        # → esbuild configuration for assets
-│   │   ├── collections.js  # → Content collections
-│   │   ├── filters.js      # → Template filters
-│   │   ├── passthroughs.js # → File passthroughs
-│   │   ├── plugins.js      # → Eleventy plugins
-│   │   ├── shortcodes.js   # → Template shortcodes
-│   │   ├── templateLanguages.js # → Custom template languages
-│   │   ├── transforms.js   # → Content transforms
-│   │   ├── watchtargets.js # → File watch targets
-│   │   └── config.json     # → Config file settings
-│   └── data/               # → Global data files
-│       ├── env.js          # → Environment variables
-│       └── navigation.json # → Site navigation structure
-├── public/                 # → Built site (generated)
-├── .eleventy.js            # → Core Eleventy config file
-├── README.ZeroPoint.md     # → Template documentation
-└── README.md               # → Project readme
+└── src/                    # → Source directory (all project content and code)
+  ├── content/            # → Site content
+  │   ├── pages/          # → Site pages (Markdown/HTML)
+  │   ├── posts/          # → Blog posts (disabled by default)
+  │   ├── 404.njk         # → 404 error page
+  │   ├── blog.njk        # → Blog listing page
+  │   ├── manifest.njk    # → Web app manifest
+  │   ├── redirects.njk   # → Netlify redirects
+  │   ├── robots.njk      # → Robots.txt
+  │   └── xml_sitemap.njk # → XML sitemap
+  ├── assets/             # → Site assets
+  │   ├── fonts/          # → Web fonts
+  │   ├── images/         # → Images and graphics
+  │   ├── scripts/        # → JavaScript files
+  │   │   └── main.js     # → Main JavaScript bundle
+  │   ├── styles/         # → Stylesheets (SCSS)
+  │   │   └── styles.scss # → Main stylesheet
+  │   └── views/          # → Templates and layouts
+  │       ├── layouts/    # → Page layouts
+  │       │   └── base.njk # → Base HTML template
+  │       └── partials/   # → Reusable template parts
+  ├── config/             # → Eleventy configuration (ES modules)
+  │   ├── build.js        # → esbuild configuration for assets
+  │   ├── collections.js  # → Content collections
+  │   ├── filters.js      # → Template filters
+  │   ├── passthroughs.js # → File passthroughs
+  │   ├── plugins.js      # → Eleventy plugins
+  │   ├── shortcodes.js   # → Template shortcodes
+  │   ├── templateLanguages.js # → Custom template languages
+  │   ├── transforms.js   # → Content transforms
+  │   ├── watchtargets.js # → File watch targets
+  │   └── config.json     # → Config file settings
+  ├── data/               # → Global data files
+  │   ├── env.js          # → Environment variables
+  │   └── navigation.json # → Site navigation structure
+  ├── public/             # → Built site (generated)
+  ├── .eleventy.js        # → Core Eleventy config file
+  ├── README.ZeroPoint.md # → Template documentation
+  └── README.md           # → Project readme
 ```
