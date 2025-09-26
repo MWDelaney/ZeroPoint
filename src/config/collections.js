@@ -9,7 +9,7 @@ export default {
    */
   pages(eleventyConfig) {
     eleventyConfig.addCollection('pages', (collectionApi) => {
-      return collectionApi.getFilteredByGlob(['content/pages/**/*.md', 'content/*/pages/**/*.md']);
+      return collectionApi.getFilteredByGlob(['src/content/pages/**/*.njk', 'src/content/pages/**/*.md']);
     });
   },
 
@@ -18,7 +18,7 @@ export default {
    */
   // posts(eleventyConfig) {
   //   eleventyConfig.addCollection('posts', (collectionApi) => {
-  //     return collectionApi.getFilteredByGlob(['content/posts/**/*.md', 'content/*/posts/**/*.md']);
+  //     return collectionApi.getFilteredByGlob(['src/content/posts/**/*.md', 'src/content/*/posts/**/*.md']);
   //   });
   // },
 
@@ -28,7 +28,7 @@ export default {
   //  */
   // pagesEn(eleventyConfig) {
   //   eleventyConfig.addCollection('pagesEn', (collectionApi) => {
-  //     return collectionApi.getFilteredByGlob('content/pages/**/*.md');
+  //     return collectionApi.getFilteredByGlob('src/content/pages/**/*.md');
   //   });
   // },
 };

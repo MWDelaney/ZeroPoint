@@ -83,11 +83,12 @@ export default async function(eleventyConfig) {
   eleventyConfig.setQuietMode(true);
 
   return {
-    dir: { input: 'content',
+    dir: {
+      input: 'src',
       output: 'public',
-      includes: '../src/assets/views',
-      layouts: '../src/assets/views/layouts',
-      data: '../src/data'
+      includes: 'assets/views',
+      layouts: 'assets/views/layouts',
+      data: 'data'
     },
     templateFormats: ['njk', 'md', '11ty.js']
   };
