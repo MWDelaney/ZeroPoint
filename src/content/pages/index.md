@@ -13,4 +13,4 @@ You can write content in HTML, [Markdown](https://github.com/adam-p/markdown-her
 
 ---
 
-<img src="../../src/assets/images/favicon.svg" alt="Logo">
+<img src="/assets/images/favicon.svg" alt="Logo">
