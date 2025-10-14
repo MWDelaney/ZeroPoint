@@ -16,9 +16,9 @@ jobs:
           node-version-file: '.nvmrc'
 
       - name: 🏷️ Run rebranding script
-        run: |
-          # Run the rebranding script with automated inputs (just press enter for defaults and 'y' to proceed)
-          echo -e "\n\n\ny" | node .github/scripts/zeropoint-rebrand.js
+        run: node .github/scripts/zeropoint-rebrand.js
+        env:
+          CI: 'true' # This tells the script to run in automated mode
 
       - name: 🚀 Commit changes and delete this workflow
         uses: EndBug/add-and-commit@v9
