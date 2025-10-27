@@ -7,13 +7,12 @@ import beautify from 'js-beautify';
 export default {
 
   /**
-   * Beautify HTML and XML output
+   * Beautify HTML output
    */
   async beautify(eleventyConfig) {
     eleventyConfig.addTransform('beautify', async function (content) {
       const types = [
         '.html',
-        '.xml',
       ];
 
       if (this.page.outputPath) {
