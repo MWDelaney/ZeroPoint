@@ -125,11 +125,6 @@ Deploy ZeroPoint to [Cloudflare Pages](https://pages.cloudflare.com/) for global
 
  </details>
 
-```bash
-npm install
-npm run dev
-```
-
 ## Optional Features
 
 ZeroPoint includes additional features that are disabled by default. Enable them when you need them:
