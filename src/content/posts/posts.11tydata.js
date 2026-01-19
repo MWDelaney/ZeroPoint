@@ -17,7 +17,7 @@
 export default {
   eleventyComputed: {
     // Generate permalink URLs for blog posts
-    permalink: (data) => {
+    permalink: function(data) {
 
       // If the post date is in the future, do not publish
       if (data.date && new Date(data.date) > new Date()) {
@@ -29,7 +29,7 @@ export default {
 
       // If no permalink is provided, generate permalink from title using slugify filter
       if (data.title) {
-        const slug = data.eleventy.env.filters.slugify(data.title);
+        const slug = this.slugify(data.title);
         return `/blog/${slug}/`;
       }
 
