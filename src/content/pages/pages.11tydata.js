@@ -16,13 +16,13 @@
 export default {
   eleventyComputed: {
     // Generate permalink URLs for pages
-    permalink: (data) => {
+    permalink: function(data) {
       // If the page has an explicit permalink, use it
       if (data.permalink) return data.permalink;
 
       // If no permalink is provided, generate permalink from title using slugify filter
       if (data.title) {
-        const slug = data.eleventy.env.filters.slugify(data.title);
+        const slug = this.slugify(data.title);
         return `/${slug}/`;
       }
 
