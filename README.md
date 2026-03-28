@@ -1,4 +1,4 @@
-# 🪐ZeroPoint Starter
+# 🪐ZeroPoint Website Starter Kit
 ![starter-logo](https://github.com/user-attachments/assets/86aa94e9-88a9-4902-a622-b74f8e4216ea)
 
 👉 Get your website project up to zero.
@@ -69,7 +69,7 @@ Your site will be available at `http://localhost:8080` with live reload - any ch
 
 ### What happens when you run `npm run dev`:
 - Builds your Sass stylesheets and JavaScript
-- Starts Eleventy in watch mode  
+- Starts a dev server in watch mode  
 - Launches a local web server with live reload
 - Generates search index with Pagefind
 
@@ -143,7 +143,7 @@ ZeroPoint includes additional features that are disabled by default. Enable them
 
 ### 🧩 Component System
 
-* Reusable components via [eleventy-plugin-reusable-components](https://github.com/MWDelaney/eleventy-plugin-reusable-components)
+* Reusable components via [zeropoint-components](https://github.com/MWDelaney/zeropoint-components)
 * Enable by uncommenting the plugin in `src/config/plugins.js`
 
 *See the [CHANGELOG](CHANGELOG.md) for complete details on these features.*
@@ -188,7 +188,7 @@ example.com                 # → Root of your ZeroPoint project
 │       ├── env.js          # → Environment variables
 │       └── navigation.json # → Site navigation structure
 ├── public/                 # → Built site (generated)
-├── .eleventy.js            # → Core Eleventy config file
+├── .eleventy.js            # → BuildAwesome config file
 ├── README.ZeroPoint.md     # → Template documentation
 └── README.md               # → Project readme
 ```
