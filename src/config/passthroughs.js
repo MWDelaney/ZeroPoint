@@ -1,5 +1,5 @@
 /**
- * Add Eleventy passthrough file copies here
+ * Add passthrough file copies here
  * https://www.11ty.dev/docs/copy/
 */
 

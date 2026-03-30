@@ -1,5 +1,5 @@
 /**
- * Add Eleventy plugins here
+ * Add plugins here
  * https://www.11ty.dev/docs/plugins/
 */
 

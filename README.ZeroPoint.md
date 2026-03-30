@@ -118,15 +118,15 @@ example.com                 # → Root of your project
 │   └── data                # → Customize site data (https://www.11ty.dev/docs/data/)
 │       ├── navigation.json # → Site navigation configuration
 │       └── site.json       # → Site branding configuration
-├── .eleventy.js            # → Core Eleventy config file
+├── .eleventy.js            # → BuildAwesome config file
 ├── netlify.toml            # → Netlify deployment and plugin configuration (optional)
 ├── README.ZeroPoint.md     # → Template repository readme
 └── README.md
 ```
 
-## Eleventy Configuration
+## BuildAwesome Configuration
 
-Eleventy configuration is abstracted from the typical `.eleventy.js` file and moved to `/src/config/` for easy organization and configuration of collections, filters, passthroughs, etc.
+BuildAwesome configuration is abstracted from the typical `.eleventy.js` file and moved to `/src/config/` for easy organization and configuration of collections, filters, passthroughs, etc.
 
 ## Install project dependencies
 

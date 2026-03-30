@@ -1,5 +1,5 @@
 /**
- * Add Eleventy transforms here
+ * Add transforms here
  * https://www.11ty.dev/docs/transforms/
 */
 import beautify from 'js-beautify';

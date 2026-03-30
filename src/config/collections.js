@@ -1,5 +1,5 @@
 /**
- * Add Eleventy collections here
+ * Add collections here
  * https://www.11ty.dev/docs/collections/
 */
 

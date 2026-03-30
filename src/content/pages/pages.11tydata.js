@@ -1,7 +1,7 @@
 /**
- * Eleventy data file for pages - handles dynamic permalink generation
+ * Data file for pages - handles dynamic permalink generation
  *
- * This file uses Eleventy's eleventyComputed feature to dynamically generate permalinks
+ * This file uses the eleventyComputed feature to dynamically generate permalinks
  * for static pages based on their frontmatter data. The permalink function runs at build time
  * and determines the final URL structure for each page.
  *

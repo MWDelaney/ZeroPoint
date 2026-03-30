@@ -1,5 +1,5 @@
 /**
- * Add Eleventy watch targets here
+ * Add watch targets here
  * https://www.11ty.dev/docs/watch-serve/
 */
 

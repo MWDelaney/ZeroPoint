@@ -1,5 +1,5 @@
 /**
- * Add Eleventy filters here
+ * Add filters here
  * https://www.11ty.dev/docs/filters/
 */
 

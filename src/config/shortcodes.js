@@ -1,5 +1,5 @@
 /**
- * Add Eleventy shortcodes here
+ * Add shortcodes here
  * https://www.11ty.dev/docs/shortcodes/
 */
 
