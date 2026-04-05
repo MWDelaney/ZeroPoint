@@ -4,7 +4,7 @@
 */
 
 import { eleventyImageTransformPlugin } from '@11ty/eleventy-img';
-// import reusableComponents from "eleventy-plugin-reusable-components";
+// import reusableComponents from "zeropoint-components";
 
 export default {
   /**
@@ -28,8 +28,8 @@ export default {
   },
 
   /**
-   * ZeroPoint Reusable Components plugin
-   * https://github.com/MWDelaney/eleventy-plugin-reusable-components
+   * ZeroPoint Components plugin
+   * https://github.com/MWDelaney/zeropoint-components
    */
   // async reusableComponents (eleventyConfig) {
   //   // Add plugin to eleventyConfig
