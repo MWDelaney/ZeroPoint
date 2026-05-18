@@ -1,5 +1,19 @@
 name: 🧹 Remove ZeroPoint branding
-on: workflow_dispatch
+on:
+  workflow_dispatch:
+    inputs:
+      project_name:
+        description: 'Project name for replacement'
+        required: false
+        default: ''
+      author:
+        description: 'Author name for replacement'
+        required: false
+        default: ''
+      description:
+        description: 'Project description'
+        required: false
+        default: ''
 
 jobs:
   rebrand:
@@ -16,9 +30,11 @@ jobs:
           node-version-file: '.nvmrc'
 
       - name: 🏷️ Run rebranding script
-        run: node .github/scripts/zeropoint-rebrand.js
+        run: node .github/scripts/zeropoint-rebrand.js --ci
         env:
-          CI: 'true' # This tells the script to run in automated mode
+          REBRAND_PROJECT_NAME: ${{ github.event.inputs.project_name }}
+          REBRAND_AUTHOR: ${{ github.event.inputs.author }}
+          REBRAND_DESCRIPTION: ${{ github.event.inputs.description }}
 
       - name: 🚀 Commit changes and delete this workflow
         uses: EndBug/add-and-commit@v9
