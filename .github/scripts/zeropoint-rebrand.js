@@ -72,7 +72,7 @@ function getGitInfo() {
 
 async function rebrand() {
   const args = process.argv.slice(2);
-  const isCI = args.includes('--ci');
+  const isCI = args.includes('--ci') || process.env.CI === 'true' || process.env.CI === '1' || !process.stdin.isTTY;
   const envProjectName = process.env.REBRAND_PROJECT_NAME || '';
   const envAuthor = process.env.REBRAND_AUTHOR || '';
   const envDescription = process.env.REBRAND_DESCRIPTION || '';
@@ -129,4 +129,7 @@ async function rebrand() {
   console.log('✅ Rebranding complete! Starting development server...\n');
 }
 
-await rebrand();
+rebrand().catch(err => {
+  console.error(err);
+  process.exit(1);
+});
