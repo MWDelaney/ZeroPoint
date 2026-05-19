@@ -9,12 +9,14 @@
   >
     {{- item.text -}}
   </a>
-
-  {# {%- if hasSubmenu -%}
+  {%- if item.external -%}
+    🔗
+  {%- endif -%}
+  {%- if hasSubmenu -%}
     <div class="dropdown-menu">
       {%- for subitem in item.submenuitems -%}
         <a class="dropdown-item{% if subitem.url | lower == page.url | lower %} active{% endif %}" href="{{ subitem.url }}">{{ subitem.text | safe }}</a>
       {%- endfor -%}
     </div>
-  {%- endif -%} #}
+  {%- endif -%}
 </div>

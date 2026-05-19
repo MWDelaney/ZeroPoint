@@ -5,15 +5,13 @@
   "type": "module",
   "main": "index.html",
   "scripts": {
+    "dev": "npm run 🪐",
+    "staging": "npm run 🚧",
+    "build": "npm run 🚀",
     "rebrand": "node .github/scripts/zeropoint-rebrand.js",
     "🪐": "cross-env ELEVENTY_ENV=development eleventy --serve",
     "🚧": "cross-env ELEVENTY_ENV=staging eleventy",
-    "🚀": "cross-env ELEVENTY_ENV=production eleventy",
-    "dev": "npm run 🪐",
-    "staging": "npm run 🚧",
-    "production": "npm run 🚀",
-    "start": "npm run dev",
-    "build": "npm run production"
+    "🚀": "cross-env ELEVENTY_ENV=production eleventy"
   },
   "repository": {
     "type": "git",
