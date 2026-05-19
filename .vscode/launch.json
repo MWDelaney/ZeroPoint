@@ -3,7 +3,7 @@
   "configurations": [
     {
       "name": "Run ZeroPoint Dev",
-      "type": "pwa-node",
+      "type": "node-terminal",
       "request": "launch",
       "runtimeExecutable": "npm",
       "runtimeArgs": ["run", "dev"],
