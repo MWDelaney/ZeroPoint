@@ -1,41 +1,22 @@
 /**
- * Add Eleventy template languages here
+ * Add template languages here
  * https://www.11ty.dev/docs/languages/custom/
 */
 
-module.exports = {
-  /**
-   * Compile Sass/scss files to CSS using Sass
-   */
-  scss: function () {
-    // Require dependencies
-    let path = require("path");
-    let sass = require("sass");
+export default {
 
-    let config = {
-      // Set the output file extension
-      outputFileExtension: "css",
+  // /**
+  //  * Liquid
+  //  * https://shopify.github.io/liquid/
+  //  */
+  // async liquid (eleventyConfig) {
+  //   let liquid = require("liquidjs");
+  //   let engine = new liquid.Liquid({
+  //     root: ["src/views"],
+  //     extname: ".liquid",
+  //   });
 
-      // Compile should return a string
-      compile: function (contents, inputPath) {
-        let parsed = path.parse(inputPath);
-        if(parsed.name.startsWith("_")) {
-          return;
-        }
-        let includesPaths = [this.config.dir.includes];
-        return (data) => {
-          let result = sass.renderSync({
-            file: inputPath,
-            includesPaths,
-            data: contents,
-            outputStyle: "compressed",
-          });
-          return result.css.toString("utf8");
-        };
-      }
-    }
+  //   eleventyConfig.setLibrary("liquid", engine);
+  // },
 
-    // Return the config to .eleventy.js
-    return config;
-  }
-}
+};

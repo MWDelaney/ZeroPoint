@@ -1,27 +1,30 @@
 /**
- * Add Eleventy passthrough file copies here
+ * Add passthrough file copies here
  * https://www.11ty.dev/docs/copy/
 */
 
-module.exports = {
-  /**
-   * Copy images to the `public` directory
-   */
-  images: function () {
-    let config = { 'src/assets/images': 'assets/images' }
-
-    // Return the config to .eleventy.js
-    return config;
-  },
-
-
+export default {
   /**
    * Copy fonts to the `public` directory
    */
-  fonts: function () {
-    let config = { 'src/assets/fonts': 'assets/fonts' }
+  async fonts(eleventyConfig) {
+    const config = { 'src/assets/fonts': 'assets/fonts' };
 
-    // Return the config to .eleventy.js
-    return config;
+    eleventyConfig.addPassthroughCopy(config);
+  },
+
+  /**
+   * Copy images to the `public` directory
+   *
+   * Note: Images directly associated with content should be saved
+   * in the `content` directory alongside the content file where
+   * HTML transforms will optimize them automatically.
+   *
+   * https://www.11ty.dev/docs/plugins/image/#html-transform
+   */
+  images: async function (eleventyConfig) {
+    let config = { 'src/assets/images': 'assets/images' }
+
+    eleventyConfig.addPassthroughCopy(config);
   }
-}
+};

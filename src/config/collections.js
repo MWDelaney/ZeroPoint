@@ -1,26 +1,34 @@
 /**
- * Add Eleventy collections here
+ * Add collections here
  * https://www.11ty.dev/docs/collections/
 */
 
-module.exports = {
-  // /**
-  // * Blog posts
-  // */
-  // posts: function (eleventyConfig) {
-  // eleventyConfig.addCollection("posts", function(collectionApi) {
-  //    return collectionApi.getFilteredByGlob("src/content/posts/*.md");
-  //  });
-  // },
-
+export default {
+  /**
+   * All Pages (includes all languages)
+   */
+  pages(eleventyConfig) {
+    eleventyConfig.addCollection('pages', (collectionApi) => {
+      return collectionApi.getFilteredByGlob(['src/content/pages/**/*.njk', 'src/content/pages/**/*.md']);
+    });
+  },
 
   /**
-   * Pages
+   * All Posts (includes all languages)
    */
-  pages: function (eleventyConfig) {
-    // Get all `.md` files in the `src/pages` directory
-    eleventyConfig.addCollection("pages", function(collectionApi) {
-      return collectionApi.getFilteredByGlob("src/content/pages/*.njk");
-    });
-  }
-}
+  // posts(eleventyConfig) {
+  //   eleventyConfig.addCollection('posts', (collectionApi) => {
+  //     return collectionApi.getFilteredByGlob(['src/content/posts/**/*.md', 'src/content/*/posts/**/*.md']);
+  //   });
+  // },
+
+  // /**
+  //  * English-only Pages
+  //  * A collection of just English pages
+  //  */
+  // pagesEn(eleventyConfig) {
+  //   eleventyConfig.addCollection('pagesEn', (collectionApi) => {
+  //     return collectionApi.getFilteredByGlob('src/content/pages/**/*.md');
+  //   });
+  // },
+};

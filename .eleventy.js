@@ -8,213 +8,88 @@
  *  - `src/config/shortcodes.js`
  *  - `src/config/watchtargets.js`
  *  - `src/config/templateLanguages.js`
+ *  - `src/config/filters.js`
+ *  - `src/config/transforms.js`
  */
 
-/**
- * Passthroughs and file copies are defined as named exports in /src/config/passthroughs.js
- */
-const passthroughs = require('./src/config/passthroughs');
+// Node.js imports
+import { readFileSync } from 'fs';
+import { join, dirname } from 'path';
+import { fileURLToPath } from 'url';
 
-/**
- * Collections are defined as named exports in /src/config/collections.js
- */
-const collections = require('./src/config/collections');
+// Local imports
+import build from './src/config/build.js';
 
-/**
- * Watch targets are defined as named exports in /src/config/watchtargets.js
- */
-const watchtargets = require('./src/config/watchtargets');
+/** ANSI color codes for styling terminal output without external dependencies */
+const colors = { yellow: '\x1b[33m', gray: '\x1b[90m', white: '\x1b[97m', magenta: '\x1b[35m', reset: '\x1b[0m' };
 
-/**
- * Plugins are defined as named exports in /src/config/plugins.js
- */
-const plugins = require('./src/config/plugins');
+/** Registry of all Eleventy configuration modules with display metadata for the tree view */
+const tasks = [
+  { icon: '📚', name: 'Collections', path: './src/config/collections.js' },
+  { icon: '🔌', name: 'Plugins', path: './src/config/plugins.js' },
+  { icon: '⏩', name: 'Shortcodes', path: './src/config/shortcodes.js' },
+  { icon: '🔍', name: 'Filters ', path: './src/config/filters.js' },
+  { icon: '🔀', name: 'Transforms', path: './src/config/transforms.js' },
+  { icon: '🚚', name: 'Passthroughs', path: './src/config/passthroughs.js' },
+  { icon: '📜', name: 'Template Languages', path: './src/config/templateLanguages.js' },
+  { icon: '👀', name: 'Watch Targets', path: './src/config/watchtargets.js' }
+];
 
-/**
- * Shortcodes are defined as named exports in /src/config/shortcodes.js
- */
-const shortcodes = require('./src/config/shortcodes');
+/** Reads project name and author from package.json for display in the configuration tree */
+const getProjectInfo = () => {
+  try {
+    const packageJson = JSON.parse(readFileSync(join(dirname(fileURLToPath(import.meta.url)), 'package.json'), 'utf8'));
+    return { name: packageJson.name, author: packageJson.author };
+  } catch (error) {
+    throw new Error(`Failed to read package.json: ${error.message}`);
+  }
+};
 
-/**
- * Custom template languages are defined as named exports in /src/config/templateLanguages.js
- */
-const templateLanguages = require('./src/config/templateLanguages');
-
-/**
- * Any additional requirements can be added here
- */
-const fs = require("fs");
-const chalk = require("chalk");
-const htmlmin = require("html-minifier");
-
-/**
- * Eleventy configuration
- * https://www.11ty.dev/docs/config/
- */
-module.exports = function (eleventyConfig) {
-
-  /**
-   * Start pretty console output
-   */
-  console.group("\n", "   🪐");
-  console.log(chalk.white("  |"));
-
-  /**
-   * Echo the registered collections in the terminal
-   * Create collections from /src/config/collections.js
-   */
-  console.group(
-    chalk.white("  ├── ") +
-    chalk.yellow("📚 Collections ") +
-    chalk.gray("(/src/config/collections.js)")
-  );
-
-  Object.keys(collections).forEach((collectionName, index) => {
-    let len = Object.keys(collections).length - 1;
-    let pre = (index === len ? "└── " : "├── ");
-    console.log(
-      chalk.white("│       " + pre) +
-      chalk.green(collectionName)
-    );
-
-    collections[collectionName](eleventyConfig);
-  });
-
-  console.groupEnd();
-  console.log(chalk.white("  |"));
-
-  /**
-   * Echo the registered collections in the terminal
-   * Add Eleventy plugins from /src/config/plugins.js
-   */
-   console.group(
-    chalk.white("  ├── ") +
-    chalk.yellow("🔌 Plugins ") +
-    chalk.gray("(/src/config/plugins.js)")
-  );
-
-  Object.keys(plugins).forEach((pluginName, index) => {
-    let len = Object.keys(plugins).length - 1;
-    let pre = (index == len ? "└── " : "├── ");
-    console.log(
-      chalk.white("│       " + pre) +
-      chalk.green(pluginName)
-    );
-
-    plugins[pluginName](eleventyConfig);
-  });
-
-  console.groupEnd();
-  console.log(chalk.white("  |"));
-  /**
-   * Echo the registered shortcodes in the terminal
-   * Add shortcodes from /src/config/shortcodes.js
-   */
-   console.group(
-    chalk.white("  └── ") +
-    chalk.yellow("⏩ Shortcodes ") +
-    chalk.gray("(/src/config/shortcodes.js)")
-  );
-
-  Object.keys(shortcodes).forEach((shortcodeName, index) => {
-    let len = Object.keys(shortcodes).length - 1;
-    let pre = (index === len ? "└── " : "├── ");
-    console.log(
-      chalk.white("        " + pre) +
-      chalk.green(shortcodeName)
-    );
-
-    shortcodes[shortcodeName](eleventyConfig);
-  });
-
-  console.groupEnd();
-
-  /**
-   * Add passthrough copy from /src/config/passthroughs.js
-   */
-  Object.keys(passthroughs).forEach((passthroughName) => {
-    eleventyConfig.addPassthroughCopy(passthroughs[passthroughName]())
-  });
-
-  /**
-   * Add watch targets from /src/config/watchtargets.js
-   */
-  Object.keys(watchtargets).forEach((watchtargetName) => {
-    eleventyConfig.addWatchTarget(watchtargets[watchtargetName]())
-  });
-
-   /**
-   * Add template languages from /src/config/templateLanguages.js
-   */
-    Object.keys(templateLanguages).forEach((templateLanguageName) => {
-      eleventyConfig.addTemplateFormats(templateLanguageName);
-      eleventyConfig.addExtension(templateLanguageName, templateLanguages[templateLanguageName]())
-    });
-
-  /**
-   * End pretty console output
-   */
-  console.log("\n");
-  console.groupEnd();
-
-  /**
-   * Minify HTML output
-   */
-   eleventyConfig.addTransform("htmlmin", function(content, outputPath) {
-    // Eleventy 1.0+: use this.inputPath and this.outputPath instead
-    if( this.outputPath && this.outputPath.endsWith(".html") ) {
-      let minified = htmlmin.minify(content, {
-        useShortDoctype: true,
-        removeComments: true,
-        collapseWhitespace: true
+/** Displays a folder tree-style visualization showing which config modules loaded and their functions */
+const displayConfigTree = (loadedTasks, siteName, author) => {
+  console.log(`\n  🪐 ${colors.magenta}${siteName}${colors.reset}\n  ${colors.gray}by ${author}${colors.reset}\n  ${colors.gray}│${colors.reset}`);
+  const tasksWithChildren = loadedTasks.filter(task => Object.keys(task.config).length > 0);
+  for (const task of loadedTasks) {
+    const taskNames = Object.keys(task.config);
+    if (taskNames.length > 0) {
+      const isLast = tasksWithChildren.indexOf(task) === tasksWithChildren.length - 1;
+      const connector = isLast ? '└──' : '├──';
+      console.log(`  ${colors.gray}${connector}${colors.reset} ${task.icon} ${colors.yellow}${task.name}${colors.reset} ${colors.gray}(${task.path.replace('./', '/')})${colors.reset}`);
+      taskNames.forEach((taskName, index) => {
+        const itemConnector = index === taskNames.length - 1 ? '└──' : '├──';
+        const prefix = isLast ? '         ' : `  ${colors.gray}│${colors.reset}      `;
+        console.log(`${prefix}${colors.gray}${itemConnector} ●${colors.reset} ${colors.white}${taskName}${colors.reset}`);
       });
-      return minified;
+      if (!isLast) console.log(`  ${colors.gray}│${colors.reset}`);
     }
+  }
+  console.log('');
+};
 
-    return content;
-  });
+/** Main Eleventy configuration function - dynamically loads and executes all config modules */
+export default async function(eleventyConfig) {
+  const { name: siteName, author } = getProjectInfo();
+  const loadedTasks = await Promise.all(tasks.map(async (task) => ({ ...task, config: (await import(task.path)).default })));
 
-  /**
-   * Minify XML output
-   */
-   eleventyConfig.addTransform("xmlmin", function(content, outputPath) {
-    // Eleventy 1.0+: use this.inputPath and this.outputPath instead
-    if( this.outputPath && this.outputPath.endsWith(".xml") ) {
-      let minified = htmlmin.minify(content, {
-        collapseWhitespace: true
-      });
-      return minified;
-    }
+  // Execute all task configurations
+  for (const task of loadedTasks) {
+    const taskNames = Object.keys(task.config);
+    taskNames.forEach(taskName => task.config[taskName](eleventyConfig));
+  }
 
-    return content;
-  });
-
-
-  /**
-  * Configure dev server
-  * https://www.11ty.dev/docs/watch-serve/#eleventy-dev-server
-  */
-   eleventyConfig.setServerOptions({
-    showAllHosts: true,
-  });
-
-  /**
-   * Enable quiet mode
-   */
+  displayConfigTree(loadedTasks, siteName, author);
+  build(eleventyConfig);
+  eleventyConfig.setServerOptions({ showAllHosts: false });
   eleventyConfig.setQuietMode(true);
 
-
-  /**
-   * Return the config to Eleventy
-   */
   return {
     dir: {
-      input: "src",
-      output: "public",
+      input: 'src',
+      output: 'public',
       includes: 'assets/views',
       layouts: 'assets/views/layouts',
-      data: 'data',
+      data: 'data'
     },
-    templateFormats: ['njk', 'md', '11ty.js'],
+    templateFormats: ['njk', 'md', '11ty.js']
   };
-};
+}

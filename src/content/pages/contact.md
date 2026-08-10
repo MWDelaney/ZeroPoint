@@ -1,5 +1,5 @@
----
-title: Contact Me 📧
+<!-- ---
+title: Contact Us 📧
 permalink: /contact/
 ---
 
@@ -16,4 +16,4 @@ permalink: /contact/
   <p>
     <button type="submit">Send</button>
   </p>
-</form>
+</form> -->

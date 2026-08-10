@@ -1,57 +1,49 @@
 /**
- * Add Eleventy plugins here
+ * Add plugins here
  * https://www.11ty.dev/docs/plugins/
 */
 
-module.exports = {
-  /**
-   * Metagen plugin
-   * https://github.com/tannerdolby/eleventy-plugin-metagen
-   */
-  metagen: function (eleventyConfig) {
-    // Require dependencies
-    let plugin = require('eleventy-plugin-metagen');
+import { eleventyImageTransformPlugin } from '@11ty/eleventy-img';
+// import reusableComponents from "zeropoint-components";
 
+export default {
+  /**
+   * Eleventy Image plugin
+   * https://www.11ty.dev/docs/plugins/image/
+   */
+  async image (eleventyConfig) {
     // Add plugin to eleventyConfig
-    eleventyConfig.addPlugin(plugin);
+    eleventyConfig.addPlugin(eleventyImageTransformPlugin, {
+      outputDir: 'public/assets/images',
+      urlPath: '/assets/images/',
+      extensions: 'html',
+      formats: ['auto'],
+
+      // Attributes assigned on <img> override these values.
+      defaultAttributes: {
+        loading: 'lazy',
+        decoding: 'async',
+      },
+    });
   },
 
   /**
-   * Rollup plugin to bundle JavaScript
-   * https://github.com/Snapstromegon/eleventy-plugin-rollup
+   * ZeroPoint Components plugin
+   * https://github.com/MWDelaney/zeropoint-components
    */
-   rollup: function(eleventyConfig) {
-    let plugin = require('eleventy-plugin-rollup');
-    let { terser } = require("rollup-plugin-terser");
-    let { nodeResolve } = require("@rollup/plugin-node-resolve");
-    let replace = require("@rollup/plugin-replace");
-    let commonjs = require("@rollup/plugin-commonjs");
+  // async reusableComponents (eleventyConfig) {
+  //   // Add plugin to eleventyConfig
+  //   eleventyConfig.addPlugin(reusableComponents, {
+  //     componentsDir: "src/assets/components/*.njk"
+  //   });
 
-    let config = {
-      // Set a more descriptive shortcode
-      shortcode: "script",
-      // Configure the output
-      rollupOptions: {
-        output: {
-          format: "cjs",
-          sourcemap: true,
-          dir: 'public/assets/scripts'
-        },
+  //   // Register CSS and JS component bundles
+  //   eleventyConfig.addBundle("componentCss", {
+  //     toFileDirectory: "assets/styles/",
+  //   });
 
-        // Configure the plugins
-        plugins: [
-          replace({
-            preventAssignment: true,
-            'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV),
-          }),
-          nodeResolve(),
-          terser(),
-          commonjs(),
-        ],
-      }
-    };
-
-    // Add the plugin to the Eleventy config
-    eleventyConfig.addPlugin(plugin, config)
-  },
-}
+  //   eleventyConfig.addBundle("componentJs", {
+  //     toFileDirectory: "assets/scripts/",
+  //   });
+  // }
+};

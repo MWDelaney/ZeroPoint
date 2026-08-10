@@ -1,4 +1,6 @@
 {
-  "siteName": "ZeroPoint",
-  "siteUrl": "https://getzeropoint.com"
+  "name": "ZeroPoint",
+  "description": "",
+  "type": "website",
+  "url": "https://getzeropoint.com"
 }
